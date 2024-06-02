@@ -66,7 +66,7 @@ async function checkForPermissions(user, permissions) {
     });
   });
 
- // console.log(89,result);
+  // console.log(89,result);
   return result;
 }
 
@@ -98,17 +98,17 @@ async function getPaginatedListOfUsers(search, sort = {}, page = 0) {
   const filter =
     search?.trim().length > 0
       ? {
-          $or: [
-            { username: { $regex: search } },
-            { full_name: { $regex: search } },
-            { phone: { $regex: search } },
+        $or: [
+          { username: { $regex: search } },
+          { full_name: { $regex: search } },
+          { phone: { $regex: search } },
 
-            //TODO : details part is temporary for irisa
-            { "details.details.personel_code": { $regex: search } },
-            { "details.nat_num": { $regex: search } },
-            { "details.details.nat_num": { $regex: search } },
-          ],
-        }
+          //TODO : details part is temporary for irisa
+          { "details.details.personel_code": { $regex: search } },
+          { "details.nat_num": { $regex: search } },
+          { "details.details.nat_num": { $regex: search } },
+        ],
+      }
       : {};
   return await UserAccount.paginate(filter, options);
 }
@@ -181,13 +181,19 @@ async function getUserByCredentials(username, password) {
   } catch (error) {
     if (error instanceof mongoose.Error) {
       console.error(100,'MongooseError:', error.message);
-      // Handle the specific Mongoose error here if needed
     } else {
       console.error(200,'Unexpected Error:', error);
     }
-    // Return an appropriate response or rethrow the error
-    console.error(300,'Unexpected Error:', error);
-    throw error; // or return null / appropriate response
+
+    if (error instanceof mongoose.Error.MongooseServerSelectionError) {
+      console.error(300,"Unable to connect to MongoDB server. Please check the following:");
+      console.error(400,"- The connection string is correct");
+      console.error(500,"- The MongoDB server is running and accessible");
+      console.error(600,"- Network issues (e.g., firewalls, VPNs) are not blocking the connection");
+      console.error(700,"- Authentication details are correct");
+    }
+
+    process.exit(1); // Exit process with failure code
   }
   // const user = await UserAccount.findOne({
   //   username,
