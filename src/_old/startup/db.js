@@ -6,22 +6,19 @@ exports.db = async function (callback) {
   let db = "";
   const environment_name = config.get("environment_name");
 
-  if (environment_name === "local") {
-    db = config.get("db");
-  } else if (environment_name === "server") {
-    db = config.get("db_SERVER");
-    console.log(3, db);
-  }
-
   try {
-    mongoose.set('strictQuery', false);
+    if (environment_name === "local") {
+      db = config.get("db");
+      mongoose.set('strictQuery', false);
+      await mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true });
 
-    await mongoose.connect(db, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      serverSelectionTimeoutMS: 30000,
-      authSource: "admin"
-    });
+    }
+    if (environment_name === "server") {
+      db = config.get("db_SERVER");
+      mongoose.set('strictQuery', false);
+      await mongoose.connect(db);
+
+    }
 
     logger.info(`Connected to database`);
     console.log('Successfully connected to MongoDB');

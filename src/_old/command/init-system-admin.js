@@ -11,14 +11,18 @@ async function run() {
     let environment_name = config.get("environment_name")
     if (environment_name === "local") {
       db = config.get("db");
+      mongoose.set('strictQuery', false);
+      await mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true});
+  
     }
     if (environment_name === "server") {
       db = config.get("db_SERVER");
+      mongoose.set('strictQuery', false);
+      await mongoose.connect(db);
+  
     }
 
-    mongoose.set('strictQuery', false);
-    await mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true,serverSelectionTimeoutMS: 30000 ,authSource:"admin" });
-
+   
     const user = await User.create({
         full_name: "مدیر سیستم",
         nat_num: "0",
