@@ -180,12 +180,13 @@ async function getUserByCredentials(username, password) {
     return user;
   } catch (error) {
     if (error instanceof mongoose.Error) {
-      console.error('MongooseError:', error.message);
+      console.error(100,'MongooseError:', error.message);
       // Handle the specific Mongoose error here if needed
     } else {
-      console.error('Unexpected Error:', error);
+      console.error(200,'Unexpected Error:', error);
     }
     // Return an appropriate response or rethrow the error
+    console.error(300,'Unexpected Error:', error);
     throw error; // or return null / appropriate response
   }
   // const user = await UserAccount.findOne({
