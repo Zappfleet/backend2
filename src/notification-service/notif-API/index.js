@@ -18,7 +18,7 @@ async function SendNotifocationWithAPI(message, users) {
             message: "درخواست سفر شما رد شد"
         },
         timeout: 10000 // Set timeout to 10 seconds
-    };
+    }
 
     axios(config)
         .then(response => {

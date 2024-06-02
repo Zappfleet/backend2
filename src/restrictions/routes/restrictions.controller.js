@@ -145,7 +145,7 @@ async function selectSetWorkingWeek(req, res) {
 }
 /////////////////
 async function select_InactiveSystem(req, res) {
-    console.log(900);
+   // console.log(900);
     try {
         console.log(10);
         const result = await Systeminactive.find({})
@@ -190,7 +190,7 @@ async function update_InactiveSystem(req, res) {
         const result = await Systeminactive.findByIdAndUpdate(id, item, { new: true });
         //   console.log(800, result);
 
-        console.log(900, item, id);
+       // console.log(900, item, id);
         return res.status(200).send({
             status: 200,
             data: req.body

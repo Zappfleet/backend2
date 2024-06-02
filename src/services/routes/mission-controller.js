@@ -62,25 +62,41 @@ class MissionController {
 
     const { data: requestsList, extra, vehicle_id } = req.body;
 
+    console.log(66, requestsList, extra, vehicle_id);
     const hiddenMission = await createHiddenMission(req.auth._id, extra);
+
+
 
     const fullResult = await Promise.all(
       requestsList.map(async (data) => {
-        const { locations, service, gmt_for_date, submitted_for } = data;
-
+        let { locations, service, gmt_for_date, submitted_for } = data;
+        
+        if (1===1) {
+          service = "taksisroys"
+        }
         const submitted_by = await (async function () {
           if (submitted_for.is_external) {
             return await getExternalSourceUser(submitted_for);
           } else {
-            return await getUserById(submitted_for._id);
+            if (!submitted_for.is_free) {
+              console.log(55, submitted_for);
+              return await getUserById(submitted_for._id);
+            }
+            else{
+              return '-1'
+            }
           }
         })();
-        console.log(4007);
+
+
         const details = {
           direct_request: false,
           indirectly_submitted_by: req.auth._id,
         };
+
+
         console.log(4008, gmt_for_date, 'problem in get date');
+
         const results = await Promise.all(
           gmt_for_date.map(async (date) => {
             return await createServiceRequest(
@@ -105,26 +121,33 @@ class MissionController {
         fullResult.map((service) => service[0]._id)
       );
     }
+
+    console.log(5666, fullResult);
     for (let i = 0; i < fullResult.length; i++) {
       const service = fullResult[i];
+      console.log(2011, i, service);
       if (service.error) {
         res.status(service.status).send(service.error);
         await deleteAll();
         return;
       }
+      console.log(9001);
       const appendResult = await appendRequestToMission(
         hiddenMission._id,
         service[0]._id,
         req.auth._id
       );
+      console.log(9002, appendResult.error);
 
       if (appendResult.error) {
         res.status(appendResult.status).send(appendResult.error);
         await deleteAll();
         return;
       }
+      console.log(9003);
     }
 
+    console.log(9898);
     const vehicleAssignResult = await assignVehicleToMission(
       hiddenMission._id,
       vehicle_id,
