@@ -77,8 +77,11 @@ userAccount.methods.getBearerTokenData = async function () {
 
 userAccount.plugin(mongoosePaginate);
 
+const UserAccountModel = mongoose.model("useraccounts", userAccount);
+
 module.exports.UserAccount = mongoose.model(
   COLLECTION_USER_ACCOUNT,
   userAccount
 );
+module.exports.UserAccount = UserAccountModel;
 module.exports.COLLECTION_USER_ACCOUNT = COLLECTION_USER_ACCOUNT;

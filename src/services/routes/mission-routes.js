@@ -177,6 +177,42 @@ router.get("/driver", missionController.getDriverMissions);
  */
 router.post("/full", missionController.buildFullMission);
 
+
+
+/**
+ * @swagger
+ * /api/v2/services/missions/saveMissionComment:
+ *  post:
+ *      tags: [Service Mission]
+ *      summary: saveMissionComment
+ *      responses:
+ *          200:
+ *              description: Success
+ *          401:
+ *              description: Unauthraize
+ *          500:
+ *              description: Internal Error
+ */
+router.post("/saveMissionComment", missionController.saveMissionComment);
+
+/**
+ * @swagger
+ * /api/v2/services/missions/getMissionComment:
+ *  get:
+ *      tags: [Service Mission]
+ *      summary: getMissionComment
+ *      responses:
+ *          200:
+ *              description: Success
+ *          401:
+ *              description: Unauthraize
+ *          500:
+ *              description: Internal Error
+ */
+router.get("/getMissionComment", missionController.getMissionComment);
+
+
+
 /**
  * @swagger
  * /api/v2/services/missions/:

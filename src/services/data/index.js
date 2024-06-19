@@ -184,7 +184,12 @@ async function appendRequestToMission(mission_id, request_id, assigner_id) {
 
   //sgh distance
   // Adding or updating the distance property in mission.extra
-  mission.extra.distance = request.details.distance.distance;
+  mission.extra.distance = request.details.distance;
+  if (request.details.is_free) {
+    mission.extra.is_free = request.details.is_free
+    mission.extra.free_fullname = request.details.free_fullname
+  }
+
 
 
   const otherServiceRequests = await mission.getDetailedServiceRequests();
@@ -535,6 +540,7 @@ async function checkIfRequestExistsInMission(mission_id, request_id) {
 }
 
 async function readRequestDetails(_id) {
+  console.log(45);
   const serviceRequest = await ServiceRequest.findById(_id);
   if (!serviceRequest) return null;
 
@@ -633,6 +639,8 @@ async function createServiceRequest(
   status,
   confirmed_by
 ) {
+
+  console.log(800, submitted_by);
   try {
     const doc = {
       locations,
@@ -690,7 +698,7 @@ async function createServiceRequest(
     }
 
     const newRequest = await ServiceRequest.create(doc);
-    // console.log(4444, newRequest);
+    console.log(4444, newRequest);
     return newRequest;
   } catch (e) {
     const dbError = e.error?.errors?.extra?.properties?.message;

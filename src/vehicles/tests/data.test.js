@@ -1,7 +1,7 @@
 const { ConnectDatabase, DropDatabase } = require("../../utils-test");
 const { Vehicle } = require("../data/vehicle-model");
 const { createVehicle, updateVehicleById, updateVehicleLatestGpsInfo, updateVehicleLatestGpsInfoForAll, insertVehicleGroup, insertVehicleSerivceGroup, getVehicleGroupsAndServices, insertVehicleColor, insertVehicleName, setActiveVehicleGroupByKey, setActiveVehicleServiceGroupByKey, setActiveVehicleColorByKey, setActiveVehicleNameByKey } = require("../data");
-const { pushLocationIfFarEnough } = require("../../location/data");
+const { pushLocationIfFarEnough } = require("../../favoriteLocation/routes/favoriteLocations-controller");
 const { default: mongoose } = require("mongoose");
 const { PAGE_SIZE } = require("../../constants");
 const { insertSampleUserData } = require("../../users/test/sample-data");

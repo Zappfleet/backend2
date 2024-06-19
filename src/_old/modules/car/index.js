@@ -24,7 +24,13 @@ const {
 
 module.exports = {
   configure(app) {
-    app.get("/car", auth, can("GET", permissions.GET.acCrLs), getCars);
+
+    app.get("/car",
+      // auth,
+      //  can("GET", permissions.GET.acCrLs),
+      getCars
+    )
+
     app.get("/car-with-paginate", auth, can("GET", permissions.GET.crLs), getActiveCars);
     app.get(
       "/car/:id",
@@ -81,7 +87,7 @@ module.exports = {
       updateDriverLocatioValidator,
       saveDriverLocation
       // async (req, res) => {
-        // res.status(200).send({ info: "sucess", doc: "" });
+      // res.status(200).send({ info: "sucess", doc: "" });
       // }
     );
     app.put(

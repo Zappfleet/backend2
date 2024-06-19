@@ -14,7 +14,7 @@ const car_group = require("../../global_values/car_group");
 const { Trip } = require("../trip/model");
 const { trpStat } = require("../../global_values/status");
 const ObjectId = require("mongoose/lib/types/objectid");
-const { pushLocationIfFarEnough } = require("../../../location/data");
+const { pushLocationIfFarEnough } = require("../../../favoriteLocation/routes/favoriteLocations-controller");
 
 const deleteCar = async (req, res) => {
 
@@ -309,6 +309,7 @@ const getCars = async (req, res, next) => {
   const cars = await Car.find(selector).select(
     "name_code plaque driver total_distance status group"
   );
+  console.log(803,cars);
   res.status(200).send({
     info: "success",
     token: "",
@@ -334,6 +335,7 @@ const getActiveCars = async (req, res, next) => {
 
 
 const saveDriverLocation = async (req, res, next) => {
+  console.log(100);
   const { points, bearing, meta } = req.body;
   const location = points[points.length - 1];
   res.status(200).send({ info: "sucess", doc: "" });

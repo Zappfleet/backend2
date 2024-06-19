@@ -4,9 +4,12 @@ const ObjectId = require("mongoose/lib/types/objectid");
 const { trpStat } = require("../../global_values/status");
 const { Trip } = require("../trip/model");
 const { Car } = require("./model");
+const { log } = require("winston");
 function initGpsService() {
     setInterval(async () => {
         try {
+
+            console.log(12,'car');
             const gps_id = 27048;
             const { data } = await axios.get(`https://avl-capi.opp.co.ir/v1/api/Place/LastLocation/${gps_id}`, {
                 headers: {
@@ -40,6 +43,7 @@ function initGpsService() {
                 all_arrived: false,
                 status: trpStat.strtd,
             })
+
             if (currentTrip == null) {
                 return
             }
@@ -51,8 +55,7 @@ function initGpsService() {
             if (config.get("environment_name") === "server") {
                 await axios.put(`https://zapp-backend.liara.run/trip/me/${currentTrip._id.toString()}/distance/skjhsdhuw5s74disudkdnn25ej`, body)
             }
-
-
+            
         } catch (e) {
             console.log(e);
         }

@@ -27,11 +27,13 @@ function exec() {
   // });
 
 
+  console.log(854);
+
   const service = new SocketService(server);
   app.set("socketService", service);
 
 
-  // initGpsService();
+  //initGpsService();
 }
 
 if (!process.env.NODE_ENV || process.env.NODE_ENV === "development") {

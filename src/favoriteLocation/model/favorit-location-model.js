@@ -24,8 +24,9 @@ const favoriteLocationSchema = new mongoose.Schema(
         location: {
             type: pointType,
             index: "2dsphere",
+            required: true,
         },
-        properties: {
+        description: {
             type: Object,
             default: {},
             required: true,

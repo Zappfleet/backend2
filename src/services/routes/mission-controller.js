@@ -60,9 +60,10 @@ class MissionController {
   async buildFullMission(req, res) {
 
 
-    const { data: requestsList, extra, vehicle_id } = req.body;
+    let { data: requestsList, extra, vehicle_id } = req.body;
 
-    console.log(66, requestsList, extra, vehicle_id);
+
+    //console.log(66, requestsList, extra, vehicle_id);
     const hiddenMission = await createHiddenMission(req.auth._id, extra);
 
 
@@ -70,32 +71,41 @@ class MissionController {
     const fullResult = await Promise.all(
       requestsList.map(async (data) => {
         let { locations, service, gmt_for_date, submitted_for } = data;
-        
-        if (1===1) {
+
+        if (1 === 1) {
+          //sgh taksisroys
           service = "taksisroys"
         }
         const submitted_by = await (async function () {
-          if (submitted_for.is_external) {
-            return await getExternalSourceUser(submitted_for);
-          } else {
-            if (!submitted_for.is_free) {
-              console.log(55, submitted_for);
+          //console.log(333, submitted_for);
+          if (!submitted_for.is_free) {
+            if (submitted_for.is_external) {
+              return await getExternalSourceUser(submitted_for);
+            } else {
+
+              //  console.log(55, submitted_for);
               return await getUserById(submitted_for._id);
             }
-            else{
-              return '-1'
-            }
           }
+          else {
+            return req.auth._id
+          }
+
         })();
 
+        //console.log(1,submitted_by);
 
         const details = {
           direct_request: false,
           indirectly_submitted_by: req.auth._id,
         };
 
+        if (submitted_for.is_free) {
+          details.is_free = true;
+          details.free_fullname = submitted_for.full_name
+        }
 
-        console.log(4008, gmt_for_date, 'problem in get date');
+        //  console.log(4008, gmt_for_date, 'problem in get date');
 
         const results = await Promise.all(
           gmt_for_date.map(async (date) => {
@@ -110,11 +120,13 @@ class MissionController {
             );
           })
         );
-        console.log(4009);
+        // console.log(188, results);
         return results;
       })
     );
-    console.log(9000);
+
+
+    // console.log(9000);
     async function deleteAll() {
       await fullDeleteMission(
         hiddenMission._id,
@@ -122,32 +134,32 @@ class MissionController {
       );
     }
 
-    console.log(5666, fullResult);
+    // console.log(5666, fullResult);
     for (let i = 0; i < fullResult.length; i++) {
       const service = fullResult[i];
-      console.log(2011, i, service);
+      // console.log(2011, i, service);
       if (service.error) {
         res.status(service.status).send(service.error);
         await deleteAll();
         return;
       }
-      console.log(9001);
+      //console.log(9001);
       const appendResult = await appendRequestToMission(
         hiddenMission._id,
         service[0]._id,
         req.auth._id
       );
-      console.log(9002, appendResult.error);
+      // console.log(9002, appendResult.error);
 
       if (appendResult.error) {
         res.status(appendResult.status).send(appendResult.error);
         await deleteAll();
         return;
       }
-      console.log(9003);
+      // console.log(9003);
     }
 
-    console.log(9898);
+    // console.log(9898);
     const vehicleAssignResult = await assignVehicleToMission(
       hiddenMission._id,
       vehicle_id,
@@ -486,6 +498,37 @@ class MissionController {
     const operatableVechiles = await listVechilesNoPagination(filter, sort);
     res.status(200).send(operatableVechiles);
   }
+
+  async saveMissionComment(req, res) {
+    const { mission_id, comment } = req.body;
+
+    const mission = await readMissionDetails(mission_id)
+
+    const missionResult = await ServiceMission.findOneAndUpdate(
+      { _id: mission._id }, // The query object
+      { $push: { "extra.comments": comment } }, // The update object
+      { new: true } // The options object
+    );
+
+    await res.status(200).send({
+      status: 200,
+      data: missionResult
+    });;
+  }
+
+  async getMissionComment(req, res) {
+    const { mission_id } = req.query;
+
+    const mission = await readMissionDetails(mission_id)
+    await res.status(200).send({
+      status: 200,
+      data: mission.extra.comments
+    });;
+  }
+
+
+  
+
 }
 
 async function updateMissionStatusWithResponse(
@@ -502,6 +545,8 @@ async function updateMissionStatusWithResponse(
     notifyMissionUpdate(result, mission_id);
   }
 }
+
+
 
 async function updateMissionRequestStatus(
   res,
@@ -533,6 +578,7 @@ async function updateMissionRequestStatus(
 
   }
 }
+
 
 
 

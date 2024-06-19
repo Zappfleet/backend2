@@ -137,7 +137,7 @@ class ReportController {
       },
       {
         $lookup: {
-          from: "irisauserbases",
+          from: "useraccounts",
           localField: "driver_id",
           foreignField: "_id",
           as: "driverInfo"
@@ -149,9 +149,7 @@ class ReportController {
           status: "$status",
           mission_start: "$extra.mission_start",
           mission_end: "$extra.mission_end",
-          name: { $arrayElemAt: ["$driverInfo.NAM_EMPL", 0] },
-          family: { $arrayElemAt: ["$driverInfo.NAM_SNAM_EMPL", 0] },
-
+          name: "$driverInfo.full_name",
         }
       }
     ];
@@ -262,7 +260,7 @@ class ReportController {
       },
       {
         $lookup: {
-          from: "irisauserbases",
+          from: "useraccounts",
           localField: "driver_id",
           foreignField: "_id",
           as: "driverInfo"
@@ -275,8 +273,7 @@ class ReportController {
           status: "$status",
           mission_start: "$extra.mission_start",
           mission_end: "$extra.mission_end",
-          name: { $arrayElemAt: ["$driverInfo.NAM_EMPL", 0] },
-          family: { $arrayElemAt: ["$driverInfo.NAM_SNAM_EMPL", 0] },
+          name: "$driverInfo.full_name",
         }
       }
     ];
@@ -410,7 +407,7 @@ class ReportController {
       },
       {
         $lookup: {
-          from: "irisauserbases",
+          from: "useraccounts",
           localField: "_id",
           foreignField: "_id",
           as: "driverInfo"
@@ -419,8 +416,7 @@ class ReportController {
       {
         $project: {
           id: "$_id",
-          name: { $arrayElemAt: ["$driverInfo.NAM_EMPL", 0] },
-          family: { $arrayElemAt: ["$driverInfo.NAM_SNAM_EMPL", 0] },
+          name: "$driverInfo.full_name",
           driver_id: "$_id",
           countOfServices: "$count"
         }

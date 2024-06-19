@@ -2,10 +2,12 @@ const express = require("express");
 const http = require("http");
 const cors = require("cors");
 
+const { runPlugin } = require('../system_plugins/gps-device/index');
+
 const { vehiclesRouter } = require("./vehicles/routes");
 const { swaggerRouter } = require("./swagger");
 const { serviceRouter } = require("./services/routes");
-const { favoriteLocationsRouter } = require("./location/routes");
+const { favoriteLocationsRouter } = require("./favoriteLocation/routes");
 const { spawn } = require("child_process");
 const { initNotificationService } = require("./notification-service");
 const { initServiceLoops } = require("./service_loops");
@@ -31,7 +33,7 @@ const init = async () => {
   router.use("/regions", authenticate, restrict, regionRouter);
   router.use("/services", authenticate, restrict, serviceRouter);
   router.use("/vehicles", authenticate, restrict, vehiclesRouter);
-  router.use("/locations", authenticate, restrict, favoriteLocationsRouter);
+  router.use("/favoriteLocations",/* authenticate, restrict,*/ favoriteLocationsRouter);
   router.use("/roles", authenticate, restrict, userRolesRouter);
   router.use("/users", userAccountRouter);
   router.use("/reports", authenticate, reportsRouter);
@@ -67,6 +69,9 @@ function executePlugins() {
   // nodeProcess.on('exit', function (code) {
   //     console.log('child process exited with code ' + code.toString());
   // });
+
+  //sgh
+  //runPlugin()
 
   if (OrgDataSource.externalUserbaseModule != null) {
     const externalUserbase = require(`./services/modules/${OrgDataSource.externalUserbaseModule}`);
