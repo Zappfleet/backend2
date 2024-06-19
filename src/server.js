@@ -33,7 +33,7 @@ const init = async () => {
   router.use("/regions", authenticate, restrict, regionRouter);
   router.use("/services", authenticate, restrict, serviceRouter);
   router.use("/vehicles", authenticate, restrict, vehiclesRouter);
-  router.use("/favoriteLocations",/* authenticate, restrict,*/ favoriteLocationsRouter);
+  router.use("/favoriteLocations", authenticate, restrict, favoriteLocationsRouter);
   router.use("/roles", authenticate, restrict, userRolesRouter);
   router.use("/users", userAccountRouter);
   router.use("/reports", authenticate, reportsRouter);
