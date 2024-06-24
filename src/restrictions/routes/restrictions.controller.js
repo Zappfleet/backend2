@@ -66,6 +66,64 @@ async function insertRestrictionShowRequests(req, res) {
         });
     }
 }
+
+async function selectRestrictions(req, res) {
+    const { count, key } = req.query;
+    try {
+        console.log(10);
+        const result = key ? await Restriction.find({ key: key }) : await Restriction.find({})
+        return res.status(200).send({
+            status: 200,
+            data: result
+        });
+
+    } catch (error) {
+        console.error(6000);
+        return res.status(500).send({
+            status: 500,
+            error: error.message
+        });
+    }
+}
+
+async function updateRestrictions(req, res) {
+    try {
+        const { value, key } = req.body;
+        let item = {
+            key: key,
+            value: value
+        };
+
+        // Check if the entry with the given key exists
+        const existingRestriction = await Restriction.findOne({ key: item.key });
+
+        if (existingRestriction) {
+            // If it exists, update the value
+            existingRestriction.value = item.value;
+            existingRestriction.updatedAt = new Date();
+            await existingRestriction.save();
+            console.log('Updated existing restriction:', existingRestriction);
+        } else {
+            // If it does not exist, create a new entry
+            const newRestriction = new Restriction(item);
+            await newRestriction.save();
+            console.log('Created new restriction:', newRestriction);
+        }
+
+        return res.status(200).send({
+            status: 200,
+            data: item
+        });
+    } catch (error) {
+        console.error('Error:', error);
+        return res.status(500).send({
+            status: 500,
+            error: error.message
+        });
+    }
+}
+
+
 async function selectRestrictionShowRequests(req, res) {
     const { count, key } = req.query;
     try {
@@ -126,7 +184,7 @@ async function insertSetWorkingWeek(req, res) {
     }
 }
 async function selectSetWorkingWeek(req, res) {
-    const {key } = req.query;
+    const { key } = req.query;
     try {
         console.log(10);
         const result = await Restriction.find({ key: key })
@@ -145,7 +203,7 @@ async function selectSetWorkingWeek(req, res) {
 }
 /////////////////
 async function select_InactiveSystem(req, res) {
-   // console.log(900);
+    // console.log(900);
     try {
         console.log(10);
         const result = await Systeminactive.find({})
@@ -190,7 +248,7 @@ async function update_InactiveSystem(req, res) {
         const result = await Systeminactive.findByIdAndUpdate(id, item, { new: true });
         //   console.log(800, result);
 
-       // console.log(900, item, id);
+        // console.log(900, item, id);
         return res.status(200).send({
             status: 200,
             data: req.body
@@ -214,6 +272,8 @@ module.exports = {
     selectRestrictionShowRequests,
     insertSetWorkingWeek,
     selectSetWorkingWeek,
+    selectRestrictions,
+    updateRestrictions
 };
 
 

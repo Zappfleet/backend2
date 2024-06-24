@@ -206,8 +206,10 @@ class RequestController {
     }
 
     const sort = req.query.sort;
+    const paging = req.query.paging;
     const page = parseInt(req.query.page || 0);
-    const result = await listServiceRequests(filter, sort, page);
+    console.log(500,paging);
+    const result = await listServiceRequests(filter, sort, page,paging);
     res.status(200).send(result);
   }
 

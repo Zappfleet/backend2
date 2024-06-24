@@ -19,6 +19,17 @@ const { userRolesRouter } = require("./users/routes/roles");
 const { OrgDataSource } = require("./org-modules/constants/OrgDataSource");
 const { reportsRouter } = require("./reports/routes/");
 const { restrictionsRouter } = require("./restrictions/routes/");
+const { getRequestStatistics } = require("./dashboard/statsController");
+
+const { migrateDataRequest } = require("./migrateData/requestsCollection/migrateData");
+const { migrateDataAccounts } = require("./migrateData/accountCollection/migrateData");
+const { migrateDataAreas } = require("./migrateData/areasCollection/migrateData");
+const { migrateDataCars } = require("./migrateData/carsCollection/migrateData");
+const { migrateDataLocations } = require("./migrateData/locationCollection/migrateData");
+
+
+
+
 
 const init = async () => {
   const app = express();
@@ -38,6 +49,18 @@ const init = async () => {
   router.use("/users", userAccountRouter);
   router.use("/reports", authenticate, reportsRouter);
   router.use("/restrict", authenticate, restrictionsRouter);
+
+  // Add the new /stat/requests route
+  router.get("/stat/requests", getRequestStatistics);
+
+  // ConvertData from faz-1 to faz-2
+  router.get("/migrateDataRequest", migrateDataRequest);
+  router.get("/migrateDataAccounts", migrateDataAccounts);
+  router.get("/migrateDataAreas", migrateDataAreas);
+  router.get("/migrateDataCars", migrateDataCars);
+  router.get("/migrateDataLocations", migrateDataLocations);
+
+
 
   router.use("/irisa", irisaRouter);
 

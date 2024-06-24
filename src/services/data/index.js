@@ -558,7 +558,8 @@ async function readRequestDetails(_id) {
 async function listServiceRequests(
   filter = {},
   sort = { gmt_for_date: -1 },
-  page = 0
+  page = 0,
+  paging
 ) {
   const {
     area_id,
@@ -623,10 +624,13 @@ async function listServiceRequests(
     effectiveFilter.submitted_by = { $in: users.map(({ _id }) => _id) };
   }
 
-  const result = await ServiceRequest.paginate(
-    effectiveFilter,
-    paginateOptions
-  );
+  console.log(852,paging);
+  const result = paging ? await ServiceRequest.find(effectiveFilter) :
+    await ServiceRequest.paginate(
+      effectiveFilter,
+      paginateOptions
+    );
+
   return result;
 }
 

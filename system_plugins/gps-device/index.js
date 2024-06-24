@@ -9,43 +9,43 @@ const ApiKey = "pywhLQMsIaVu7sE7KjuLJb6pcod0Lc2l+sGySV6dewHp1gTlaDQeBxxmYznCuzW8
 
 
 async function runPlugin() {
-    setInterval(async () => {
-        try {
+    // setInterval(async () => {
+    //     try {
 
-            const gpsInfo = {};
-            const { data: gpsData } = await axios.get("https://avl-capi.opp.co.ir/v1/api/GPS/All", {
-                headers: { ApiKey },
-            });
+    //         const gpsInfo = {};
+    //         const { data: gpsData } = await axios.get("https://avl-capi.opp.co.ir/v1/api/GPS/All", {
+    //             headers: { ApiKey },
+    //         });
 
-            gpsData.map((item) => {
-                gpsInfo[item.imei] = item;
-            })
+    //         gpsData.map((item) => {
+    //             gpsInfo[item.imei] = item;
+    //         })
 
-            const vechilesWithAssignedGps = await Vehicle.find({ gps_uid: { $ne: null } });
-            for (const vehicle of vechilesWithAssignedGps) {
-                const gps = gpsInfo[vehicle.gps_uid];
-                if (!gps) continue;
-                const { data: gpsData } = await axios.get(`https://avl-capi.opp.co.ir/v1/api/Place/LastLocation/${gps.id}`, {
-                    headers: {
-                        ApiKey
-                    }
-                })
+    //         const vechilesWithAssignedGps = await Vehicle.find({ gps_uid: { $ne: null } });
+    //         for (const vehicle of vechilesWithAssignedGps) {
+    //             const gps = gpsInfo[vehicle.gps_uid];
+    //             if (!gps) continue;
+    //             const { data: gpsData } = await axios.get(`https://avl-capi.opp.co.ir/v1/api/Place/LastLocation/${gps.id}`, {
+    //                 headers: {
+    //                     ApiKey
+    //                 }
+    //             })
 
-                const { latitude, longitude, date, speed } = gpsData;
+    //             const { latitude, longitude, date, speed } = gpsData;
 
-                await pushLocationIfFarEnough(vehicle._id, longitude, latitude, date, speed);
-            }
-        } catch (e) {
-            console.log("gps error : " + e.message);
-        }
+    //             await pushLocationIfFarEnough(vehicle._id, longitude, latitude, date, speed);
+    //         }
+    //     } catch (e) {
+    //         console.log("gps error : " + e.message);
+    //     }
 
-        try {
-            await updateVehicleLatestGpsInfoForAll();
-        } catch (e) {
-            console.log("gps vechile update error : " + e.message);
-        }
+    //     try {
+    //         await updateVehicleLatestGpsInfoForAll();
+    //     } catch (e) {
+    //         console.log("gps vechile update error : " + e.message);
+    //     }
 
-    }, 5000);
+    // }, 5000);
 
 
 }

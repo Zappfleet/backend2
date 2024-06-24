@@ -34,7 +34,7 @@ const vehicleSchema = new mongoose.Schema(
     plaque: {
       type: String,
       required: true,
-      unique: true,
+       unique: true,
     },
     services: {
       type: [

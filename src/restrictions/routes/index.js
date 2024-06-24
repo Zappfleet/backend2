@@ -61,6 +61,41 @@ router.get("/selectRestrictionShowRequests", restrictionsController.selectRestri
 
 /**
  * @swagger
+ * /api/v2/restrict/selectRestrictions:
+ *   get:
+ *     tags: [restrict]
+ *     summary: selectRestrictions
+ *     responses:
+ *       200:
+ *         description: Success
+ *       401:
+ *         description: Unauthorized
+ *       500:
+ *         description: Internal Error
+ */
+router.get("/selectRestrictions", restrictionsController.selectRestrictions);
+
+
+/**
+ * @swagger
+ * /api/v2/restrict/updateRestrictions:
+ *   put:
+ *     tags: [restrict]
+ *     summary: updateRestrictions
+ *     responses:
+ *       200:
+ *         description: Success
+ *       401:
+ *         description: Unauthorized
+ *       500:
+ *         description: Internal Error
+ */
+router.put("/updateRestrictions", restrictionsController.updateRestrictions);
+
+
+
+/**
+ * @swagger
  * /api/v2/restrict/insertSetWorkingWeek:
  *   post:
  *     tags: [restrict]
