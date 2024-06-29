@@ -41,6 +41,10 @@ const distanceSchema = new mongoose.Schema({
 
 const requestSchema = new mongoose.Schema(
   {
+    status_update_history: {
+      type: Object,
+    },
+
     locations: {
       type: {
         start: pointSchema,

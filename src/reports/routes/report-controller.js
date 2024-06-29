@@ -1,6 +1,7 @@
 const { ObjectId, LEGAL_TCP_SOCKET_OPTIONS } = require("mongodb");
 const { ServiceMission } = require("../../services/data/mission-model");
 const { IrisaUserbase } = require("../../services/modules/irisaExternalUserbase");
+const { Vehicle } = require("../../vehicles/data/vehicle-model")
 const moment = require("moment");
 
 const { UserAccount } = require("../../users/data/models/user-model");
@@ -28,6 +29,59 @@ class ReportController {
       // currentCar,
       missions,
     });
+  }
+
+  async getAgencyCostReport(req, res) {
+    //const taxiCars = await Vehicle.find({})// group: { $ne: IRISA } });
+
+    const result = await ServiceMission.aggregate([
+      // First lookup to join servicerequests with servicemissions
+      {
+        $lookup: {
+          from: "servicerequests",
+          localField: "service_requests.request_id",
+          foreignField: "_id",
+          as: "result"
+        }
+      },
+      // Unwind the result array to process individual service requests
+      {
+        $unwind: "$result"
+      },
+      // Second lookup to join useraccounts with the result
+      {
+        $lookup: {
+          from: "useraccounts",
+          localField: "result.submitted_by",
+          foreignField: "_id",
+          as: "userDetails"
+        }
+      },
+      // Unwind the userDetails array to get individual user details
+      {
+        $unwind: "$userDetails"
+      },
+      // Project the fields you need
+      {
+        $project: {
+          _id: 1,
+          project_Code: "$result.details.proj_code",
+          proj_desc: "$result.details.proj_desc",
+          manager_emp_num: "$result.details.manager_emp_num",
+          cost_center:"$result.details.cost_center",
+          desc: "$result.details.desc",
+          cost: "$extra.cost",
+          mission_date: "$result.gmt_for_date", // Renaming gmt_for_date to mission_date
+          created_by: "$userDetails.full_name",  // Renaming full_name to created_by
+          distance: { $ifNull: ["$extra.distance", null] } ,// Providing a default value for distance
+          mission_start: { $ifNull: ["$extra.mission_start", null] }, 
+          mission_end: { $ifNull: ["$extra.mission_end", null] }, 
+        }
+      }
+    ]);
+
+   // console.log(54,result);
+    res.status(200).send({ data: result });
   }
 
   async getAgencyServiceReport(req, res) {
@@ -129,7 +183,7 @@ class ReportController {
         $match: {
           status: status,
           // Uncomment and adjust these lines if you want to filter by date range
-          "extra.mission_start": {
+          "extra.mission_end": {
             $gte: fromDate,
             $lte: toDate
           }
@@ -168,7 +222,7 @@ class ReportController {
 
   ////////////Report DriverList_By_LastServiceAdnDistanse
   async get_DriverList_By_LastServiceAdnDistanse(req, res) {
-   // console.log(1456);
+    // console.log(1456);
     const { status } = req.query;
 
     // Step 1: Find the role ID for "راننده"
@@ -252,7 +306,7 @@ class ReportController {
         $match: {
           status: status,
           // Uncomment and adjust these lines if you want to filter by date range
-          "extra.mission_start": {
+          "extra.mission_end": {
             $gte: fromDate,
             $lte: toDate
           }
@@ -393,7 +447,7 @@ class ReportController {
       {
         $match: {
           status: status,
-          "extra.mission_start": {
+          "extra.mission_end": {
             $gte: fromDate,
             $lte: toDate
           }

@@ -45,10 +45,10 @@ exports.migrateDataRequest = async function (req, res) {
         const oldRequests = await old_Requests.find({})//.limit(5)
         const oldTrips = await old_trips.find({})//.limit(5)
 
-        for (const oldRequest of oldRequests) {
 
+        
+      for (const oldRequest of oldRequests) {
             try {
-
                 const oldTrip = oldTrips.find(trip => trip?.request_ids[0]?.toString() === oldRequest?._id?.toString());
 
                 let createCurrentLocationIndex = -1
@@ -143,6 +143,9 @@ exports.migrateDataRequest = async function (req, res) {
                         userlist: oldRequest.passenger,
                         proj_code: oldRequest.cost_manager.proj_code,
                         cost_center: oldRequest.cost_manager.cost_center,
+                        proj_desc:oldRequest.cost_manager.proj_desc,
+                        cost:oldRequest.taxi_cost,
+                        manager_emp_num:oldRequest.cost_manager.manager_emp_num,
                         desc: oldRequest.desc,
                         distance: oldRequest.distance_props?.distance,
                         interval: oldRequest.distance_props?.interval,
@@ -191,9 +194,10 @@ exports.migrateDataRequest = async function (req, res) {
                 res.status(500).json({
                     status: "5000",
                     message: "Migration request failed",
-                    error: `${error.message}${x} ${oldRequest._id}`
+                    error: `${error.message}  ${x}  ${oldRequest._id}`
                 });
             }
+
         }
         res.status(200).json({
             status: "200",

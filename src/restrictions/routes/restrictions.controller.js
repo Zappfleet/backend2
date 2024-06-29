@@ -13,7 +13,7 @@ async function insert_InactiveSystem(req, res) {
 
         const item = req.body;
         const systemInactive = new Systeminactive(item)
-        console.log(7000, req.body, item, systemInactive);
+      //  console.log(7000, req.body, item, systemInactive);
         const result = await systemInactive.save();
 
         return res.status(200).send({
@@ -146,7 +146,7 @@ async function selectRestrictionShowRequests(req, res) {
 
 ////////////
 async function insertSetWorkingWeek(req, res) {
-    console.log(52);
+   // console.log(52);
     try {
         console.log(200);
         const { item, key } = req.body;

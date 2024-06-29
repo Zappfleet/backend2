@@ -27,7 +27,7 @@ function exec() {
   // });
 
 
-  console.log(854);
+  //console.log(854);
 
   const service = new SocketService(server);
   app.set("socketService", service);

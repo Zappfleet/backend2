@@ -9,6 +9,33 @@ const {
   COLLECTION_USER_ACCOUNT,
 } = require("../../users/data/models/user-model");
 
+// Define the schema for a comment
+const CommentSchema = new mongoose.Schema(
+  {
+    type: { type: String, required: true },
+    value: { type: String, required: true }
+  }
+);
+
+// Define the schema for a review
+const ReviewSchema = new mongoose.Schema(
+  {
+    role: { type: String, enum: ['driver', 'passenger'], required: true },
+    registerID: { type: ObjectId, required: true },
+    comments: { type: [CommentSchema], required: true },
+    emojiID: { type: Number, required: true },
+    customComment: { type: String }
+  }
+);
+
+// Define the schema for the extra field with additional properties
+const ExtraSchema = new mongoose.Schema(
+  {
+    comments: { type: ReviewSchema },
+  },
+  { strict: false } // Allow other properties
+);
+
 const serviceMission = new mongoose.Schema(
   {
     service_requests: {
@@ -74,9 +101,13 @@ const serviceMission = new mongoose.Schema(
       type: [Object],
       default: [],
     },
+    // extra: {
+    //   type: Object,
+    //   default: {},
+    // },
     extra: {
-      type: Object,
-      default: {},
+      type: ExtraSchema,
+      default: {}
     },
   },
   {

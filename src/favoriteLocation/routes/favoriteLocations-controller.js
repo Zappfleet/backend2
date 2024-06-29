@@ -28,7 +28,7 @@ function allowedToModify(location, editor_account_id) {
 async function pushLocationIfFarEnough(owner_id, lng, lat, gmt_date, speed) {
 
   if (owner_id === '-1') {
-    owner_id = mongoose.Types.ObjectId('663f81a4665933a1316d2794')
+    owner_id = mongoose.Types.ObjectId('63673ff7e0528db710cf3c1b')
     gmt_date = new Date()
   }
   //console.log(86);
@@ -164,7 +164,7 @@ async function getCars(req, res) {
 
 
 async function insert_FavoriteLocation(req, res) {
-  console.log(5);
+ // console.log(5);
   const { item } = req.body;
 
   // Create the favorite object with the correct location format

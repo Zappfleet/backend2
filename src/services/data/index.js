@@ -47,7 +47,8 @@ async function listMissions(
   filter = {},
   sort,
   page = 1,
-  include_status_history = false
+  include_status_history = false,
+  paging
 ) {
   const paginateOptions = getMongoosePaginateOptions(page, sort);
 
@@ -61,7 +62,102 @@ async function listMissions(
     { path: "assigned_by" },
     { path: "created_by" },
   ];
-  const result = await ServiceMission.paginate(filter, paginateOptions);
+
+  //console.log(600, paging);
+  const result = paging ?// await ServiceMission.find(filter) 
+    await ServiceMission.aggregate([
+      {
+        $match: filter // Apply the filter here
+      },
+      // First lookup to join servicerequests with servicemissions
+      {
+        $lookup: {
+          from: "servicerequests",
+          localField: "service_requests.request_id",
+          foreignField: "_id",
+          as: "result"
+        }
+      },
+      // Unwind the result array to process individual service requests
+      {
+        $unwind: "$result"
+      },
+      // Second lookup to join useraccounts with the result
+      {
+        $lookup: {
+          from: "useraccounts",
+          localField: "result.submitted_by",
+          foreignField: "_id",
+          as: "userDetails"
+        }
+      },
+      // Unwind the userDetails array to get individual user details
+      {
+        $unwind: "$userDetails"
+      },
+
+      //////////////////assigned_by
+      {
+        $lookup: {
+          from: "useraccounts",
+          localField: "assigned_by",
+          foreignField: "_id",
+          as: "assigned_by_FullName"
+        }
+      },
+      // Unwind the userDetails array to get individual user details
+      {
+        $unwind: "$assigned_by_FullName"
+      },
+      //////////////////vehicle
+      {
+        $lookup: {
+          from: "vehicles",
+          localField: "vehicle_id",
+          foreignField: "_id",
+          as: "vehicleDetails"
+        }
+      },
+      // Unwind the userDetails array to get individual user details
+      {
+        $unwind: "$vehicleDetails"
+      },
+      // Project the fields you need
+      {
+        $project: {
+          id: "$_id",
+          mission_date: "$result.gmt_for_date", // Renaming gmt_for_date to mission_date
+          created_by: "$userDetails.full_name",  // Renaming full_name to created_by
+          distance: { $ifNull: ["$result.details.distance", null] },
+          dispature: {
+            $cond: {
+              if: { $or: [{ $eq: ["$assigned_by_FullName.full_name", ""] }, { $eq: ["$assigned_by_FullName.full_name", null] }] },
+              then: "$assigned_by_FullName.username",
+              else: "$assigned_by_FullName.full_name"
+            }
+          },
+          status: "$status",
+          project_Code: "$result.details.proj_code",
+          proj_desc: "$result.details.proj_desc",
+          manager_emp_num: "$result.details.manager_emp_num",
+          cost_center: "$result.details.cost_center",
+          desc: "$result.details.desc",
+          cost: "$extra.cost",
+          vehicleID:"$vehicleDetails._id",
+          locations: "$result.locations",
+          vehiclePlaque:"$vehicleDetails.plaque",
+          vehicleName:"$vehicleDetails.extra.name",
+          vehicleColor:"$vehicleDetails.extra.color",
+
+        }
+      }
+    ])
+    :
+    await ServiceMission.paginate(filter, paginateOptions);
+
+  if (paging === false) {
+    return result;
+  }
 
   if (include_status_history) {
     const historyFilter = {
@@ -624,7 +720,7 @@ async function listServiceRequests(
     effectiveFilter.submitted_by = { $in: users.map(({ _id }) => _id) };
   }
 
-  console.log(852,paging);
+  //console.log(852, paging);
   const result = paging ? await ServiceRequest.find(effectiveFilter) :
     await ServiceRequest.paginate(
       effectiveFilter,

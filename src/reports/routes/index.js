@@ -36,20 +36,10 @@ router.get(
 
 /**
  * @swagger
- * /api/v2/reports/agency-costs/{agency_id}:
+ * /api/v2/reports/agency-costs:
  *   get:
  *     tags: [Reports]
  *     summary: Get agency costs reports
- *     parameters:
- *       - in: path
- *         name: agency_id
- *         type: string
- *       - in: query
- *         name: gmt_from
- *         type: string
- *       - in: query
- *         name: gmt_to
- *         type: string
  *     responses:
  *       200:
  *         description: Success
@@ -58,7 +48,7 @@ router.get(
  *       500:
  *         description: Internal Error
  */
-router.get("/agency-costs/:agency_id", reportController.getAgencyServiceReport);
+router.get("/agency-costs", reportController.getAgencyCostReport);
 
 /**
  * @swagger

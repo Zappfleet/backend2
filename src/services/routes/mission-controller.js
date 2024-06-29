@@ -194,6 +194,7 @@ class MissionController {
 
     if (driverVehicles.docs.length == 0) return sendEmptyResults(res);
 
+    console.log(300,driverVehicles.docs);
     const dateFilter = readDateFilterFromQuery(req.query);
 
     const filter = {
@@ -201,10 +202,15 @@ class MissionController {
       ...dateFilter,
     };
 
+
+
+
     const missionList = await listMissions(
       filter,
       req.query.sort,
-      parseInt(req.query.page || 0)
+      parseInt(req.query.page || 0),
+      undefined,
+      req.query.paging
     );
     res.status(200).send(missionList);
   }
@@ -250,18 +256,23 @@ class MissionController {
       },
     };
 
-    const { sort, page, include_status_history } = req.query;
+    const { sort, page, include_status_history ,paging} = req.query;
     const serviceMissions = await listMissions(
       missionFilter,
       sort,
       page,
-      include_status_history
+      include_status_history,
+      paging
     );
     res.status(200).send(serviceMissions);
   }
 
   async getMissionsConcerningArea(req, res) {
+
     const authenticated_user = req.auth._id;
+    const paging = req.query.paging;
+
+    console.log(7800,paging);
 
     const dateFilter = readDateFilterFromQuery(req.query);
     const page = parseInt(req.query.page || 1);
@@ -298,7 +309,9 @@ class MissionController {
 
     const sort = getSortFromQuery(req.query);
 
-    const missionList = await listMissions(filter, sort, page, true);
+    
+    const missionList =paging? await listMissions(filter, sort, page,false, paging):
+    listMissions(filter, sort, page,true, undefined);
     res.status(200).send(missionList);
   }
 
@@ -527,7 +540,7 @@ class MissionController {
   }
 
 
-  
+
 
 }
 
