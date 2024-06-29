@@ -183,8 +183,10 @@ async function insert_FavoriteLocation(req, res) {
 
 async function update_FavoriteLocation(req, res) {
   const _id = req.params.id;
+  const { item } = req.body;
+  console.log(33,_id,item);
   const editor_account_id = req.auth._id;
-  const { name, description, lnglat } = req.body;
+  
 
   const existingLocation = await FavoriteLocation.findById(_id);
 
@@ -194,20 +196,6 @@ async function update_FavoriteLocation(req, res) {
   );
 
   if (modifyPolicyCheck.error) return modifyPolicyCheck.error;
-
-  const item = {};
-
-  if (name != null) item.name = name;
-
-  if (isBoolean(is_private)) item.is_private = is_private;
-
-  if (properties != null) item.properties = properties;
-  if (lnglat != null) {
-    item.location = {
-      type: DEFAULT_POINT_TYPE,
-      coordinates: lnglat,
-    };
-  }
 
   const result = await FavoriteLocation.findByIdAndUpdate(
     _id,

@@ -148,6 +148,7 @@ async function listMissions(
           vehiclePlaque:"$vehicleDetails.plaque",
           vehicleName:"$vehicleDetails.extra.name",
           vehicleColor:"$vehicleDetails.extra.color",
+          extra:"$extra",
 
         }
       }

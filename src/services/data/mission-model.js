@@ -12,18 +12,18 @@ const {
 // Define the schema for a comment
 const CommentSchema = new mongoose.Schema(
   {
-    type: { type: String, required: true },
-    value: { type: String, required: true }
+    type: { type: String },
+    value: { type: String }
   }
 );
 
 // Define the schema for a review
 const ReviewSchema = new mongoose.Schema(
   {
-    role: { type: String, enum: ['driver', 'passenger'], required: true },
-    registerID: { type: ObjectId, required: true },
-    comments: { type: [CommentSchema], required: true },
-    emojiID: { type: Number, required: true },
+    role: { type: String, enum: ['driver', 'passenger'] },
+    registerID: { type: ObjectId},
+    comments: { type: [CommentSchema]},
+    emojiID: { type: Number },
     customComment: { type: String }
   }
 );
@@ -101,14 +101,14 @@ const serviceMission = new mongoose.Schema(
       type: [Object],
       default: [],
     },
-    // extra: {
-    //   type: Object,
-    //   default: {},
-    // },
     extra: {
-      type: ExtraSchema,
-      default: {}
+      type: Object,
+      default: {},
     },
+    // extra: {
+    //   type: ExtraSchema,
+    //   default: {}
+    // },
   },
   {
     timestamps: true,
