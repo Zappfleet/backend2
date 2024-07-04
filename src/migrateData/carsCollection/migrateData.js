@@ -97,7 +97,7 @@ exports.migrateDataCars = async function (req, res) {
                     group: createGroup,
                     driver_user: oldCar.driver?.user?.account_id,
                     status: createStatus,
-                    plaque: oldCar.plaque.t === 0 ? oldCar._id.toHexString() : `${oldCar.plaque.t} / ${oldCar.plaque.s} ${oldCar.plaque.l} ${oldCar.plaque.f}`,
+                    plaque: oldCar.plaque.t === 0 ? oldCar._id.toHexString() : `${oldCar.plaque.f},${oldCar.plaque.s},${oldCar.plaque.l},${oldCar.plaque.t}`,
                     services: [{
                         service: "taksisroys",
                         capacity: 4,

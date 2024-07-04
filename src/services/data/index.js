@@ -50,6 +50,7 @@ async function listMissions(
   include_status_history = false,
   paging
 ) {
+  
   const paginateOptions = getMongoosePaginateOptions(page, sort);
 
   paginateOptions.populate = [
@@ -741,7 +742,7 @@ async function createServiceRequest(
   confirmed_by
 ) {
 
-  console.log(800, submitted_by);
+ // console.log(800, submitted_by);
   try {
     const doc = {
       locations,
@@ -792,14 +793,20 @@ async function createServiceRequest(
       const processor = require(`../modules/${OrgDataSource.requestProcessorModule}`);
       // console.log(3, doc);
       const processResult = await processor(doc);
-      // console.log(4);
+       console.log(7000,processResult);
       if (processResult?.error) {
-        return { error: processResult.error, status: 422 };
+        switch(processResult?.status)
+        {
+          case 300: return { error:'پروژه منقضی شده است' , status: 300 };
+          case 301: return { error:'پروژه وجود ندارد' , status: 301 };
+          case 400: return { error:'مرکز هزینه وجود ندارد' , status: 400 };
+        }
+        return { error: 'خطایی رخ داده است', status: 4402 };
       }
     }
 
     const newRequest = await ServiceRequest.create(doc);
-    console.log(4444, newRequest);
+  //  console.log(4444, newRequest);
     return newRequest;
   } catch (e) {
     const dbError = e.error?.errors?.extra?.properties?.message;

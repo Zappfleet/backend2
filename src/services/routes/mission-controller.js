@@ -3,6 +3,7 @@ const {
   notifyServiceMissionUpdate,
   notifyNewServiceMission,
   notifyErrorMessageToSpecificUser,
+  sendNotificationToUsers,
 } = require("../../notification-service/emits");
 const {
   readDateFilterFromQuery,
@@ -53,6 +54,8 @@ const { PermissionSet } = require("../../users/data/constants/permissions");
 const { getRegionsAssignedToUser } = require("../../regions/data");
 const { default: mongoose } = require("mongoose");
 const { notifyAPIStartTripByDriver, notifyAPIArriveToSource } = require("../../notification-service/notif-API");
+const { ServiceRequest } = require("../data/service-request-model");
+const { UserAccount } = require("../../users/data/models/user-model");
 
 const sendEmptyResults = (res) => res.status(200).send({ docs: [] });
 
@@ -194,7 +197,7 @@ class MissionController {
 
     if (driverVehicles.docs.length == 0) return sendEmptyResults(res);
 
-    console.log(300,driverVehicles.docs);
+    //console.log(300, driverVehicles.docs);
     const dateFilter = readDateFilterFromQuery(req.query);
 
     const filter = {
@@ -212,27 +215,66 @@ class MissionController {
       undefined,
       req.query.paging
     );
+
     res.status(200).send(missionList);
   }
 
   async getMissions_by_StatusAndDriverID(req, res) {
-    const { status, driverID } = req.query;
-    let missionsFilter = {}
-    if (driverID === undefined) {
-      missionsFilter = {
-        // driver_id: new ObjectId(user_id),
-        status: status,
-      };
-    }
-    else {
-      missionsFilter = {
-        driver_id: new ObjectId(driverID),
-        status: status,
-      };
-    }
+    try {
+      const { status, driverID } = req.query;
+      let missionsFilter = {};
 
-    const missionList = await ServiceMission.find(missionsFilter);
-    res.status(200).send(missionList);
+      if (driverID) {
+        missionsFilter.driver_id = new ObjectId(driverID);
+      }
+
+      if (status) {
+        missionsFilter.status = status;
+      }
+
+      const missionList = await ServiceMission.aggregate([
+        {
+          $match: missionsFilter
+        },
+        {
+          $lookup: {
+            from: 'useraccounts', // The name of the users collection
+            localField: 'driver_id',
+            foreignField: '_id',
+            as: 'driver'
+          }
+        },
+        {
+          $unwind: {
+            path: '$driver',
+            preserveNullAndEmptyArrays: true // Preserves missions without drivers
+          }
+        },
+        {
+          $project: {
+            _id: 1,
+            service_requests: 1,
+            vehicle_id: 1,
+            driver_id: 1,
+            assigned_by: 1,
+            created_by: 1,
+            gmt_for_date: 1,
+            status: 1,
+            reviews: 1,
+            extra: 1,
+            createdAt: 1,
+            updatedAt: 1,
+            driver_full_name: '$driver.full_name',// Include the driver's full name
+            driver_phone: '$driver.phone'
+          }
+        }
+      ]);
+
+      res.status(200).send(missionList);
+    } catch (error) {
+      console.error('Error fetching missions:', error);
+      res.status(500).send({ error: 'Internal Server Error' });
+    }
   }
 
   async getMissionsConcerningPassenger(req, res) {
@@ -256,7 +298,7 @@ class MissionController {
       },
     };
 
-    const { sort, page, include_status_history ,paging} = req.query;
+    const { sort, page, include_status_history, paging } = req.query;
     const serviceMissions = await listMissions(
       missionFilter,
       sort,
@@ -272,7 +314,7 @@ class MissionController {
     const authenticated_user = req.auth._id;
     const paging = req.query.paging;
 
-    console.log(7800,paging);
+    console.log(7800, paging);
 
     const dateFilter = readDateFilterFromQuery(req.query);
     const page = parseInt(req.query.page || 1);
@@ -309,9 +351,9 @@ class MissionController {
 
     const sort = getSortFromQuery(req.query);
 
-    
-    const missionList =paging? await listMissions(filter, sort, page,false, paging):
-    listMissions(filter, sort, page,true, undefined);
+
+    const missionList = paging ? await listMissions(filter, sort, page, false, paging) :
+      listMissions(filter, sort, page, true, undefined);
     res.status(200).send(missionList);
   }
 
@@ -581,6 +623,28 @@ async function updateMissionRequestStatus(
   } else {
     res.status(200).send(result);
     notifyMissionUpdate(result, mission_id);
+    console.log(52, index);
+    if (index === null || index === 0) {
+      try {
+        console.log(1)
+        const mission = await ServiceMission.findById(mission_id);
+        console.log(2)
+        const requesrID = (mission.service_requests[0].request_id).toString()
+        const request = await ServiceRequest.find({ _id: ObjectId(requesrID) })
+        console.log(3)
+        let user = await UserAccount.find({ _id: ObjectId(request[0].submitted_by.toString()) })
+        console.log(4, index)
+        let massage = index === null ? 'راننده سفر را شروع کرد' :
+          'راننده به مبدا رسید'
+        console.log(5, user[0]?._id)
+        await sendNotificationToUsers(user[0]?._id, massage)
+        console.log(6);
+      }
+      catch {
+        console.log(7);
+        // console.log('sendNotificationToUsers error',mission_id, mission.service_requests[0].request_id, request.submitted_by, user?._id, massage);
+      }
+    }
 
     //sgh  حرکت به سمت مبدا
     if (status === assignedRequestStatus.ON_ROUTE.key) {
@@ -588,7 +652,6 @@ async function updateMissionRequestStatus(
       // console.log(5566, mission.service_requests[0].request_id);
       await notifyAPIArriveToSource(mission.service_requests[0].request_id)
     }
-
   }
 }
 

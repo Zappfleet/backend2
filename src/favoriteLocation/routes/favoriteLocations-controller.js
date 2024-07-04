@@ -27,27 +27,50 @@ function allowedToModify(location, editor_account_id) {
 
 async function pushLocationIfFarEnough(owner_id, lng, lat, gmt_date, speed) {
 
-  if (owner_id === '-1') {
-    owner_id = mongoose.Types.ObjectId('63673ff7e0528db710cf3c1b')
-    gmt_date = new Date()
-  }
-  //console.log(86);
+  // if (owner_id === '-1') {
+  //   owner_id = mongoose.Types.ObjectId('63673ff7e0528db710cf3c1b')
+  //   gmt_date = new Date()
+  // }
+
+  owner_id_Object = mongoose.Types.ObjectId(owner_id)
+ // console.log(862, owner_id, gmt_date);
   const lastLocation = await getLastLocation(owner_id);
   const lastCoordinates = lastLocation?.coordinates || [0, 0];
 
   const distance = calcCrow(lastCoordinates[1], lastCoordinates[0], lat, lng);
 
-  if (distance < MIN_DISTANCE_METER) {
-    return lastLocation;
-  }
+  // if (distance < MIN_DISTANCE_METER) {
+  //   return lastLocation;
+  // }
 
   const coordinates = [lng, lat];
-  return await GpsHistory.create({
-    owner_id,
-    coordinates,
-    speed,
-    gmt_date: new Date(gmt_date),
-  });
+
+  const existingRecord = await GpsHistory.findOne({ owner_id: owner_id_Object });
+  
+  if (existingRecord) {
+   // console.log(444);
+    // Update the existing record
+    existingRecord.coordinates = coordinates;
+    existingRecord.speed = speed;
+    existingRecord.gmt_date = new Date(gmt_date);
+
+    await existingRecord.save();
+  } else {
+   // console.log(555);
+    // Create a new record
+    await GpsHistory.create({
+      owner_id:owner_id_Object,
+      coordinates,
+      speed,
+      gmt_date: new Date(gmt_date),
+    });
+  }
+  // return await GpsHistory.create({
+  //   owner_id,
+  //   coordinates,
+  //   speed,
+  //   gmt_date: new Date(gmt_date),
+  // });
 }
 
 async function getLastLocation(owner_id) {
@@ -147,7 +170,7 @@ const getCarsSelector = (obj) => {
 };
 
 async function getCars(req, res) {
-  console.log(800);
+ // console.log(800);
   //const selector = getCarsSelector(req.query);
   // selector.is_active = true;
   // const cars = await Car.find({selector}).select(
@@ -164,7 +187,7 @@ async function getCars(req, res) {
 
 
 async function insert_FavoriteLocation(req, res) {
- // console.log(5);
+  // console.log(5);
   const { item } = req.body;
 
   // Create the favorite object with the correct location format
@@ -184,9 +207,9 @@ async function insert_FavoriteLocation(req, res) {
 async function update_FavoriteLocation(req, res) {
   const _id = req.params.id;
   const { item } = req.body;
-  console.log(33,_id,item);
+  console.log(33, _id, item);
   const editor_account_id = req.auth._id;
-  
+
 
   const existingLocation = await FavoriteLocation.findById(_id);
 

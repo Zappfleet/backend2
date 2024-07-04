@@ -17,6 +17,14 @@ const ROOMS = {
 
 class SocketService {
     static io = null;
+
+    static sendNotification(payload) {
+        console.log(5253);
+        if (this.io) {
+            this.io.emit('sendNotification', payload);
+        }
+    }
+
 }
 
 const socketAuth = async (socket, next) => {
@@ -62,8 +70,13 @@ function initNotificationService(server) {
         socket.join(ROOMS.ROOM_USER(socket.user._id.toString()));
 
         socket.on(EVENT_FLEET_GPS_REQUEST, onFleetGpsRequest(socket));
-        socket.on(EVENT_GPS_UPDATE , onUserGpsUpdate(socket))
+        socket.on(EVENT_GPS_UPDATE, onUserGpsUpdate(socket))
     });
+
+    // // ارسال نوتیفیکیشن هر 10 ثانیه
+    // setInterval(() => {
+    //     SocketService.sendNotification('This is a periodic notification');
+    // }, 10000);
 }
 
 module.exports.initNotificationService = initNotificationService;

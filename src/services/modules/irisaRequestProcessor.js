@@ -15,28 +15,43 @@ async function irisaRequestProcessor(request) {
   //console.log(22);
   if (!request.details) request.details = {};
 
+  let flag = true
   if (request.details?.proj_code) {
-   // console.log(33, request.details);
+    flag = false
+    console.log(33, request.details?.proj_code);
     const project = await getProjCodeInfo(request.details?.proj_code, token);
-   // console.log(331, project);
+    if (project === null || project === undefined) {
+      console.log(300, "Project is undefined");
+      return { status: 300, error: "Project is undefined" };
+    }
     const isNotSubmittedByAdmins = request.details?.direct_request !== false;
     if (
       moment(project.FINISH_DATE_G).isBefore(moment()) &&
       isNotSubmittedByAdmins
     ) {
-      return { error: "Project is expired" };
+      console.log(301, '"Project is expired"');
+      return { status: 301, error: "Project is expired" };
     }
     request.details.project = project;
- //   console.log(332);
-  } else if (request.details?.cost_center) {
-   // console.log(44);
+    //   console.log(332);
+  }
+  if (request.details?.cost_center) {
+    flag = false
+    // console.log(44);
     const costCenter = await getCostCenterInfo(
       request.details?.cost_center,
       token
     );
+    console.log(555, costCenter);
+    if (costCenter === null || costCenter === undefined) {
+      console.log(400, "costCenter is undefined");
+      return { status: 400, error: "costCenter is undefined" };
+    }
     request.details.costCenter = costCenter;
-  } else {
-   // console.log(55);
+  }
+
+  if (flag === true) {
+    // console.log(55);
     const requestOwner = await getUserById(request.submitted_by);
     if (requestOwner?.details?.details?.personel_code) {
       const employeeCostCenter = await getEmployeeCostCenter(
@@ -47,7 +62,7 @@ async function irisaRequestProcessor(request) {
     }
   }
 
- // console.log(660, request);
+  // console.log(660, request);
   //sgh
   if (request.area && request.area?.properties?.need_manager_confirmation != "yes") {
     request.status = serviceRequestStatus.CONFIRM.key;

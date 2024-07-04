@@ -26,6 +26,8 @@ const { migrateDataAccounts } = require("./migrateData/accountCollection/migrate
 const { migrateDataAreas } = require("./migrateData/areasCollection/migrateData");
 const { migrateDataCars } = require("./migrateData/carsCollection/migrateData");
 const { migrateDataLocations } = require("./migrateData/locationCollection/migrateData");
+const { Test } =require("./migrateData/Test/Test")
+
 
 
 
@@ -59,6 +61,10 @@ const init = async () => {
   router.get("/migrateDataAreas", migrateDataAreas);
   router.get("/migrateDataCars", migrateDataCars);
   router.get("/migrateDataLocations", migrateDataLocations);
+
+  router.get("/test", Test);
+
+  
 
 
 

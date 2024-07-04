@@ -1,4 +1,7 @@
 const { default: axios } = require("axios");
+const https = require("https");
+const crypto = require("crypto");
+
 
 const getZappToken = async () => {
   return await axios.post(
@@ -48,15 +51,72 @@ const getProjCodeInfo = async (projectNumber, token) => {
   }
 };
 
+
+
+const axiosInstance = axios.create({
+  timeout: 30000,
+  httpsAgent: new https.Agent({
+    secureOptions: crypto.constants.SSL_OP_LEGACY_SERVER_CONNECT,
+  }),
+});
+
+// const getIrisaToken = async () => {
+//   try {
+//     request = await axiosInstance({
+//       method: "post",
+//       url: "https://frame.irisaco.com/api/auth/token/rest/v1.0",
+//       data: {
+//         username: "zapptaxi",
+//         password: "NEWZ@PPT@x!%23123",
+//       },
+//     });
+//     return request.data.token;
+//   } catch (error) {
+//     console.log("message", error.message);
+//     throw new AppError("خطا در اتصال به سرور اصلی ", 400);
+//   }
+// }
+
+
+const getListOfCostCenters = async (irisaToken) => {
+  console.log(332);
+  if (irisaToken == null) {
+    irisaToken = await getZappBearerToken();
+  }
+  try {
+    const axiosInstance = axios.create({
+      timeout: 30000,
+      httpsAgent: new https.Agent({
+        secureOptions: crypto.constants.SSL_OP_LEGACY_SERVER_CONNECT,
+      }),
+    });
+
+    const request = await axiosInstance.get(
+      "https://frame.irisaco.com/api/sql2cs/do/oa_costcenter/rest/v1.0",
+      {
+        headers: {
+          Authorization: irisaToken,
+        },
+      }
+    );
+    return request.data;
+  } catch (error) {
+    console.log(error);
+    throw new AppError("خطا در دریافت اطلاعات  مدیران", 406);
+  }
+}
+
+
 const getCostCenterInfo = async (costCenterId, token) => {
   try {
     const { data: costCenters } = await axios.get(
       "https://frame.irisaco.com/api/sql2cs/do/oa_costcenter/rest/v1.0",
       { headers: { Authorization: token || (await getZappBearerToken()) } }
     );
-    return costCenters.find((item) => {
-      return item.COD_CC == costCenterId;
-    });
+    return costCenters
+      .find((item) => {
+        return item.COD_CC == costCenterId;
+      });
   } catch (e) {
     console.log(e);
     return null;
@@ -64,10 +124,28 @@ const getCostCenterInfo = async (costCenterId, token) => {
 };
 
 const getIrisaPersonelList = async () => {
-  return await axios.get(
-    "https://frame.irisaco.com/api/sql2cs/do/oa_emploee/rest/v1.0",
-    { headers: { Authorization: await getZappBearerToken() } }
-  );
+
+  irisaToken = await getZappBearerToken();
+  try {
+    const axiosInstance = axios.create({
+      timeout: 30000,
+      httpsAgent: new https.Agent({
+        secureOptions: crypto.constants.SSL_OP_LEGACY_SERVER_CONNECT,
+      }),
+    });
+
+    const request = await axiosInstance.get(
+      "https://frame.irisaco.com/api/sql2cs/do/oa_emploee/rest/v1.0",
+      {
+        headers: {
+          Authorization: irisaToken,
+        },
+      }
+    );
+    return request.data;
+  } catch {
+    return 'error'
+  }
 };
 
 const getZappBearerToken = async () => {
@@ -80,4 +158,5 @@ module.exports = {
   getCostCenterInfo,
   getIrisaPersonelList,
   getEmployeeCostCenter,
+  getListOfCostCenters
 };

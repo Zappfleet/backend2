@@ -35,6 +35,7 @@ class RequestController {
   async submitRequest(req, res) {
     const { locations, service, gmt_for_date, details = {} } = req.body;
 
+    console.log(41,details);
     const no_details_is_assigned = Object.keys(details).length == 0;
     if (no_details_is_assigned) {
       details.names = [req.auth.full_name];
@@ -43,10 +44,12 @@ class RequestController {
     }
 
     const submitted_by = req.auth._id;
-
+console.log(7);
     const results = await Promise.all(
       gmt_for_date.map(async (date) => {
         // console.log(521, date, submitted_by, locations, service, details);
+
+        //sgh in createServiceRequest check projectCode and cost center
         return await createServiceRequest(
           submitted_by,
           locations,
@@ -56,7 +59,7 @@ class RequestController {
         );
       })
     );
-    //  console.log(99, results);
+      console.log(8);
     if (
       results.some((item) => {
         if (item.error != null) {
@@ -66,6 +69,7 @@ class RequestController {
         return item.error != null;
       })
     ) {
+      console.log(788,results);
       res.status(results.status).send({ error: results.error });
     } else {
       res.status(200).send(results);
@@ -208,7 +212,7 @@ class RequestController {
     const sort = req.query.sort;
     const paging = req.query.paging;
     const page = parseInt(req.query.page || 0);
-    console.log(500,paging);
+   // console.log(500,paging);
     const result = await listServiceRequests(filter, sort, page,paging);
     res.status(200).send(result);
   }

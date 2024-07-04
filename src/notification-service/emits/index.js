@@ -43,9 +43,20 @@ async function buildMissinBroadcast(mission_id) {
 }
 
 
+async function sendNotificationToUsers(userIDs, massage) {
+    if (userIDs === null) throw { message: "Programmer Error : please set userIDs" };
+
+    // ارسال نوتیفیکیشن به تمام کاربران
+    SocketService.sendNotification({ userIDs: userIDs, massage: massage });
+}
+
+
+
+
 module.exports.notifyNewServiceMission = notifyNewServiceMission;
 module.exports.notifyServiceMissionUpdate = notifyServiceMissionUpdate;
 module.exports.notifyServiceRequestUpdate = notifyServiceRequestUpdate;
 module.exports.notifyDeleteServiceMission = notifyDeleteServiceMission;
 module.exports.notifyNewServiceRequest = notifyNewServiceRequest;
 module.exports.notifyErrorMessageToSpecificUser = notifyErrorMessageToSpecificUser;
+module.exports.sendNotificationToUsers = sendNotificationToUsers;

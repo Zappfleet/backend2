@@ -7,7 +7,7 @@ const { UserAccount } = require('../../users/data/models/user-model');
 
 async function SendNotifocationWithAPI(message, users) {
 
-    console.log(111, message, users)
+    //console.log(111, message, users)
 
     // const config = {
     //     method: 'post',
