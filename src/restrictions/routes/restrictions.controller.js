@@ -157,7 +157,7 @@ async function insertSetWorkingWeek(req, res) {
 
         // Check if the entry with the given key exists
         const existingRestriction = await Restriction.findOne({ key: ite.key });
-
+console.log(3,existingRestriction);
         if (existingRestriction) {
             // If it exists, update the value
             existingRestriction.value = ite.value;

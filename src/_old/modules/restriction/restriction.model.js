@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const mongoosePaginate = require("mongoose-paginate-v2");
-const keyEnum = [6, 5, 4, 3, 2, 1];
+const keyEnum = [6, 5, 4, 3, 2, 1,7,8,9];
 exports.keyEnum = keyEnum;
 
 

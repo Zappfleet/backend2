@@ -20,10 +20,11 @@ class ReportController {
       status: "DONE",
     };
 
-    assignDateFilter(missionsFilter, date_start, date_end);
+    console.log(123,date_start,date_end,driver_id);
+   // assignDateFilter(missionsFilter, date_start, date_end);
 
     const missions = await ServiceMission.find(missionsFilter);
-
+console.log(203,missions);
     return res.status(200).send({
       // driver,
       // currentCar,
@@ -108,6 +109,7 @@ class ReportController {
     const { user_id } = req.params;
     const { dateStart, dateEnd } = req.query;
 
+    console.log(100,user_id,dateStart,dateEnd);
     // const driver = await Driver.findOne({ "user.account_id": accountId });
     // const currentCar = await Car.findOne({ "driver.user.account_id": accountId });
 
@@ -124,8 +126,9 @@ class ReportController {
       total_interval: 0,
     };
     const mission_report = {};
+    console.log(111,driverTrips);
     driverTrips.map((serviceMission) => {
-      const mission_day = moment(serviceMission.gmt_for_date)
+      const mission_day =  moment(serviceMission?.extra?.mission_end)//moment(serviceMission.gmt_for_date)
         .startOf("day")
         .toISOString();
       if (mission_report[mission_day] == null) {
@@ -289,9 +292,9 @@ class ReportController {
 
   ////////////Report Rest Of Services
   async get_RestOfServicesByStartAndEndDate(req, res) {
-    //console.log(3332);
-    const { status, fromdate, todate } = req.query;
 
+    const { status, fromdate, todate } = req.query;
+   
     ///////////////////////////////
     var fromDate = new Date(fromdate);
     var toDate = new Date(todate);
@@ -301,11 +304,16 @@ class ReportController {
 
     // Set the time part of the "to" date to the end of the day (23:59:59)
     toDate.setHours(23, 59, 59, 999);
+
+    console.log(3332,status,fromDate,toDate);
     const aggregationPipeline = [
       {
         $match: {
-          status: status,
-          // Uncomment and adjust these lines if you want to filter by date range
+          status: status
+        }
+      },
+      {
+        $match: {
           "extra.mission_end": {
             $gte: fromDate,
             $lte: toDate
@@ -325,8 +333,8 @@ class ReportController {
           id: "$_id",
           driver_id: "$driver_id",  // Ensure the driver_id is included
           status: "$status",
-          mission_start: "$extra.mission_start",
-          mission_end: "$extra.mission_end",
+          mission_start: { $ifNull: ["$extra.mission_end", new Date(0)] },// "$extra.mission_start",
+          mission_end:  { $ifNull: ["$extra.mission_end", new Date(0)] },//"$extra.mission_end",
           name: "$driverInfo.full_name",
         }
       }
@@ -336,7 +344,7 @@ class ReportController {
 
 
     const result = await ServiceMission.aggregate(aggregationPipeline);
-
+console.log(500,result);
     ///////////////////////////////////
 
     let records = result
@@ -376,7 +384,7 @@ class ReportController {
     const result2 = [];
     for (const driverId in groupedRecords) {
       const driverRecords = groupedRecords[driverId];
-      for (let i = 0; i < driverRecords.length; i++) {
+      for (let i = 1; i < driverRecords.length; i++) {
 
         let entry;
         if (driverRecords.length === 1) {
