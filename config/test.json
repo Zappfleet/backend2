@@ -1,5 +1,5 @@
 {
-     "environment_name": "local",
+     "environment_name": "server",
      "jwtPrivateKey": "Hamidreza",
      "IRISA_BASE_URL": "https://frame.irisaco.com/api",
      "IRISA_USERNAME": "zapptaxi",
