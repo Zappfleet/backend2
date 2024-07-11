@@ -70,7 +70,7 @@ async function insertRestrictionShowRequests(req, res) {
 async function selectRestrictions(req, res) {
     const { count, key } = req.query;
     try {
-        console.log(10);
+       // console.log(10);
         const result = key ? await Restriction.find({ key: key }) : await Restriction.find({})
         return res.status(200).send({
             status: 200,
@@ -127,7 +127,7 @@ async function updateRestrictions(req, res) {
 async function selectRestrictionShowRequests(req, res) {
     const { count, key } = req.query;
     try {
-        console.log(10);
+    //    console.log(10);
         const result = await Restriction.find({ key: key })
         return res.status(200).send({
             status: 200,
@@ -148,7 +148,7 @@ async function selectRestrictionShowRequests(req, res) {
 async function insertSetWorkingWeek(req, res) {
    // console.log(52);
     try {
-        console.log(200);
+      //  console.log(200);
         const { item, key } = req.body;
         let ite = {
             key: key,
@@ -186,7 +186,7 @@ console.log(3,existingRestriction);
 async function selectSetWorkingWeek(req, res) {
     const { key } = req.query;
     try {
-        console.log(10);
+      //  console.log(10);
         const result = await Restriction.find({ key: key })
         return res.status(200).send({
             status: 200,
@@ -205,7 +205,7 @@ async function selectSetWorkingWeek(req, res) {
 async function select_InactiveSystem(req, res) {
     // console.log(900);
     try {
-        console.log(10);
+      //  console.log(10);
         const result = await Systeminactive.find({})
         return res.status(200).send({
             status: 200,

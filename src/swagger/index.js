@@ -30,16 +30,16 @@ function swaggerSetup() {
                 version: "v2.0.0",
                 description: "zapp backend api documents",
                 contact: {
-                    name: "Mehdi Hamze",
-                    email: "mhamze1994@gmail.com",
+                    name: "Sedighe Ghanbari",
+                    email: "sedighe.ghanbary@gmail.com",
                 },
             },
             servers: [
                 {
                     //sgh
                     url: config.get("environment_name") === "local" ?
-                        "http://localhost:4000" : config.get("environment_name") === "server" ?
-                            "https://zapp-backend.liara.run" : "",
+                        config.get("URL_LOCAL") : config.get("environment_name") === "server" ?
+                            config.get("URL_SERVER") : "",
                 },
                 {
                     url: "http://testpanel.zappfleet.ir",

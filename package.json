@@ -52,6 +52,7 @@
     "setup": "node ./script/startup.js",
     "start": "node ./src/index.js",
     "dev": "nodemon ./src/index.js",
+    "test": "jest",
     "test:full": "jest",
     "test:dev": "jest --watch"
   },
@@ -59,6 +60,6 @@
     "jest": "^29.1.2",
     "nodemon": "^2.0.20",
     "swagger-jsdoc": "^6.2.7",
-    "swagger-ui-express": "^4.6.0"
+    "swagger-ui-express": "^4.6.3"
   }
 }

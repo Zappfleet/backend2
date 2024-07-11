@@ -207,7 +207,7 @@ async function insert_FavoriteLocation(req, res) {
 async function update_FavoriteLocation(req, res) {
   const _id = req.params.id;
   const { item } = req.body;
-  console.log(33, _id, item);
+ // console.log(33, _id, item);
   const editor_account_id = req.auth._id;
 
 

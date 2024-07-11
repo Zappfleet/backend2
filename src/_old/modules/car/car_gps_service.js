@@ -9,7 +9,7 @@ function initGpsService() {
     setInterval(async () => {
         try {
 
-            console.log(12,'car');
+           // console.log(12,'car');
             const gps_id = 27048;
             const { data } = await axios.get(`https://avl-capi.opp.co.ir/v1/api/Place/LastLocation/${gps_id}`, {
                 headers: {

@@ -335,7 +335,7 @@ const getActiveCars = async (req, res, next) => {
 
 
 const saveDriverLocation = async (req, res, next) => {
-  console.log(100);
+ // console.log(100);
   const { points, bearing, meta } = req.body;
   const location = points[points.length - 1];
   res.status(200).send({ info: "sucess", doc: "" });

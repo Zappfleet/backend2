@@ -1,5 +1,7 @@
 {
-  "environment_name":"server",
+  "environment_name": "server",
+  "URL_LOCAL": "http://localhost:4000",
+  "URL_SERVER": "https://zapp-backend.liara.run",
   "jwtPrivateKey": "ZAPP_JWT_PRIVATE_KEY",
   "IRISA_BASE_URL": "IRISA_BASE_URL",
   "IRISA_USERNAME": "IRISA_USERNAME",

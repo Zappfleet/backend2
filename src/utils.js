@@ -27,7 +27,7 @@ async function getDatabase(url) {
   return new Promise((resolve, reject) => {
     MongoClient.connect(url)
       .then((client) => {
-        console.log("Successfully connected to url");
+       // console.log("Successfully connected to url");
         resolve(client);
       })
       .catch((e) => {

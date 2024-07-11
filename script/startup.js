@@ -65,12 +65,12 @@ async function run() {
     status: userStatus.ACTIVE.key,
   });
 
-  console.log(passengerRole);
-  console.log(driverRole);
-  console.log(adminRole);
-  console.log(user);
+  //console.log(passengerRole);
+  //console.log(driverRole);
+  //console.log(adminRole);
+  //console.log(user);
 
-  console.log("Success");
+  //console.log("Success");
 
   mongoose.disconnect();
 }

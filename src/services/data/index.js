@@ -793,7 +793,7 @@ async function createServiceRequest(
       const processor = require(`../modules/${OrgDataSource.requestProcessorModule}`);
       // console.log(3, doc);
       const processResult = await processor(doc);
-       console.log(7000,processResult);
+     //  console.log(7000,processResult);
       if (processResult?.error) {
         switch(processResult?.status)
         {

@@ -18,7 +18,7 @@ async function irisaRequestProcessor(request) {
   let flag = true
   if (request.details?.proj_code) {
     flag = false
-    console.log(33, request.details?.proj_code);
+    //console.log(33, request.details?.proj_code);
     const project = await getProjCodeInfo(request.details?.proj_code, token);
     if (project === null || project === undefined) {
       console.log(300, "Project is undefined");

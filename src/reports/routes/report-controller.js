@@ -20,7 +20,7 @@ class ReportController {
       status: "DONE",
     };
 
-    console.log(123,date_start,date_end,driver_id);
+   // console.log(123,date_start,date_end,driver_id);
    // assignDateFilter(missionsFilter, date_start, date_end);
 
     const missions = await ServiceMission.find(missionsFilter);
@@ -109,7 +109,7 @@ console.log(203,missions);
     const { user_id } = req.params;
     const { dateStart, dateEnd } = req.query;
 
-    console.log(100,user_id,dateStart,dateEnd);
+    //console.log(100,user_id,dateStart,dateEnd);
     // const driver = await Driver.findOne({ "user.account_id": accountId });
     // const currentCar = await Car.findOne({ "driver.user.account_id": accountId });
 
@@ -126,7 +126,7 @@ console.log(203,missions);
       total_interval: 0,
     };
     const mission_report = {};
-    console.log(111,driverTrips);
+   // console.log(111,driverTrips);
     driverTrips.map((serviceMission) => {
       const mission_day =  moment(serviceMission?.extra?.mission_end)//moment(serviceMission.gmt_for_date)
         .startOf("day")
@@ -305,7 +305,7 @@ console.log(203,missions);
     // Set the time part of the "to" date to the end of the day (23:59:59)
     toDate.setHours(23, 59, 59, 999);
 
-    console.log(3332,status,fromDate,toDate);
+    //console.log(3332,status,fromDate,toDate);
     const aggregationPipeline = [
       {
         $match: {

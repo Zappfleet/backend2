@@ -79,7 +79,7 @@ const axiosInstance = axios.create({
 
 
 const getListOfCostCenters = async (irisaToken) => {
-  console.log(332);
+ // console.log(332);
   if (irisaToken == null) {
     irisaToken = await getZappBearerToken();
   }

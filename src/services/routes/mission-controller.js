@@ -314,7 +314,7 @@ class MissionController {
     const authenticated_user = req.auth._id;
     const paging = req.query.paging;
 
-    console.log(7800, paging);
+    //console.log(7800, paging);
 
     const dateFilter = readDateFilterFromQuery(req.query);
     const page = parseInt(req.query.page || 1);
@@ -626,7 +626,7 @@ async function updateMissionRequestStatus(
     console.log(52, index);
     if (index === null || index === 0) {
       try {
-        console.log(1)
+      //  console.log(1)
         const mission = await ServiceMission.findById(mission_id);
         console.log(2)
         const requesrID = (mission.service_requests[0].request_id).toString()

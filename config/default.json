@@ -1,5 +1,7 @@
 {
-     "environment_name":"server",
+     "environment_name": "server",
+     "URL_LOCAL": "http://localhost:4000",
+     "URL_SERVER": "https://zapp-backend.liara.run",
      "jwtPrivateKey": "Hamidreza",
      "IRISA_BASE_URL": "https://frame.irisaco.com/api",
      "IRISA_USERNAME": "zapptaxi",
@@ -16,7 +18,6 @@
      "PORT": 3001,
      "MY_IRISA_URL": "https://im.irisaco.com/_matrix/client/r0/service/send_message",
      "MY_IRISA_TOKEN": "MDAxY2xvY2F0aW9uIGltLmlyaXNhY28uY29tCjAwMTNpZGVudGlmaWVyIGtleQowMDEwY2lkIGdlbiA9IDEKMDAyNmNpZCB1c2VyX2lkID0gQG5hdjppbS5pcmlzYWNvLmNvbQowMDE2Y2lkIHR5cGUgPSBhY2Nlc3MKMDAyMWNpZCBub25jZSA9IFQzO3VzLXJXTWtqNm5VZkUKMDAyZnNpZ25hdHVyZSB0DBR5pJKepbnMmSuHsoDVhwvchJfhgRJvayaoG_thIAo",
-     
      "BASIC_ACCESS_USERNAME": "admin",
      "BASIC_ACCESS_PASSWORD": "123"
 }

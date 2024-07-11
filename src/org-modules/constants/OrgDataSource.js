@@ -6,11 +6,11 @@ let userDetailsUrl, userSearchUrl;
 const environmentName = config.get("environment_name");
 
 if (environmentName === "local") {
-  userDetailsUrl = "http://localhost:4000/api/v2/irisa/employee-detils";
-  userSearchUrl = "http://localhost:4000/api/v2/irisa/employee-search";
+  userDetailsUrl = `${config.get("URL_LOCAL")}/api/v2/irisa/employee-detils`;
+  userSearchUrl = `${config.get("URL_LOCAL")}/api/v2/irisa/employee-search`;
 } else if (environmentName === "server") {
-  userDetailsUrl = "https://zapp-backend.liara.run/api/v2/irisa/employee-detils";
-  userSearchUrl = "https://zapp-backend.liara.run/api/v2/irisa/employee-search";
+  userDetailsUrl = `${config.get("URL_SERVER")}/api/v2/irisa/employee-detils`;
+  userSearchUrl = `${config.get("URL_SERVER")}/api/v2/irisa/employee-search`;
 }
 
 const OrgDataSource = {
