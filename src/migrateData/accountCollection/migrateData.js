@@ -61,7 +61,8 @@ exports.migrateDataAccounts = async function (req, res) {
                             break;
 
                         case 1: //driver
-                            createNewRole.push(ObjectId('663902a02733b1e14bcde2ee'))
+                            const DB_ROLE_DRIVER_ID = '663902a02733b1e14bcde2ee'
+                            createNewRole.push(ObjectId(DB_ROLE_DRIVER_ID))
                             break;
 
                         case 2: //manager
@@ -103,7 +104,7 @@ exports.migrateDataAccounts = async function (req, res) {
                     },
                     createdAt: oldAccountData.createdAt,
                     updatedAt: oldAccountData.updatedAt,
-                   // last_login_date:olduser.last_login_date
+                    // last_login_date:olduser.last_login_date
                 });
 
                 await newUserAccount(newAccount).save();

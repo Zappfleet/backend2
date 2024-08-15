@@ -1,5 +1,5 @@
 {
-     "environment_name": "server",
+     "environment_name": "local",
      "URL_LOCAL": "http://localhost:4000",
      "URL_SERVER": "https://zapp-backend.liara.run",
      "jwtPrivateKey": "Hamidreza",

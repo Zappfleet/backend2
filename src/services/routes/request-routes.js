@@ -116,7 +116,7 @@ router.get("/:request_id/history", requestController.getRequestHistory);
 /**
  * @swagger
  * /api/v2/services/requests/confirm/{id}:
- *  patch:
+ *  get:
  *      tags: [Service Requests]
  *      summary: confirm specfied request
  *      parameters:
@@ -131,12 +131,12 @@ router.get("/:request_id/history", requestController.getRequestHistory);
  *          500:
  *              description: Internal Error
  */
-router.patch("/confirm/:id", requestController.confirmRequest);
+router.get("/confirm/:id", requestController.confirmRequest);
 
 /**
  * @swagger
  * /api/v2/services/requests/reject/{id}:
- *  patch:
+ *  get:
  *      tags: [Service Requests]
  *      summary: reject specfied request
  *      parameters:
@@ -151,7 +151,7 @@ router.patch("/confirm/:id", requestController.confirmRequest);
  *          500:
  *              description: Internal Error
  */
-router.patch("/reject/:id", requestController.rejectRequest);
+router.get("/reject/:id", requestController.rejectRequest);
 
 /**
  * @swagger

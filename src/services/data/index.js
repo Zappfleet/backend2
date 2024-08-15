@@ -28,6 +28,7 @@ const { OrgDataSource } = require("../../org-modules/constants/OrgDataSource");
 const { getListOfUsers } = require("../../users/data/user");
 const { calculateRequestDistance } = require("../../_old/utils/DistanceHelper");
 const { notifyAPIArriveToDestination } = require("../../notification-service/notif-API");
+const { sendMyIrisaManagerNotification } = require("../../irisa/lib");
 
 const MISSION_NOT_FOUND = { error: "Specified mission not found", status: 404 };
 const REQUEST_NOT_FOUND = { error: "Service Request Not Found", status: 404 };
@@ -50,7 +51,7 @@ async function listMissions(
   include_status_history = false,
   paging
 ) {
-  
+
   const paginateOptions = getMongoosePaginateOptions(page, sort);
 
   paginateOptions.populate = [
@@ -144,12 +145,12 @@ async function listMissions(
           cost_center: "$result.details.cost_center",
           desc: "$result.details.desc",
           cost: "$extra.cost",
-          vehicleID:"$vehicleDetails._id",
+          vehicleID: "$vehicleDetails._id",
           locations: "$result.locations",
-          vehiclePlaque:"$vehicleDetails.plaque",
-          vehicleName:"$vehicleDetails.extra.name",
-          vehicleColor:"$vehicleDetails.extra.color",
-          extra:"$extra",
+          vehiclePlaque: "$vehicleDetails.plaque",
+          vehicleName: "$vehicleDetails.extra.name",
+          vehicleColor: "$vehicleDetails.extra.color",
+          extra: "$extra",
 
         }
       }
@@ -638,7 +639,7 @@ async function checkIfRequestExistsInMission(mission_id, request_id) {
 }
 
 async function readRequestDetails(_id) {
-  console.log(45);
+ // console.log(45);
   const serviceRequest = await ServiceRequest.findById(_id);
   if (!serviceRequest) return null;
 
@@ -742,7 +743,7 @@ async function createServiceRequest(
   confirmed_by
 ) {
 
- // console.log(800, submitted_by);
+  // console.log(800, submitted_by);
   try {
     const doc = {
       locations,
@@ -788,25 +789,39 @@ async function createServiceRequest(
     const regions = await locateRequestAreas(doc);
     doc.area = regions[0];
     // console.log(1);
+
+    let managerCode = null
     if (OrgDataSource.requestProcessorModule) {
       //  console.log(2);
       const processor = require(`../modules/${OrgDataSource.requestProcessorModule}`);
       // console.log(3, doc);
       const processResult = await processor(doc);
-     //  console.log(7000,processResult);
+      //  console.log(7000,processResult);
       if (processResult?.error) {
-        switch(processResult?.status)
-        {
-          case 300: return { error:'پروژه منقضی شده است' , status: 300 };
-          case 301: return { error:'پروژه وجود ندارد' , status: 301 };
-          case 400: return { error:'مرکز هزینه وجود ندارد' , status: 400 };
+        switch (processResult?.status) {
+          case 300: return { error: 'پروژه منقضی شده است', status: 300 };
+          case 301: return { error: 'پروژه وجود ندارد', status: 301 };
+          case 400: return { error: 'مرکز هزینه وجود ندارد', status: 400 };
         }
         return { error: 'خطایی رخ داده است', status: 4402 };
       }
+      managerCode = processResult?.status === 200 ? processResult?.data : null
     }
 
     const newRequest = await ServiceRequest.create(doc);
-  //  console.log(4444, newRequest);
+console.log(3576878,managerCode);
+    const regionInfo = await Region.findOne({ _id: newRequest?.area?._id })
+    const managerID = await UserAccount.findOne({
+      "details.personel_code": { $exists: true, $eq: managerCode }
+    })
+    console.log(888888,managerID,managerCode);
+    const needApprove = (regionInfo && regionInfo?.properties?.need_manager_confirmation) ? false : true
+    const manager = {
+      _id: managerID?._id,
+      personel_code: managerCode
+    }
+    await sendMyIrisaManagerNotification(newRequest, manager, needApprove)
+    //  console.log(4444, newRequest);
     return newRequest;
   } catch (e) {
     const dbError = e.error?.errors?.extra?.properties?.message;

@@ -153,7 +153,7 @@ async function userSignIn(req, res) {
  
   const user = await getUserByCredentials(username.toLowerCase(), password);
   if (user == null) {
-    return res.status(404).send({ error: "wrong user credentials" });
+    return res.status(404).send({ error: "نام کاربری یا کلمه عبور نادرست است" });
   } else {
     const bearer_token_data = await user.getBearerTokenData();
     const refresh_token_data = await user.getRefreshTokenData();

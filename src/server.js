@@ -1,6 +1,7 @@
 const express = require("express");
 const http = require("http");
 const cors = require("cors");
+const path = require('path');
 
 const { runPlugin } = require('../system_plugins/gps-device/index');
 
@@ -19,14 +20,21 @@ const { userRolesRouter } = require("./users/routes/roles");
 const { OrgDataSource } = require("./org-modules/constants/OrgDataSource");
 const { reportsRouter } = require("./reports/routes/");
 const { restrictionsRouter } = require("./restrictions/routes/");
+// const { uploadRouter } = require("./upload/routes/");
+
+const { aganceRouter } = require("./agance/routes/");
+
 const { getRequestStatistics } = require("./dashboard/statsController");
 
+const upload = require("./uploadFile/uploadFile");// وارد کردن ماژول آپلود فایل
 const { migrateDataRequest } = require("./migrateData/requestsCollection/migrateData");
 const { migrateDataAccounts } = require("./migrateData/accountCollection/migrateData");
 const { migrateDataAreas } = require("./migrateData/areasCollection/migrateData");
 const { migrateDataCars } = require("./migrateData/carsCollection/migrateData");
 const { migrateDataLocations } = require("./migrateData/locationCollection/migrateData");
-const { Test } =require("./migrateData/Test/Test")
+const { confirmRequest } = require("./services/routes/request-controller");
+const { rejectRequest } = require("./services/routes/request-controller");
+const { Test } = require("./migrateData/Test/Test")
 
 
 
@@ -51,20 +59,32 @@ const init = async () => {
   router.use("/users", userAccountRouter);
   router.use("/reports", authenticate, reportsRouter);
   router.use("/restrict", authenticate, restrictionsRouter);
+  router.use("/agance", /*authenticate, restrict,*/ aganceRouter);
 
   // Add the new /stat/requests route
   router.get("/stat/requests", getRequestStatistics);
 
   // ConvertData from faz-1 to faz-2
+
+  // راه‌اندازی روت برای آپلود فایل
+  app.post('/upload', upload)
+
+  // Serve the uploaded files statically
+  app.use('/uploads', express.static(path.join(__dirname, 'uploadFile/uploads')));
+
+
   router.get("/migrateDataRequest", migrateDataRequest);
   router.get("/migrateDataAccounts", migrateDataAccounts);
   router.get("/migrateDataAreas", migrateDataAreas);
   router.get("/migrateDataCars", migrateDataCars);
   router.get("/migrateDataLocations", migrateDataLocations);
 
+  router.get("/confirmRequest/:id", confirmRequest);
+  router.get("/rejectRequest/:id", rejectRequest);
+
   router.get("/test", Test);
 
-  
+
 
 
 

@@ -1,6 +1,6 @@
 const PermissionSet = {
     DASHBOARD: null,
-    RESTRICTION:null,
+    RESTRICTION: null,
     DRIVER: null,
     SERVICE: {
         PERSONAL: {
@@ -22,6 +22,74 @@ const PermissionSet = {
                 AGENCY_LIMITED: null,
             }
         }
+    },
+    AGANCE: {
+        AGANCE: {
+            CREATE: null,
+            EDIT: null,
+            DELETE: null,
+            LIST: null,
+        },
+        SODURE_PARVANE: {
+            CREATE: null,
+            EDIT: null,
+            DELETE: null,
+            LIST: null,
+        },
+        DRIVER: {
+            CREATE: null,
+            EDIT: null,
+            DELETE: null,
+            LIST: null,
+        },
+        CART_SALAHIYAT: {
+            CREATE: null,
+            EDIT: null,
+            DELETE: null,
+            LIST: null,
+        },
+        TAMDID_CART_SALAHIYAT: {
+            CREATE: null,
+            EDIT: null,
+            DELETE: null,
+            LIST: null,
+        },
+        ESTELAMHAYE_SE_GANE: {
+            CREATE: null,
+            EDIT: null,
+            DELETE: null,
+            LIST: null,
+        },
+        ESTELAM_AMAKEN: {
+            CREATE: null,
+            EDIT: null,
+            DELETE: null,
+            LIST: null,
+        },
+        MOAYENE_FANI: {
+            CREATE: null,
+            EDIT: null,
+            DELETE: null,
+            LIST: null,
+        },
+        TAREFE_AVAREZ: {
+            CREATE: null,
+            EDIT: null,
+            DELETE: null,
+            LIST: null,
+        },
+        DABIRKHANE: {
+            CREATE: null,
+            EDIT: null,
+            DELETE: null,
+            LIST: null,
+        },
+        PROFILE: {
+            CREATE: null,
+            EDIT: null,
+            DELETE: null,
+            LIST: null,
+        },
     },
     LOCATION: {
         PERSONAL: {
@@ -68,7 +136,7 @@ const PermissionSet = {
         DRIVER_BREAKS: null,
         SERVICE_PERIODS: null,
         SERVICE_COUNT: null,
-        DRIVERLIST_LASTMISSION_DISTANCE:null,
+        DRIVERLIST_LASTMISSION_DISTANCE: null,
         TRIP_FEEDBACKS: null,
     },
     RULES: null,

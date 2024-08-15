@@ -20,11 +20,11 @@ class ReportController {
       status: "DONE",
     };
 
-   // console.log(123,date_start,date_end,driver_id);
-   // assignDateFilter(missionsFilter, date_start, date_end);
+    // console.log(123,date_start,date_end,driver_id);
+    // assignDateFilter(missionsFilter, date_start, date_end);
 
     const missions = await ServiceMission.find(missionsFilter);
-console.log(203,missions);
+    console.log(203, missions);
     return res.status(200).send({
       // driver,
       // currentCar,
@@ -69,19 +69,19 @@ console.log(203,missions);
           project_Code: "$result.details.proj_code",
           proj_desc: "$result.details.proj_desc",
           manager_emp_num: "$result.details.manager_emp_num",
-          cost_center:"$result.details.cost_center",
+          cost_center: "$result.details.cost_center",
           desc: "$result.details.desc",
           cost: "$extra.cost",
           mission_date: "$result.gmt_for_date", // Renaming gmt_for_date to mission_date
           created_by: "$userDetails.full_name",  // Renaming full_name to created_by
-          distance: { $ifNull: ["$extra.distance", null] } ,// Providing a default value for distance
-          mission_start: { $ifNull: ["$extra.mission_start", null] }, 
-          mission_end: { $ifNull: ["$extra.mission_end", null] }, 
+          distance: { $ifNull: ["$extra.distance", null] },// Providing a default value for distance
+          mission_start: { $ifNull: ["$extra.mission_start", null] },
+          mission_end: { $ifNull: ["$extra.mission_end", null] },
         }
       }
     ]);
 
-   // console.log(54,result);
+    // console.log(54,result);
     res.status(200).send({ data: result });
   }
 
@@ -126,9 +126,9 @@ console.log(203,missions);
       total_interval: 0,
     };
     const mission_report = {};
-   // console.log(111,driverTrips);
+    // console.log(111,driverTrips);
     driverTrips.map((serviceMission) => {
-      const mission_day =  moment(serviceMission?.extra?.mission_end)//moment(serviceMission.gmt_for_date)
+      const mission_day = moment(serviceMission?.extra?.mission_end)//moment(serviceMission.gmt_for_date)
         .startOf("day")
         .toISOString();
       if (mission_report[mission_day] == null) {
@@ -229,7 +229,6 @@ console.log(203,missions);
     const { status } = req.query;
 
     // Step 1: Find the role ID for "راننده"
-    // const driverRoleId = new ObjectId('663902a02733b1e14bcde2ee')// UserRole.findOne({ title: "راننده" })._id;
     const driverRoleId = (await listUserRoles({ title: "راننده" }))[0]._id;
 
 
@@ -294,7 +293,7 @@ console.log(203,missions);
   async get_RestOfServicesByStartAndEndDate(req, res) {
 
     const { status, fromdate, todate } = req.query;
-   
+
     ///////////////////////////////
     var fromDate = new Date(fromdate);
     var toDate = new Date(todate);
@@ -334,7 +333,7 @@ console.log(203,missions);
           driver_id: "$driver_id",  // Ensure the driver_id is included
           status: "$status",
           mission_start: { $ifNull: ["$extra.mission_end", new Date(0)] },// "$extra.mission_start",
-          mission_end:  { $ifNull: ["$extra.mission_end", new Date(0)] },//"$extra.mission_end",
+          mission_end: { $ifNull: ["$extra.mission_end", new Date(0)] },//"$extra.mission_end",
           name: "$driverInfo.full_name",
         }
       }
@@ -344,7 +343,7 @@ console.log(203,missions);
 
 
     const result = await ServiceMission.aggregate(aggregationPipeline);
-console.log(500,result);
+    console.log(500, result);
     ///////////////////////////////////
 
     let records = result
@@ -441,15 +440,17 @@ console.log(500,result);
   async get_CountOfServicesByStartAndEndDate(req, res) {
     const { status, fromdate, todate } = req.query;
 
+
+    console.log(11, fromDate, toDate);
     ///////////////////////////////
-    var fromDate = new Date(fromdate);
-    var toDate = new Date(todate);
+    var fromDate = fromdate !== null && fromdate !== undefined ? new Date(fromdate) : new Date('1970-01-01'); // تاریخ خیلی قبل;
+    var toDate = todate !== null && todate !== undefined ? new Date(todate) : new Date('2100-01-01');   // تاریخ خیلی بعد;
 
     // Set the time part of the "from" date to the start of the day (00:00:00)
-    fromDate.setHours(0, 0, 0, 0);
+    fromDate?.setHours(0, 0, 0, 0);
 
     // Set the time part of the "to" date to the end of the day (23:59:59)
-    toDate.setHours(23, 59, 59, 999);
+    toDate?.setHours(23, 59, 59, 999);
 
     const aggregationPipeline = [
       {
@@ -464,7 +465,8 @@ console.log(500,result);
       {
         $group: {
           _id: "$driver_id",
-          count: { $sum: 1 }
+          count: { $sum: 1 },
+          missions: { $push: "$$ROOT" } // ذخیره کردن اطلاعات مأموریت‌ها
         }
       },
       {
@@ -478,14 +480,16 @@ console.log(500,result);
       {
         $project: {
           id: "$_id",
-          name: "$driverInfo.full_name",
+          name: { $arrayElemAt: ["$driverInfo.full_name", 0] }, // استخراج نام راننده
           driver_id: "$_id",
-          countOfServices: "$count"
+          countOfServices: "$count",
+          missions: "$missions" // اضافه کردن اطلاعات مأموریت‌ها به خروجی
         }
       }
     ];
 
     const result = await ServiceMission.aggregate(aggregationPipeline);
+
     // console.log(4444, result);
     return res.status(200).send({
       status: 200,

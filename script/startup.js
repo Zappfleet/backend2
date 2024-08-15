@@ -11,6 +11,23 @@ const {
 
 async function run() {
 
+
+  let db = ""
+  let environment_name = config.get("environment_name")
+  if (environment_name === "local") {
+      db = config.get("db");
+      mongoose.set('strictQuery', false);
+      await mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true});
+  
+    }
+    if (environment_name === "server") {
+      db = config.get("db_SERVER");
+      mongoose.set('strictQuery', false);
+      await mongoose.connect(db);
+  
+    }
+  console.log("Connecting to database");
+  
   //sgh database
   //const db = config.get("db");
 
