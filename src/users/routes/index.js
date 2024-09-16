@@ -16,6 +16,7 @@ const {
   getUserListByPermissions,
   getPaginatedUsers,
 } = require("./user-account-controller");
+const {router:googleAuth} =require("./googleAuth")
 const { authenticate, restrict } = require("../mid/auth");
 
 const router = Router();
@@ -317,6 +318,39 @@ router.put("/:id", authenticate, restrict, updateUser);
  *              description: Internal Error
  */
 router.get("/paginated", authenticate, restrict, getPaginatedUsers);
+
+
+
+/**
+ * @swagger
+ * /api/v2/users/googleAuth:
+ *  post:
+ *      tags: [User Accounts]
+ *      summary: sign in with googleAuth
+ *      security:
+ *              - BearerAuth: []
+ *      requestBody:
+ *              required: true
+ *              consumes:
+ *                  - "application/raw"
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                              type: object
+ *                              example: {
+ *                                  "username": "...",
+ *                                  "password": "..."
+ *                              }
+ *      responses:
+ *          200:
+ *              description: Success
+ *          401:
+ *              description: Unauthraize
+ *          500:
+ *              description: Internal Error
+ */
+router.post("/googleAuth", googleAuth);
+
 
 /**
  * @swagger

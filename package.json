@@ -39,6 +39,8 @@
     "node-cron": "^3.0.3",
     "node-stream-zip": "^1.15.0",
     "node-url-shortener": "^2.0.3",
+    "passport": "^0.7.0",
+    "passport-google-oauth20": "^2.0.0",
     "path": "^0.12.7",
     "persian-alphabetic-compare": "^1.2.0",
     "query-string": "^7.1.0",
