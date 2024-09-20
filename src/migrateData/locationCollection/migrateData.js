@@ -14,7 +14,7 @@ const connectToDB = async () => {
     let db = "";
 
     if (environment_name === "local") {
-        db = config.get("db");
+        db =  config.get("db");
     } else if (environment_name === "server") {
         db = config.get("db_SERVER");
     } else {

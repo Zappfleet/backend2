@@ -3,6 +3,7 @@ const { defaultPermitions } = require("../global_values/default_permissions");
 const roles = require("../global_values/roles");
 const { Account } = require("../modules/auth/model");
 const { User } = require("../modules/user/model");
+
 const config = require("config");
 
 async function run() {

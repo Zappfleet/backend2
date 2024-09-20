@@ -1,9 +1,10 @@
 const OrgSecretFields = ["accessToken", "userDetailsUrl", "userSearchUrl"];
 const config = require("config")
 
+
 // Define URLs for different environments
 let userDetailsUrl, userSearchUrl;
-const environmentName = config.get("environment_name");
+const environmentName =  config.get("environment_name");
 
 if (environmentName === "local") {
   userDetailsUrl = `${config.get("URL_LOCAL")}/api/v2/irisa/employee-detils`;
