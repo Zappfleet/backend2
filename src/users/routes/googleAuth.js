@@ -5,14 +5,16 @@ const axios = require('axios');
 const { UserAccount: User } = require('../data/models/user-model'); // مدل کاربر در پایگاه داده
 const { log } = require('winston');
 const { generateJwtToken } = require('../../utils');
+const config = require("config");
 
+config.get("URL_LOCAL")
 const router = express.Router();
 
 // Passport configuration
 passport.use(new GoogleStrategy({
     clientID: '210424230900-h413ecac421uf5jsfv6lbck89e3kbtnt.apps.googleusercontent.com',
     clientSecret: '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',
-    callbackURL: 'http://localhost:5173/'
+    callbackURL: `${config.get("FRONT_URL_LOCAL")}/`
 }, async (accessToken, refreshToken, profile, done) => {
     try {
         let user = await User.findOne({ username: profile.id });

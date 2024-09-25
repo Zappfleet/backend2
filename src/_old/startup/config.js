@@ -5,6 +5,6 @@ module.exports = function () {
     throw new Error("FATAL ERROR: jwtPrivateKey is not defined.");
   }
 
-  process.env.PORT = config.get("PORT") || 3001;
+  process.env.PORT = config.get("PORT") || 4000;
   
 };

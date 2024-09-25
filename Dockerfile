@@ -1,40 +1,26 @@
-# مرحله 1: ساخت برنامه
-FROM mcr.microsoft.com/windows/nanoserver:ltsc2019 AS builder
+# مرحله اول: استفاده از تصویر ویندوزی سنگین‌تر برای ساخت پروژه
+FROM mcr.microsoft.com/windows/servercore:ltsc2019 AS build
 
-# کپی فایل نصبی Node.js به کانتینر
-COPY node-v20.16.0-x64.msi .
+# تنظیم پوشه کاری
+WORKDIR /app
 
-# نصب Node.js و حذف فایل نصبی
-RUN msiexec.exe /i node-v20.16.0-x64.msi /quiet /norestart && \
-    del node-v20.16.0-x64.msi
+# کپی کردن فایل‌های پروژه به داخل کانتینر
+COPY . .
 
-# تنظیم دایرکتوری کاری
-WORKDIR C:/app
-
-# کپی فایل‌های پروژه به یک دایرکتوری
-COPY package*.json ./ 
-
-# نصب وابستگی‌ها
+# نصب وابستگی‌های پروژه (node_modules)
 RUN npm install
 
-# کپی بقیه فایل‌های پروژه
-COPY . ./
+# مرحله دوم: استفاده از تصویر سبک‌تر برای اجرای پروژه
+FROM mcr.microsoft.com/windows/nanoserver:ltsc2019
 
-# مرحله 2: مرحله نهایی
-FROM mcr.microsoft.com/windows/nanoserver:ltsc2019 
+# تنظیم پوشه کاری در تصویر نهایی
+WORKDIR /app
 
-# ایجاد دایرکتوری برای Node.js
-RUN mkdir "C:/Program Files/nodejs/"
+# کپی فایل‌های نهایی از مرحله ساخت به تصویر نهایی
+COPY --from=build /app .
 
-# کپی Node.js از مرحله ساخت
-COPY --from=builder "C:/Program Files/nodejs/" "C:/Program Files/nodejs/"
-COPY --from=builder "C:/app/" "C:/app/"
+# حذف وابستگی‌های غیرضروری (بهینه‌سازی برای حجم کمتر)
+RUN npm prune --production
 
-# تنظیم دایرکتوری کاری
-WORKDIR C:/app
-
-# نمایش پورت اپلیکیشن
-EXPOSE 4000
-
-# شروع اپلیکیشن
-CMD ["cmd", "/c", "npm start"]
+# فرمان برای اجرای اپلیکیشن
+CMD ["node", "server.js"]

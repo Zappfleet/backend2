@@ -1,6 +1,7 @@
 {
      "environment_name": "local",
-     "URL_LOCAL": "http://localhost:4000",
+     "FRONT_URL_LOCAL":"http://127.0.0.1:5173",
+     "URL_LOCAL": "http://127.0.0.1:4000",
      "URL_SERVER": "https://zapp-backend.liara.run",
      "jwtPrivateKey": "Hamidreza",
      "IRISA_BASE_URL": "https://frame.irisaco.com/api",

@@ -35,7 +35,7 @@ const { migrateDataLocations } = require("./migrateData/locationCollection/migra
 const { confirmRequest } = require("./services/routes/request-controller");
 const { rejectRequest } = require("./services/routes/request-controller");
 const { Test } = require("./migrateData/Test/Test")
-
+const config = require("config");
 
 
 
@@ -47,7 +47,7 @@ const init = async () => {
   const server = http.createServer(app);
   app.use(cors());
   app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: config.get("FRONT_URL_LOCAL"),
     credentials: true
 }));
   app.use(express.json());
