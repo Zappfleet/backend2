@@ -1,5 +1,7 @@
 {
   "environment_name": "environment_name",
+  "PORT": "PORT",
+  "SERVER_IP_BACKEND":"SERVER_IP_BACKEND",
   "FRONT_URL_LOCAL": "FRONT_URL_LOCAL",
   "URL_LOCAL": "URL_LOCAL",
   "URL_SERVER": "URL_SERVER",

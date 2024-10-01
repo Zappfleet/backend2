@@ -10,7 +10,7 @@ exports.db = async function (callback) {
     if (environment_name === "local") {
       db = config.get("db");
       mongoose.set('strictQuery', false);
-      await mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true });
+      await mongoose.connect(db)//, { useNewUrlParser: true, useUnifiedTopology: true });
 
     }
     if (environment_name === "server") {

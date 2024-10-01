@@ -22,7 +22,7 @@ const connectToDB = async () => {
     }
 
     mongoose.set('strictQuery', false);
-    await mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true });
+    await mongoose.connect(db)//, { useNewUrlParser: true, useUnifiedTopology: true });
     console.log(`Connected to database`);
 };
 

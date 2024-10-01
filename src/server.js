@@ -100,7 +100,7 @@ const init = async () => {
 
   initNotificationService(server);
 
-  const PORT = 4000;
+  const PORT = process.env.PORT;
   server.listen(PORT, () => {
     console.log("Zapp server listening to :" + PORT);
     executePlugins();

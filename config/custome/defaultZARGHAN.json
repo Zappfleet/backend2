@@ -1,0 +1,27 @@
+{
+     "environment_name": "local",
+     "SERVER_IP_BACKEND":"172.16.10.24",
+     "FRONT_URL_LOCAL":"http://172.16.10.24:5173",
+     "URL_LOCAL": "http://172.16.10.24:4000",
+     "db": "mongodb://172.16.10.24:27017/zappfleet",
+     "PORT": 4000,
+
+     "URL_SERVER": "",
+     "jwtPrivateKey": "Hamidreza",
+     "IRISA_BASE_URL": "",
+     "IRISA_USERNAME": "",
+     "IRISA_PASSWORD": "",
+     "KAVEHNEGAR_TEMP": "",
+     "TOKEN_EXPIRES_IN": "",
+     "NESHAN_DISATNCE_URL": "https://api.neshan.org/v1/distance-matrix?type=car",
+     "NESHAN_API_KEY": "service.k4icu6pAM41wDqS4dxiLPRGYaoHEmzAftrBWhR9J",
+     "db1": "",
+     "db_SERVER": "",
+     "KAVEHNEGAR_API_KEY": "",
+     "PASSENGER_SERVICE_ACCOUNT": "",
+     "DRIVER_SERVICE_ACCOUNT": "",
+     "MY_IRISA_URL": "",
+     "MY_IRISA_TOKEN": "",
+     "BASIC_ACCESS_USERNAME": "admin",
+     "BASIC_ACCESS_PASSWORD": "123"
+}

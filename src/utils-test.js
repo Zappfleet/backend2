@@ -1,5 +1,6 @@
 const { default: mongoose } = require("mongoose");
 const { getRandomInt } = require("./utils");
+const config = require("config");
 
 class FakeHttpRequest {
 
@@ -47,13 +48,14 @@ const DropDatabase = async function () {
 }
 
 const ConnectDatabase = async function (post_fix) {
-    const testDb = `mongodb://127.0.0.1:27017/zappfleet-testdata_${post_fix}`
+    const testDb = `${config.get("db")}-testdata_${post_fix}`
     mongoose.set('strictQuery', false);
-    return await mongoose.connect(testDb, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        serverSelectionTimeoutMS: 30000 ,
-    })
+    return await mongoose.connect(testDb)
+    //     , {
+    //     useNewUrlParser: true,
+    //     useUnifiedTopology: true,
+    //     serverSelectionTimeoutMS: 30000 ,
+    // })
 };
 
 

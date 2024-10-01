@@ -17,11 +17,11 @@ async function run() {
   if (environment_name === "local") {
     db = config.get("db");
     mongoose.set('strictQuery', false);
-    await mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true });
+    await mongoose.connect(db)//, { useNewUrlParser: true, useUnifiedTopology: true });
   } else if (environment_name === "server") {
     db = config.get("db_SERVER");
     mongoose.set('strictQuery', false);
-    await mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true });
+    await mongoose.connect(db)//, { useNewUrlParser: true, useUnifiedTopology: true });
   } else {
     console.error("Unknown environment name");
     return;

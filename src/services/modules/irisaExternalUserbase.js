@@ -8,6 +8,7 @@ const {
 } = require("../../users/data/user");
 const { replaceArabicCharacters } = require("../../utils");
 const { userStatus } = require("../../users/data/constants/userStatus");
+const { isArray } = require("lodash");
 
 const irisaUserbaseSchema = new mongoose.Schema(
   {
@@ -33,6 +34,8 @@ const IrisaUserbase = mongoose.model("IrisaUserbase", irisaUserbaseSchema);
 
 async function convertToUserAccount(user) {
   const irisaUser = await IrisaUserbase.findById(user._id);
+  console.log(425,irisaUser);
+  
   const userAccount = {
     username: irisaUser.NUM_PRSN_EMPL,
     password: irisaUser.NUM_PRSN_EMPL,
@@ -46,7 +49,7 @@ async function convertToUserAccount(user) {
 }
 
 async function deleteExitingOnes(full_external_list) {
-  const listOfEmpNumbers = full_external_list.map(
+  const listOfEmpNumbers = isArray(full_external_list) && full_external_list.map(
     ({ NUM_PRSN_EMPL }) => NUM_PRSN_EMPL
   );
 
@@ -54,7 +57,7 @@ async function deleteExitingOnes(full_external_list) {
     NUM_PRSN_EMPL: { $in: listOfEmpNumbers },
   });
 
-  const prunedList = full_external_list
+  const prunedList = isArray(full_external_list) && full_external_list
     .filter((item) => {
       return (
         existingExternalUsers.find((existing) => {
@@ -77,14 +80,46 @@ async function deleteExitingOnes(full_external_list) {
   };
 }
 
-async function updateExternalUserbase() {
-  const full_list_of_personel = await getIrisaPersonelList();
 
-  const { prunedList } = await deleteExitingOnes(full_list_of_personel.data);
-  await IrisaUserbase.insertMany(prunedList, {
-    ordered: false,
-  });
+async function updateExternalUserbase() {
+  try {
+    // دریافت لیست پرسنل
+    const full_list_of_personel = await getIrisaPersonelList();
+
+    // بررسی اینکه آیا داده‌ها به درستی دریافت شده‌اند
+    if (!full_list_of_personel || !Array.isArray(full_list_of_personel.data)) {
+     // console.error("Invalid personnel list received:", full_list_of_personel);
+      return;
+    }
+
+    // حذف موارد موجود
+    const { prunedList } = await deleteExitingOnes(full_list_of_personel.data);
+
+    // بررسی اینکه prunedList آرایه‌ای معتبر است
+    if (!Array.isArray(prunedList) || prunedList.some(item => typeof item !== 'object')) {
+     // console.error("Invalid prunedList:", prunedList);
+      return;
+    }
+
+    // درج داده‌ها در پایگاه داده
+    await IrisaUserbase.insertMany(prunedList, {
+      ordered: false,
+    });
+
+   // console.log("Data successfully updated in the database.");
+  } catch (error) {
+    console.error("Error updating external user base:", error);
+  }
 }
+
+// async function updateExternalUserbase() {
+//   const full_list_of_personel = await getIrisaPersonelList();
+
+//   const { prunedList } = await deleteExitingOnes(full_list_of_personel.data);
+//   await IrisaUserbase.insertMany(prunedList, {
+//     ordered: false,
+//   });
+// }
 
 async function search(q, limit = 10) {
   const query = q.trim();

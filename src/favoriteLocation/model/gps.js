@@ -1,6 +1,8 @@
-const { ObjectId } = require("mongodb");
-const { default: mongoose } = require("mongoose");
+// const { ObjectId } = require("mongodb");
 
+
+const { default: mongoose } = require("mongoose");
+const { ObjectId } = mongoose.Types;
 const gpsHistory = new mongoose.Schema(
     {
         owner_id: {

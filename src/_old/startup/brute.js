@@ -1,3 +1,4 @@
+const config = require("config");
 let ExpressBrute = require("express-brute"),
   MemcachedStore = require("express-brute-memcached"),
   moment = require("moment"),
@@ -9,7 +10,8 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV == "development") {
   // stores state with memcached
 
   //sgh
-  store = new MemcachedStore(["127.0.0.1"], {
+  const memcachedServers = config.get("SERVER_IP_BACKEND");
+  store = new MemcachedStore([memcachedServers], {
     prefix: "NoConflicts",
   });
 }
