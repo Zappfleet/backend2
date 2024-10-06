@@ -26204,3 +26204,488 @@ SyntaxError: Unexpected token 'c', "config/fir"... is not valid JSON
     at ./node_modules/@apidevtools/swagger-parser/lib/index.js (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:525:1)
     at __webpack_require__ (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:31121:42) 
 
+2024-10-01T09:15:58.829Z  error: uncaughtException: Unexpected token 'c', "config/fir"... is not valid JSON
+SyntaxError: Unexpected token 'c', "config/fir"... is not valid JSON
+    at JSON.parse (<anonymous>)
+    at ZSchema.setRemoteReference (webpack://server-v1/./node_modules/z-schema/src/ZSchema.js?:301:23)
+    at new ZSchema (webpack://server-v1/./node_modules/z-schema/src/ZSchema.js?:126:10)
+    at initializeZSchema (webpack://server-v1/./node_modules/@apidevtools/swagger-parser/lib/validators/schema.js?:44:10)
+    at eval (webpack://server-v1/./node_modules/@apidevtools/swagger-parser/lib/validators/schema.js?:10:15)
+    at ./node_modules/@apidevtools/swagger-parser/lib/validators/schema.js (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:558:1)
+    at __webpack_require__ (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:31121:42)
+    at eval (webpack://server-v1/./node_modules/@apidevtools/swagger-parser/lib/index.js?:4:24)
+    at ./node_modules/@apidevtools/swagger-parser/lib/index.js (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:525:1)
+    at __webpack_require__ (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:31121:42) 
+
+2024-10-01T09:30:35.300Z  error: uncaughtException: Unexpected token 'c', "config/fir"... is not valid JSON
+SyntaxError: Unexpected token 'c', "config/fir"... is not valid JSON
+    at JSON.parse (<anonymous>)
+    at ZSchema.setRemoteReference (webpack://server-v1/./node_modules/z-schema/src/ZSchema.js?:301:23)
+    at new ZSchema (webpack://server-v1/./node_modules/z-schema/src/ZSchema.js?:126:10)
+    at initializeZSchema (webpack://server-v1/./node_modules/@apidevtools/swagger-parser/lib/validators/schema.js?:44:10)
+    at eval (webpack://server-v1/./node_modules/@apidevtools/swagger-parser/lib/validators/schema.js?:10:15)
+    at ./node_modules/@apidevtools/swagger-parser/lib/validators/schema.js (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:558:1)
+    at __webpack_require__ (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:31121:42)
+    at eval (webpack://server-v1/./node_modules/@apidevtools/swagger-parser/lib/index.js?:4:24)
+    at ./node_modules/@apidevtools/swagger-parser/lib/index.js (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:525:1)
+    at __webpack_require__ (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:31121:42) 
+
+2024-10-01T09:31:36.772Z  error: uncaughtException: Unexpected token 'c', "config/fir"... is not valid JSON
+SyntaxError: Unexpected token 'c', "config/fir"... is not valid JSON
+    at JSON.parse (<anonymous>)
+    at ZSchema.setRemoteReference (webpack://server-v1/./node_modules/z-schema/src/ZSchema.js?:301:23)
+    at new ZSchema (webpack://server-v1/./node_modules/z-schema/src/ZSchema.js?:126:10)
+    at initializeZSchema (webpack://server-v1/./node_modules/@apidevtools/swagger-parser/lib/validators/schema.js?:44:10)
+    at eval (webpack://server-v1/./node_modules/@apidevtools/swagger-parser/lib/validators/schema.js?:10:15)
+    at ./node_modules/@apidevtools/swagger-parser/lib/validators/schema.js (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:558:1)
+    at __webpack_require__ (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:31121:42)
+    at eval (webpack://server-v1/./node_modules/@apidevtools/swagger-parser/lib/index.js?:4:24)
+    at ./node_modules/@apidevtools/swagger-parser/lib/index.js (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:525:1)
+    at __webpack_require__ (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:31121:42) 
+
+2024-10-01T09:42:45.638Z  error: uncaughtException: Cannot destructure property 'firebasePassenger' of 'initFirebase(...)' as it is undefined.
+TypeError: Cannot destructure property 'firebasePassenger' of 'initFirebase(...)' as it is undefined.
+    at eval (webpack://server-v1/./src/_old/utils/notificationHelper.js?:89:9)
+    at ./src/_old/utils/notificationHelper.js (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:28466:1)
+    at __webpack_require__ (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:31121:42)
+    at eval (webpack://server-v1/./src/_old/utils/irisaHelper.js?:12:26)
+    at ./src/_old/utils/irisaHelper.js (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:28456:1)
+    at __webpack_require__ (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:31121:42)
+    at eval (webpack://server-v1/./src/_old/socket/service.js?:13:39)
+    at ./src/_old/socket/service.js (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:28346:1)
+    at __webpack_require__ (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:31121:42)
+    at eval (webpack://server-v1/./src/_old/socket/index.js?:13:5) 
+
+2024-10-01T09:45:03.564Z  error: uncaughtException: Unexpected token 'c', "config/fir"... is not valid JSON
+SyntaxError: Unexpected token 'c', "config/fir"... is not valid JSON
+    at JSON.parse (<anonymous>)
+    at ZSchema.setRemoteReference (webpack://server-v1/./node_modules/z-schema/src/ZSchema.js?:301:23)
+    at new ZSchema (webpack://server-v1/./node_modules/z-schema/src/ZSchema.js?:126:10)
+    at initializeZSchema (webpack://server-v1/./node_modules/@apidevtools/swagger-parser/lib/validators/schema.js?:44:10)
+    at eval (webpack://server-v1/./node_modules/@apidevtools/swagger-parser/lib/validators/schema.js?:10:15)
+    at ./node_modules/@apidevtools/swagger-parser/lib/validators/schema.js (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:558:1)
+    at __webpack_require__ (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:31121:42)
+    at eval (webpack://server-v1/./node_modules/@apidevtools/swagger-parser/lib/index.js?:4:24)
+    at ./node_modules/@apidevtools/swagger-parser/lib/index.js (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:525:1)
+    at __webpack_require__ (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:31121:42) 
+
+2024-10-01T09:46:49.519Z  error: uncaughtException: Unexpected token 'c', "config/fir"... is not valid JSON
+SyntaxError: Unexpected token 'c', "config/fir"... is not valid JSON
+    at JSON.parse (<anonymous>)
+    at ZSchema.setRemoteReference (webpack://server-v1/./node_modules/z-schema/src/ZSchema.js?:301:23)
+    at new ZSchema (webpack://server-v1/./node_modules/z-schema/src/ZSchema.js?:126:10)
+    at initializeZSchema (webpack://server-v1/./node_modules/@apidevtools/swagger-parser/lib/validators/schema.js?:44:10)
+    at eval (webpack://server-v1/./node_modules/@apidevtools/swagger-parser/lib/validators/schema.js?:10:15)
+    at ./node_modules/@apidevtools/swagger-parser/lib/validators/schema.js (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:558:1)
+    at __webpack_require__ (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:31121:42)
+    at eval (webpack://server-v1/./node_modules/@apidevtools/swagger-parser/lib/index.js?:4:24)
+    at ./node_modules/@apidevtools/swagger-parser/lib/index.js (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:525:1)
+    at __webpack_require__ (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:31121:42) 
+
+2024-10-01T09:52:40.970Z  error: uncaughtException: Cannot destructure property 'firebasePassenger' of 'initFirebase(...)' as it is undefined.
+TypeError: Cannot destructure property 'firebasePassenger' of 'initFirebase(...)' as it is undefined.
+    at eval (webpack://server-v1/./src/_old/utils/notificationHelper.js?:89:9)
+    at ./src/_old/utils/notificationHelper.js (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:28466:1)
+    at __webpack_require__ (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:31121:42)
+    at eval (webpack://server-v1/./src/_old/utils/irisaHelper.js?:12:26)
+    at ./src/_old/utils/irisaHelper.js (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:28456:1)
+    at __webpack_require__ (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:31121:42)
+    at eval (webpack://server-v1/./src/_old/socket/service.js?:13:39)
+    at ./src/_old/socket/service.js (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:28346:1)
+    at __webpack_require__ (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:31121:42)
+    at eval (webpack://server-v1/./src/_old/socket/index.js?:13:5) 
+
+2024-10-01T09:55:31.721Z  error: uncaughtException: Cannot destructure property 'firebasePassenger' of 'initFirebase(...)' as it is undefined.
+TypeError: Cannot destructure property 'firebasePassenger' of 'initFirebase(...)' as it is undefined.
+    at eval (webpack://server-v1/./src/_old/utils/notificationHelper.js?:89:9)
+    at ./src/_old/utils/notificationHelper.js (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:28466:1)
+    at __webpack_require__ (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:31121:42)
+    at eval (webpack://server-v1/./src/_old/utils/irisaHelper.js?:12:26)
+    at ./src/_old/utils/irisaHelper.js (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:28456:1)
+    at __webpack_require__ (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:31121:42)
+    at eval (webpack://server-v1/./src/_old/socket/service.js?:13:39)
+    at ./src/_old/socket/service.js (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:28346:1)
+    at __webpack_require__ (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:31121:42)
+    at eval (webpack://server-v1/./src/_old/socket/index.js?:13:5) 
+
+2024-10-01T09:57:20.108Z  error: uncaughtException: Cannot destructure property 'firebasePassenger' of 'initFirebase(...)' as it is undefined.
+TypeError: Cannot destructure property 'firebasePassenger' of 'initFirebase(...)' as it is undefined.
+    at eval (webpack://server-v1/./src/_old/utils/notificationHelper.js?:89:9)
+    at ./src/_old/utils/notificationHelper.js (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:28466:1)
+    at __webpack_require__ (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:31121:42)
+    at eval (webpack://server-v1/./src/_old/utils/irisaHelper.js?:12:26)
+    at ./src/_old/utils/irisaHelper.js (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:28456:1)
+    at __webpack_require__ (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:31121:42)
+    at eval (webpack://server-v1/./src/_old/socket/service.js?:13:39)
+    at ./src/_old/socket/service.js (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:28346:1)
+    at __webpack_require__ (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:31121:42)
+    at eval (webpack://server-v1/./src/_old/socket/index.js?:13:5) 
+
+2024-10-01T09:59:26.244Z  error: uncaughtException: Cannot destructure property 'firebasePassenger' of 'initFirebase(...)' as it is undefined.
+TypeError: Cannot destructure property 'firebasePassenger' of 'initFirebase(...)' as it is undefined.
+    at eval (webpack://server-v1/./src/_old/utils/notificationHelper.js?:89:9)
+    at ./src/_old/utils/notificationHelper.js (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:28466:1)
+    at __webpack_require__ (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:31121:42)
+    at eval (webpack://server-v1/./src/_old/utils/irisaHelper.js?:12:26)
+    at ./src/_old/utils/irisaHelper.js (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:28456:1)
+    at __webpack_require__ (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:31121:42)
+    at eval (webpack://server-v1/./src/_old/socket/service.js?:13:39)
+    at ./src/_old/socket/service.js (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:28346:1)
+    at __webpack_require__ (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:31121:42)
+    at eval (webpack://server-v1/./src/_old/socket/index.js?:13:5) 
+
+2024-10-01T10:02:15.219Z  error: uncaughtException: Cannot destructure property 'firebasePassenger' of 'initFirebase(...)' as it is undefined.
+TypeError: Cannot destructure property 'firebasePassenger' of 'initFirebase(...)' as it is undefined.
+    at eval (webpack://server-v1/./src/_old/utils/notificationHelper.js?:89:9)
+    at ./src/_old/utils/notificationHelper.js (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:28466:1)
+    at __webpack_require__ (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:31121:42)
+    at eval (webpack://server-v1/./src/_old/utils/irisaHelper.js?:12:26)
+    at ./src/_old/utils/irisaHelper.js (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:28456:1)
+    at __webpack_require__ (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:31121:42)
+    at eval (webpack://server-v1/./src/_old/socket/service.js?:13:39)
+    at ./src/_old/socket/service.js (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:28346:1)
+    at __webpack_require__ (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:31121:42)
+    at eval (webpack://server-v1/./src/_old/socket/index.js?:13:5) 
+
+2024-10-01T10:08:38.094Z  error: uncaughtException: Cannot destructure property 'firebasePassenger' of 'initFirebase(...)' as it is undefined.
+TypeError: Cannot destructure property 'firebasePassenger' of 'initFirebase(...)' as it is undefined.
+    at eval (webpack://server-v1/./src/_old/utils/notificationHelper.js?:89:9)
+    at ./src/_old/utils/notificationHelper.js (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:28466:1)
+    at __webpack_require__ (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:31121:42)
+    at eval (webpack://server-v1/./src/_old/utils/irisaHelper.js?:12:26)
+    at ./src/_old/utils/irisaHelper.js (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:28456:1)
+    at __webpack_require__ (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:31121:42)
+    at eval (webpack://server-v1/./src/_old/socket/service.js?:13:39)
+    at ./src/_old/socket/service.js (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:28346:1)
+    at __webpack_require__ (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:31121:42)
+    at eval (webpack://server-v1/./src/_old/socket/index.js?:13:5) 
+
+2024-10-01T10:16:10.037Z  error: uncaughtException: Cannot destructure property 'firebasePassenger' of 'initFirebase(...)' as it is undefined.
+TypeError: Cannot destructure property 'firebasePassenger' of 'initFirebase(...)' as it is undefined.
+    at eval (webpack://server-v1/./src/_old/utils/notificationHelper.js?:89:9)
+    at ./src/_old/utils/notificationHelper.js (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:28466:1)
+    at __webpack_require__ (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:31121:42)
+    at eval (webpack://server-v1/./src/_old/utils/irisaHelper.js?:12:26)
+    at ./src/_old/utils/irisaHelper.js (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:28456:1)
+    at __webpack_require__ (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:31121:42)
+    at eval (webpack://server-v1/./src/_old/socket/service.js?:13:39)
+    at ./src/_old/socket/service.js (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:28346:1)
+    at __webpack_require__ (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:31121:42)
+    at eval (webpack://server-v1/./src/_old/socket/index.js?:13:5) 
+
+2024-10-01T10:28:01.062Z  error: uncaughtException: Cannot destructure property 'firebasePassenger' of 'initFirebase(...)' as it is undefined.
+TypeError: Cannot destructure property 'firebasePassenger' of 'initFirebase(...)' as it is undefined.
+    at eval (webpack://server-v1/./src/_old/utils/notificationHelper.js?:89:9)
+    at ./src/_old/utils/notificationHelper.js (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:28466:1)
+    at __webpack_require__ (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:31121:42)
+    at eval (webpack://server-v1/./src/_old/utils/irisaHelper.js?:12:26)
+    at ./src/_old/utils/irisaHelper.js (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:28456:1)
+    at __webpack_require__ (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:31121:42)
+    at eval (webpack://server-v1/./src/_old/socket/service.js?:13:39)
+    at ./src/_old/socket/service.js (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:28346:1)
+    at __webpack_require__ (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:31121:42)
+    at eval (webpack://server-v1/./src/_old/socket/index.js?:13:5) 
+
+2024-10-01T10:30:48.257Z  error: uncaughtException: Cannot destructure property 'firebasePassenger' of 'initFirebase(...)' as it is undefined.
+TypeError: Cannot destructure property 'firebasePassenger' of 'initFirebase(...)' as it is undefined.
+    at eval (webpack://server-v1/./src/_old/utils/notificationHelper.js?:89:9)
+    at ./src/_old/utils/notificationHelper.js (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:28466:1)
+    at __webpack_require__ (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:31121:42)
+    at eval (webpack://server-v1/./src/_old/utils/irisaHelper.js?:12:26)
+    at ./src/_old/utils/irisaHelper.js (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:28456:1)
+    at __webpack_require__ (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:31121:42)
+    at eval (webpack://server-v1/./src/_old/socket/service.js?:13:39)
+    at ./src/_old/socket/service.js (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:28346:1)
+    at __webpack_require__ (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\dist\bundle.js:31121:42)
+    at eval (webpack://server-v1/./src/_old/socket/index.js?:13:5) 
+
+2024-10-01T11:49:06.622Z  error: uncaughtException: write after end
+Error: write after end
+    at writeAfterEnd (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:264:12)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:300:21)
+    at File.log (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\transports\file.js:222:34)
+    at RejectionStream._write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\rejection-stream.js:46:29)
+    at doWrite (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:390:139)
+    at writeOrBuffer (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:381:5)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:302:11)
+    at DerivedLogger.ondata (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:629:20)
+    at DerivedLogger.emit (node:events:531:35)
+    at addChunk (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:279:12) 
+
+2024-10-01T12:22:22.472Z  error: uncaughtException: Cannot destructure property 'firebasePassenger' of 'initFirebase(...)' as it is undefined.
+TypeError: Cannot destructure property 'firebasePassenger' of 'initFirebase(...)' as it is undefined.
+    at Object.<anonymous> (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\utils\notificationHelper.js:89:9)
+    at Module._compile (node:internal/modules/cjs/loader:1358:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10)
+    at Module.load (node:internal/modules/cjs/loader:1208:32)
+    at Module._load (node:internal/modules/cjs/loader:1024:12)
+    at Module.require (node:internal/modules/cjs/loader:1233:19)
+    at require (node:internal/modules/helpers:179:18)
+    at Object.<anonymous> (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\utils\irisaHelper.js:12:26)
+    at Module._compile (node:internal/modules/cjs/loader:1358:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10) 
+
+2024-10-01T12:23:34.250Z  error: uncaughtException: Configuration property "USE_FIREBASE" is not defined
+Error: Configuration property "USE_FIREBASE" is not defined
+    at Config.get (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\config\lib\config.js:181:11)
+    at initFirebase (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\utils\notificationHelper.js:12:15)
+    at Object.<anonymous> (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\utils\notificationHelper.js:89:48)
+    at Module._compile (node:internal/modules/cjs/loader:1358:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10)
+    at Module.load (node:internal/modules/cjs/loader:1208:32)
+    at Module._load (node:internal/modules/cjs/loader:1024:12)
+    at Module.require (node:internal/modules/cjs/loader:1233:19)
+    at require (node:internal/modules/helpers:179:18)
+    at Object.<anonymous> (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\utils\irisaHelper.js:12:26) 
+
+2024-10-01T12:26:12.772Z  error: uncaughtException: Configuration property "USE_FIREBASE" is not defined
+Error: Configuration property "USE_FIREBASE" is not defined
+    at Config.get (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\config\lib\config.js:181:11)
+    at initFirebase (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\utils\notificationHelper.js:12:15)
+    at Object.<anonymous> (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\utils\notificationHelper.js:89:48)
+    at Module._compile (node:internal/modules/cjs/loader:1358:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10)
+    at Module.load (node:internal/modules/cjs/loader:1208:32)
+    at Module._load (node:internal/modules/cjs/loader:1024:12)
+    at Module.require (node:internal/modules/cjs/loader:1233:19)
+    at require (node:internal/modules/helpers:179:18)
+    at Object.<anonymous> (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\utils\irisaHelper.js:12:26) 
+
+2024-10-01T12:26:39.520Z  error: uncaughtException: Configuration property "USE_FIREBASE" is not defined
+Error: Configuration property "USE_FIREBASE" is not defined
+    at Config.get (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\config\lib\config.js:181:11)
+    at initFirebase (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\utils\notificationHelper.js:12:15)
+    at Object.<anonymous> (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\utils\notificationHelper.js:89:48)
+    at Module._compile (node:internal/modules/cjs/loader:1358:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10)
+    at Module.load (node:internal/modules/cjs/loader:1208:32)
+    at Module._load (node:internal/modules/cjs/loader:1024:12)
+    at Module.require (node:internal/modules/cjs/loader:1233:19)
+    at require (node:internal/modules/helpers:179:18)
+    at Object.<anonymous> (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\utils\irisaHelper.js:12:26) 
+
+2024-10-01T12:26:49.135Z  error: uncaughtException: Configuration property "USE_FIREBASE" is not defined
+Error: Configuration property "USE_FIREBASE" is not defined
+    at Config.get (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\config\lib\config.js:181:11)
+    at initFirebase (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\utils\notificationHelper.js:12:15)
+    at Object.<anonymous> (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\utils\notificationHelper.js:89:48)
+    at Module._compile (node:internal/modules/cjs/loader:1358:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10)
+    at Module.load (node:internal/modules/cjs/loader:1208:32)
+    at Module._load (node:internal/modules/cjs/loader:1024:12)
+    at Module.require (node:internal/modules/cjs/loader:1233:19)
+    at require (node:internal/modules/helpers:179:18)
+    at Object.<anonymous> (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\utils\irisaHelper.js:12:26) 
+
+2024-10-01T12:26:58.228Z  error: uncaughtException: Configuration property "USE_FIREBASE" is not defined
+Error: Configuration property "USE_FIREBASE" is not defined
+    at Config.get (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\config\lib\config.js:181:11)
+    at initFirebase (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\utils\notificationHelper.js:12:15)
+    at Object.<anonymous> (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\utils\notificationHelper.js:89:48)
+    at Module._compile (node:internal/modules/cjs/loader:1358:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10)
+    at Module.load (node:internal/modules/cjs/loader:1208:32)
+    at Module._load (node:internal/modules/cjs/loader:1024:12)
+    at Module.require (node:internal/modules/cjs/loader:1233:19)
+    at require (node:internal/modules/helpers:179:18)
+    at Object.<anonymous> (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\utils\irisaHelper.js:12:26) 
+
+2024-10-01T12:27:03.136Z  error: uncaughtException: Configuration property "USE_FIREBASE" is not defined
+Error: Configuration property "USE_FIREBASE" is not defined
+    at Config.get (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\config\lib\config.js:181:11)
+    at initFirebase (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\utils\notificationHelper.js:12:15)
+    at Object.<anonymous> (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\utils\notificationHelper.js:89:48)
+    at Module._compile (node:internal/modules/cjs/loader:1358:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10)
+    at Module.load (node:internal/modules/cjs/loader:1208:32)
+    at Module._load (node:internal/modules/cjs/loader:1024:12)
+    at Module.require (node:internal/modules/cjs/loader:1233:19)
+    at require (node:internal/modules/helpers:179:18)
+    at Object.<anonymous> (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\utils\irisaHelper.js:12:26) 
+
+2024-10-01T12:27:14.145Z  error: uncaughtException: Configuration property "USE_FIREBASE" is not defined
+Error: Configuration property "USE_FIREBASE" is not defined
+    at Config.get (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\config\lib\config.js:181:11)
+    at initFirebase (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\utils\notificationHelper.js:12:15)
+    at Object.<anonymous> (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\utils\notificationHelper.js:89:48)
+    at Module._compile (node:internal/modules/cjs/loader:1358:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10)
+    at Module.load (node:internal/modules/cjs/loader:1208:32)
+    at Module._load (node:internal/modules/cjs/loader:1024:12)
+    at Module.require (node:internal/modules/cjs/loader:1233:19)
+    at require (node:internal/modules/helpers:179:18)
+    at Object.<anonymous> (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\utils\irisaHelper.js:12:26) 
+
+2024-10-01T12:27:50.001Z  error: uncaughtException: Cannot destructure property 'firebasePassenger' of 'initFirebase(...)' as it is undefined.
+TypeError: Cannot destructure property 'firebasePassenger' of 'initFirebase(...)' as it is undefined.
+    at Object.<anonymous> (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\utils\notificationHelper.js:89:9)
+    at Module._compile (node:internal/modules/cjs/loader:1358:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10)
+    at Module.load (node:internal/modules/cjs/loader:1208:32)
+    at Module._load (node:internal/modules/cjs/loader:1024:12)
+    at Module.require (node:internal/modules/cjs/loader:1233:19)
+    at require (node:internal/modules/helpers:179:18)
+    at Object.<anonymous> (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\utils\irisaHelper.js:12:26)
+    at Module._compile (node:internal/modules/cjs/loader:1358:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10) 
+
+2024-10-01T12:28:11.733Z  error: uncaughtException: Cannot destructure property 'firebasePassenger' of 'initFirebase(...)' as it is undefined.
+TypeError: Cannot destructure property 'firebasePassenger' of 'initFirebase(...)' as it is undefined.
+    at Object.<anonymous> (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\utils\notificationHelper.js:89:9)
+    at Module._compile (node:internal/modules/cjs/loader:1358:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10)
+    at Module.load (node:internal/modules/cjs/loader:1208:32)
+    at Module._load (node:internal/modules/cjs/loader:1024:12)
+    at Module.require (node:internal/modules/cjs/loader:1233:19)
+    at require (node:internal/modules/helpers:179:18)
+    at Object.<anonymous> (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\utils\irisaHelper.js:12:26)
+    at Module._compile (node:internal/modules/cjs/loader:1358:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10) 
+
+2024-10-01T12:28:38.878Z  error: uncaughtException: Cannot destructure property 'firebasePassenger' of 'initFirebase(...)' as it is null.
+TypeError: Cannot destructure property 'firebasePassenger' of 'initFirebase(...)' as it is null.
+    at Object.<anonymous> (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\utils\notificationHelper.js:89:9)
+    at Module._compile (node:internal/modules/cjs/loader:1358:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10)
+    at Module.load (node:internal/modules/cjs/loader:1208:32)
+    at Module._load (node:internal/modules/cjs/loader:1024:12)
+    at Module.require (node:internal/modules/cjs/loader:1233:19)
+    at require (node:internal/modules/helpers:179:18)
+    at Object.<anonymous> (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\utils\irisaHelper.js:12:26)
+    at Module._compile (node:internal/modules/cjs/loader:1358:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10) 
+
+2024-10-01T12:29:59.537Z  error: uncaughtException: Cannot access 'firebasePassenger' before initialization
+ReferenceError: Cannot access 'firebasePassenger' before initialization
+    at initFirebase (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\utils\notificationHelper.js:14:7)
+    at Object.<anonymous> (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\utils\notificationHelper.js:92:48)
+    at Module._compile (node:internal/modules/cjs/loader:1358:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10)
+    at Module.load (node:internal/modules/cjs/loader:1208:32)
+    at Module._load (node:internal/modules/cjs/loader:1024:12)
+    at Module.require (node:internal/modules/cjs/loader:1233:19)
+    at require (node:internal/modules/helpers:179:18)
+    at Object.<anonymous> (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\utils\irisaHelper.js:12:26)
+    at Module._compile (node:internal/modules/cjs/loader:1358:14) 
+
+2024-10-02T08:05:30.943Z  error: uncaughtException: write after end
+Error: write after end
+    at writeAfterEnd (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:264:12)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:300:21)
+    at File.log (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\transports\file.js:222:34)
+    at RejectionStream._write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\rejection-stream.js:46:29)
+    at doWrite (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:390:139)
+    at writeOrBuffer (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:381:5)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:302:11)
+    at DerivedLogger.ondata (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:629:20)
+    at DerivedLogger.emit (node:events:531:35)
+    at addChunk (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:279:12) 
+
+2024-10-02T10:14:57.660Z  error: uncaughtException: write after end
+Error: write after end
+    at writeAfterEnd (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:264:12)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:300:21)
+    at File.log (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\transports\file.js:222:34)
+    at RejectionStream._write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\rejection-stream.js:46:29)
+    at doWrite (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:390:139)
+    at writeOrBuffer (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:381:5)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:302:11)
+    at DerivedLogger.ondata (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:629:20)
+    at DerivedLogger.emit (node:events:531:35)
+    at addChunk (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:279:12) 
+
+2024-10-03T08:20:12.995Z  error: uncaughtException: write after end
+Error: write after end
+    at writeAfterEnd (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:264:12)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:300:21)
+    at File.log (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\transports\file.js:222:34)
+    at RejectionStream._write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\rejection-stream.js:46:29)
+    at doWrite (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:390:139)
+    at writeOrBuffer (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:381:5)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:302:11)
+    at DerivedLogger.ondata (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:629:20)
+    at DerivedLogger.emit (node:events:531:35)
+    at addChunk (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:279:12) 
+
+2024-10-03T11:29:49.323Z  error: uncaughtException: listen EADDRINUSE: address already in use :::4000
+Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1904:16)
+    at listenInCluster (node:net:1961:12)
+    at Server.listen (node:net:2063:7)
+    at init (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\server.js:104:10)
+    at Object.<anonymous> (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\server.js:135:1)
+    at Module._compile (node:internal/modules/cjs/loader:1358:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10)
+    at Module.load (node:internal/modules/cjs/loader:1208:32)
+    at Module._load (node:internal/modules/cjs/loader:1024:12)
+    at Module.require (node:internal/modules/cjs/loader:1233:19) 
+
+2024-10-05T07:31:37.120Z  error: uncaughtException: missing ) after argument list
+C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\agance\routes\agance-controller.js:207
+        console.log(1000,existingUser;
+                         ^^^^^^^^^^^^
+
+SyntaxError: missing ) after argument list
+    at wrapSafe (node:internal/modules/cjs/loader:1281:20)
+    at Module._compile (node:internal/modules/cjs/loader:1321:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10)
+    at Module.load (node:internal/modules/cjs/loader:1208:32)
+    at Module._load (node:internal/modules/cjs/loader:1024:12)
+    at Module.require (node:internal/modules/cjs/loader:1233:19)
+    at require (node:internal/modules/helpers:179:18)
+    at Object.<anonymous> (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\agance\routes\index.js:2:26)
+    at Module._compile (node:internal/modules/cjs/loader:1358:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10) 
+
+2024-10-06T06:05:11.072Z  error: uncaughtException: write after end
+Error: write after end
+    at writeAfterEnd (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:264:12)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:300:21)
+    at File.log (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\transports\file.js:222:34)
+    at RejectionStream._write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\rejection-stream.js:46:29)
+    at doWrite (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:390:139)
+    at writeOrBuffer (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:381:5)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:302:11)
+    at DerivedLogger.ondata (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:629:20)
+    at DerivedLogger.emit (node:events:531:35)
+    at addChunk (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:279:12) 
+
+2024-10-06T06:13:03.905Z  error: uncaughtException: write after end
+Error: write after end
+    at writeAfterEnd (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:264:12)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:300:21)
+    at File.log (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\transports\file.js:222:34)
+    at RejectionStream._write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\rejection-stream.js:46:29)
+    at doWrite (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:390:139)
+    at writeOrBuffer (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:381:5)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:302:11)
+    at DerivedLogger.ondata (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:629:20)
+    at DerivedLogger.emit (node:events:531:35)
+    at addChunk (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:279:12) 
+
+2024-10-06T06:14:26.313Z  error: uncaughtException: write after end
+Error: write after end
+    at writeAfterEnd (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:264:12)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:300:21)
+    at File.log (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\transports\file.js:222:34)
+    at RejectionStream._write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\rejection-stream.js:46:29)
+    at doWrite (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:390:139)
+    at writeOrBuffer (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:381:5)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:302:11)
+    at DerivedLogger.ondata (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:629:20)
+    at DerivedLogger.emit (node:events:531:35)
+    at addChunk (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:279:12) 
+
+2024-10-06T06:15:17.441Z  error: uncaughtException: write after end
+Error: write after end
+    at writeAfterEnd (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:264:12)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:300:21)
+    at File.log (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\transports\file.js:222:34)
+    at RejectionStream._write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\rejection-stream.js:46:29)
+    at doWrite (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:390:139)
+    at writeOrBuffer (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:381:5)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:302:11)
+    at DerivedLogger.ondata (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:629:20)
+    at DerivedLogger.emit (node:events:531:35)
+    at addChunk (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:279:12) 
+

@@ -9,10 +9,13 @@ const { getConnectionsInstance } = require("../socket/connections");
 const fs = require('fs');
 
 const initFirebase = () => {
-  // if (config.get('USE_FIREBASE') !== "TRUE") {
-  //   return
-  //   // throw new Error("Passenger service account JSON is empty"); // ایجاد خطا به جای return
-  // }
+   if (config.get('USE_FIREBASE') !== "TRUE") {
+    return {
+      firebasePassenger:null,
+      firebaserDriver:null
+    };
+     // throw new Error("Passenger service account JSON is empty"); // ایجاد خطا به جای return
+   }
 
   try {
     // دریافت مسیر DRIVER_SERVICE_ACCOUNT از فایل پیکربندی
@@ -23,15 +26,26 @@ const initFirebase = () => {
 
     // حل مسیر به یک مسیر مطلق
     const passCertPath = path.resolve(process.cwd(), passengerServiceAccountPath)//passengerServiceAccountPath;// require(path.resolve(passengerServiceAccountPath));
-    const driverCertPath =path.resolve(process.cwd(), driverServiceAccountPath)// driverServiceAccountPath;// require(path.resolve(driverServiceAccountPath));
+    const driverCertPath = path.resolve(process.cwd(), driverServiceAccountPath)// driverServiceAccountPath;// require(path.resolve(driverServiceAccountPath));
 
-   // console.log(54, passCertPath);
+    // console.log(54, passCertPath);
 
     // بارگذاری فایل‌های JSON
-    console.log(57,path.resolve(__dirname, passengerServiceAccountPath));
-    
+    //console.log(57, path.resolve(__dirname, passCertPath));
+
     const passCertContent = fs.readFileSync(passCertPath, 'utf8');
-   // console.log("Passenger Service Account Content:", passCertContent); // لاگ محتویات
+    // console.log("Passenger Service Account Content:", passCertContent); // لاگ محتویات
+
+    // passCertContent = passCertContent.replace(/\\n/g, "\\n")
+    //   .replace(/\\'/g, "\\'")
+    //   .replace(/\\"/g, '\\"')
+    //   .replace(/\\&/g, "\\&")
+    //   .replace(/\\r/g, "\\r")
+    //   .replace(/\\t/g, "\\t")
+    //   .replace(/\\b/g, "\\b")
+    //   .replace(/\\f/g, "\\f");
+    // // Remove non-printable and other non-valid JSON characters
+    // passCertContent = passCertContent.replace(/[\u0000-\u001F]+/g, "");
     const passCert = JSON.parse(passCertContent);
     //console.log(2001, passCert); // چاپ محتوای فایل
 
@@ -46,6 +60,17 @@ const initFirebase = () => {
 
     const driverCertContent = fs.readFileSync(driverCertPath, 'utf8');
     //console.log("Driver Service Account Content:", driverCertContent); // لاگ محتوای فایل
+
+    // driverCertContent = driverCertContent.replace(/\\n/g, "\\n")
+    //   .replace(/\\'/g, "\\'")
+    //   .replace(/\\"/g, '\\"')
+    //   .replace(/\\&/g, "\\&")
+    //   .replace(/\\r/g, "\\r")
+    //   .replace(/\\t/g, "\\t")
+    //   .replace(/\\b/g, "\\b")
+    //   .replace(/\\f/g, "\\f");
+    // // Remove non-printable and other non-valid JSON characters
+    // driverCertContent = driverCertContent.replace(/[\u0000-\u001F]+/g, "");
     const driverCert = JSON.parse(driverCertContent);
     //console.log(20011, driverCert);
 

@@ -7,6 +7,7 @@ const { aganceCarteSalahiyat } = require('../data/aganceCarteSalahiyat-model')
 const { aganceTarefeAvarez } = require('../data/aganceTarefeAvarez-model')
 const { Vehicle } = require('../../vehicles/data/vehicle-model');
 const { ObjectId } = require("mongodb");
+const mongoose = require('mongoose');
 
 
 
@@ -199,21 +200,40 @@ async function insert_AganceDriver(req, res) {
         // }
 
         const item = req.body;
-        const user = new UserAccount(item)
-        const result = await user.save();
 
-        return res.status(200).send({
-            status: 200,
-            data: item
-        });
+        console.log(1000,item);
 
-    } catch (error) {
+        // ابتدا بررسی می‌کنیم که آیا کد ملی از قبل وجود دارد یا نه
+        const existingUser = await UserAccount.findOne({ username: item.username });
+        console.log(1000,existingUser);
+        if (existingUser) {
+            console.log(5895555);
+
+            return res.status(201).send({
+                status: 201,
+                data: 'کد ملی وارد شده تکراری است.'
+            });
+        }
+
+        else {
+            const user = new UserAccount(item)
+            const result = await user.save();
+
+            return res.status(200).send({
+                status: 200,
+                data: item
+            });
+
+        } 
+    }
+    catch (error) {
         console.error(6000);
         return res.status(500).send({
             status: 500,
             error: error.message
         });
     }
+      
 }
 
 async function select_AganceDriver(req, res) {
@@ -238,6 +258,9 @@ async function update_AganceDriver(req, res) {
         const id = req.params.id;
         let item = req.body;
         delete item._id;
+        delete item.username;
+        delete item.password;
+
         const result = await UserAccount.findByIdAndUpdate(id, item, { new: true });
         //   console.log(800, result);
 
@@ -666,7 +689,7 @@ async function selectAganceProfileByDriverId(req, res) {
         const result = await UserAccount.aggregate([
             {
                 $match: {
-                    _id: ObjectId(driverId)
+                    _id: new mongoose.Types.ObjectId(driverId)
                 }
             },
             {
@@ -734,11 +757,11 @@ async function selectAganceProfileByDriverId(req, res) {
                     }
                 }
             },
-            { 
-                $unwind: '$allActivity' 
+            {
+                $unwind: '$allActivity'
             },
-            { 
-                $sort: { 'allActivity.date': 1 } 
+            {
+                $sort: { 'allActivity.date': 1 }
             },
             {
                 $group: {
@@ -748,16 +771,16 @@ async function selectAganceProfileByDriverId(req, res) {
                     allActivity: { $push: '$allActivity' }
                 }
             }
-        ], 
-        { maxTimeMS: 60000, allowDiskUse: true });
-        
+        ],
+            { maxTimeMS: 60000, allowDiskUse: true });
+
         return res.status(200).send({
             status: 200,
             data: result
         });
 
     } catch (error) {
-        console.error(6000);
+        console.error(6000,error);
         return res.status(500).send({
             status: 500,
             error: error.message

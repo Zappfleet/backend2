@@ -346,7 +346,7 @@ const saveDriverLocation = async (req, res, next) => {
     console.log("Location service error >>>> " + e.message);
   }
 
-  const driver = await Driver.findOneAndUpdate(
+  const driver = await Driver.findByIdAndUpdate(
     { "user.account_id": req.user._id, is_active: true, status: 0 },
     { location, speed: meta?.[0].speed || 0, date: meta?.[0].date || new Date() }
   );
@@ -363,7 +363,7 @@ const saveDriverLocation = async (req, res, next) => {
     },
     "admins"
   );
-  await Car.findOneAndUpdate(
+  await Car.findByIdAndUpdate(
     { _id: driver.car_id },
     { "driver.location": location, "driver.bearing": bearing }
   );

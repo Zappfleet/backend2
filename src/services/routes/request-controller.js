@@ -244,12 +244,15 @@ console.log(7);
 
 async function statusChange(req, res, status) {
   const _id = req.params.id;
-  const AuthID =  req.query.AuthID //req?.auth._id? req.auth._id : req.query.AuthID;
-  console.log(85896,_id,AuthID,status);
+  const AuthID =  req?.auth._id? req.auth._id : req.query.AuthID;
+  
   const result = await updateServiceStatus(req.params.id, status, AuthID);
+  console.log(85896,result.error);
   if (result.error) {
     res.status(result.status).send({ error: result.error });
   } else {
+    console.log(89);
+    
     res.status(200).send(result);
     notifyServiceRequestUpdate(_id);
    // console.log(22, status);

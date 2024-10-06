@@ -412,7 +412,7 @@ const changeRequestTime = async (req, res, next) => {
 const checkManagerRequest = async (req, res, next) => {
   const { result } = req.query;
   const { id } = req.params;
-  const rqst = await Request.findOneAndUpdate({
+  const rqst = await Request.findByIdAndUpdate({
     _id: id,
     step: rqstStep.crtBps,
     status: {

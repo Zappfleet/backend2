@@ -231,6 +231,8 @@ async function getUserList(req, res) {
 }
 
 async function getUserListByPermissions(req, res) {
+  console.log(5200);
+  
   const search = replaceArabicCharacters(req.query.search?.trim());
   const permissions = req.query.permissions
     .split(",")
@@ -249,6 +251,8 @@ async function getUserListByPermissions(req, res) {
     permittedUsers.push(...externalUsers);
   }
 
+  console.log(123,permittedUsers);
+  
   return res.status(200).send(permittedUsers);
 }
 

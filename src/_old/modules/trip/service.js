@@ -906,7 +906,7 @@ const deleteTrip = async (req, res) => {
 
   if (trip == null) return sendErrorByEnviorment("امکان لغو سفر در  این مرحله وجود ندارد");
   for (el of trip.request_ids) {
-    const request = await Request.findOneAndUpdate(
+    const request = await Request.findByIdAndUpdate(
       {
         _id: el,
         is_active: true,

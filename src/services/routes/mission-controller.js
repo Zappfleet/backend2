@@ -330,6 +330,8 @@ class MissionController {
       status: { $in: statusList },
     };
 
+    console.log(21,filter,statusList);
+    
     if (statusList.length == 0) delete filter.status;
 
     const hasNoArealPermission =
@@ -559,7 +561,7 @@ class MissionController {
 
     const mission = await readMissionDetails(mission_id)
 
-    const missionResult = await ServiceMission.findOneAndUpdate(
+    const missionResult = await ServiceMission.findByIdAndUpdate(
       { _id: mission._id }, // The query object
       { $push: { "extra.comments": comment } }, // The update object
       { new: true } // The options object

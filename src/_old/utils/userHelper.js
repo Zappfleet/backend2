@@ -3,7 +3,7 @@ const { User } = require("../modules/user/model");
 
 const banUser = async (id) => {
   await User.findByIdAndUpdate(id, { is_active: false });
-  await Account.findOneAndUpdate({ user_id: id }, { is_active: false });
+  await Account.findByIdAndUpdate({ user_id: id }, { is_active: false });
 };
 
 function password_generator(len) {

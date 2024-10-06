@@ -56,6 +56,7 @@ async function run() {
       });
     }
 
+    
     const passengerRole = await UserRole.findOne({ title: "مسافر" });
     if (!passengerRole) {
       console.log("Creating 'مسافر' role...");
@@ -80,7 +81,7 @@ async function run() {
         username: "admin",
         password: encrypt("adminadmin"),
         details: {},
-        phone: "09362370299",
+        phone: "09151250498",
         roles: [adminRole._id],
         status: userStatus.ACTIVE.key,
       });

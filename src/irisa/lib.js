@@ -140,6 +140,8 @@ const getIrisaPersonelList = async () => {
       }),
     });
 
+   // console.log(42,irisaToken);
+    
     const request = await axiosInstance.get(
       "https://frame.irisaco.com/api/sql2cs/do/oa_emploee/rest/v1.0",
       {

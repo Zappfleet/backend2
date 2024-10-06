@@ -86,14 +86,16 @@ async function updateExternalUserbase() {
     // دریافت لیست پرسنل
     const full_list_of_personel = await getIrisaPersonelList();
 
+   // console.log(77,full_list_of_personel.data);
+    
     // بررسی اینکه آیا داده‌ها به درستی دریافت شده‌اند
-    if (!full_list_of_personel || !Array.isArray(full_list_of_personel.data)) {
+    if (!full_list_of_personel || !Array.isArray(full_list_of_personel)) {
      // console.error("Invalid personnel list received:", full_list_of_personel);
       return;
     }
 
     // حذف موارد موجود
-    const { prunedList } = await deleteExitingOnes(full_list_of_personel.data);
+    const { prunedList } = await deleteExitingOnes(full_list_of_personel);
 
     // بررسی اینکه prunedList آرایه‌ای معتبر است
     if (!Array.isArray(prunedList) || prunedList.some(item => typeof item !== 'object')) {

@@ -39,7 +39,7 @@ async function getListOfAssignableDrivers() {
 async function unassignVehicleDriver(vehicle_id) {
   const filter = { _id: new ObjectId(vehicle_id) };
   const args = { driver_user: null };
-  const vehicle = await Vehicle.findOneAndUpdate(
+  const vehicle = await Vehicle.findByIdAndUpdate(
     filter,
     { $set: args },
     { new: true }
@@ -72,7 +72,7 @@ async function assignDriver(vehicle_id, driver_user) {
   const args = {
     driver_user: driver._id,
   };
-  const vehicle = await Vehicle.findOneAndUpdate(
+  const vehicle = await Vehicle.findByIdAndUpdate(
     filter,
     { $set: args },
     { new: true }
@@ -143,7 +143,7 @@ async function updateVehicleById(
   gps_uid && (args.gps_uid = gps_uid);
 
   try {
-    const updatedVehicle = await Vehicle.findOneAndUpdate(
+    const updatedVehicle = await Vehicle.findByIdAndUpdate(
       filter,
       { $set: args },
       { new: true }
@@ -256,7 +256,7 @@ async function updateVehicleLatestGpsArealInfo(vehicle_id) {
           }
         : null,
   };
-  const vehicle = await Vehicle.findOneAndUpdate(
+  const vehicle = await Vehicle.findByIdAndUpdate(
     filter,
     { $set: args },
     { new: true }
@@ -267,7 +267,7 @@ async function updateVehicleLatestGpsArealInfo(vehicle_id) {
 
 async function updateVehicleColorByKey(key, body) {
   try {
-    return await VehicleColorModel.findOneAndUpdate(
+    return await VehicleColorModel.findByIdAndUpdate(
       { key },
       { $set: body },
       { new: true }
@@ -282,7 +282,7 @@ async function updateVehicleColorByKey(key, body) {
 
 async function updateVehicleGroupByKey(key, body) {
   try {
-    return await VehicleGroupModel.findOneAndUpdate(
+    return await VehicleGroupModel.findByIdAndUpdate(
       { key },
       { $set: body },
       { new: true }
@@ -297,7 +297,7 @@ async function updateVehicleGroupByKey(key, body) {
 
 async function updateVehicleServiceGroupByKey(key, body) {
   try {
-    return await VehicleServiceModel.findOneAndUpdate(
+    return await VehicleServiceModel.findByIdAndUpdate(
       { key },
       { $set: body },
       { new: true }
@@ -351,7 +351,7 @@ async function insertVehicleName(title) {
 
 async function updateVehicleNameByKey(key, body) {
   try {
-    return await VehicleNameModel.findOneAndUpdate(
+    return await VehicleNameModel.findByIdAndUpdate(
       { key },
       { $set: body },
       { new: true }

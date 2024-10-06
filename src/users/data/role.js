@@ -27,7 +27,7 @@ async function editUserRole(_id, title, permissions, auto_assign_rules) {
     const filter = {
         _id: new mongoose.Types.ObjectId(_id)
     };
-    return await UserRole.findOneAndUpdate(filter, { $set }, { new: true });
+    return await UserRole.findByIdAndUpdate(filter, { $set }, { new: true });
 }
 
 async function reactivateUserRole(_id) {
@@ -42,7 +42,7 @@ async function updateUserRoleActive(_id, active) {
     const filter = {
         _id: new mongoose.Types.ObjectId(_id)
     };
-    return await UserRole.findOneAndUpdate(filter, { $set: { active } }, { new: true });
+    return await UserRole.findByIdAndUpdate(filter, { $set: { active } }, { new: true });
 }
 
 async function listUserRoles(filter = {}) {

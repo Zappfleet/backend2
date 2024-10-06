@@ -65,8 +65,8 @@ async function listMissions(
     { path: "created_by" },
   ];
 
-  //console.log(600, paging);
-  const result = paging ?// await ServiceMission.find(filter) 
+  console.log(600,paging, !(paging == 'false' || paging == false));
+  const result = (paging == 'false' || paging == false) ?// await ServiceMission.find(filter) 
     await ServiceMission.aggregate([
       {
         $match: filter // Apply the filter here
@@ -156,9 +156,16 @@ async function listMissions(
       }
     ])
     :
-    await ServiceMission.paginate(filter, paginateOptions);
+    await ServiceMission.aggregate([
+      {
+        $match: filter || {}// Apply the filter here
+      }]);
 
-  if (paging === false) {
+  console.log(77, paging, typeof paging, filter, paging == false, result);
+
+
+  if (paging == 'false' || paging == false) {
+    console.log(5649871, result);
     return result;
   }
 
@@ -316,7 +323,7 @@ async function appendRequestToMission(mission_id, request_id, assigner_id) {
     request_id: request._id,
   });
 
-  const missionResult = await ServiceMission.findOneAndUpdate(
+  const missionResult = await ServiceMission.findByIdAndUpdate(
     { _id: mission._id },
     {
       $push: { service_requests: { request_id: request._id } },
@@ -329,7 +336,7 @@ async function appendRequestToMission(mission_id, request_id, assigner_id) {
   const old_status = request.status;
   const new_status = serviceRequestStatus.ASSIGNED_TO_MISSION.key;
 
-  const requestResult = await ServiceRequest.findOneAndUpdate(
+  const requestResult = await ServiceRequest.findByIdAndUpdate(
     request._id,
     { $set: { status: new_status } },
     { new: true }
@@ -353,12 +360,12 @@ async function removeRequestFromMission(mission_id, request_id) {
 
   if (error) return error;
 
-  const missionResult = await ServiceMission.findOneAndUpdate(
+  const missionResult = await ServiceMission.findByIdAndUpdate(
     mission._id,
     { $pull: { service_requests: { request_id: request._id } } },
     { new: true }
   );
-  const requestResult = await ServiceRequest.findOneAndUpdate(
+  const requestResult = await ServiceRequest.findByIdAndUpdate(
     request._id,
     { $set: { status: serviceRequestStatus.CONFIRM.key } },
     { new: true }
@@ -394,7 +401,7 @@ async function assignVehicleToMission(mission_id, vehicle_id, assigner_id) {
     return { error: compatibilityCheck.error, status: 405 };
   }
 
-  const updatedMission = await ServiceMission.findOneAndUpdate(
+  const updatedMission = await ServiceMission.findByIdAndUpdate(
     mission._id,
     {
       $set: {
@@ -425,7 +432,7 @@ async function removeVehicleFromMission(mission_id) {
     return VEHICLE_UPDATE_NOT_ALLOWED(mission.status);
   }
 
-  const updatedMission = await ServiceMission.findOneAndUpdate(
+  const updatedMission = await ServiceMission.findByIdAndUpdate(
     mission._id,
     { $set: { vehicle_id: null } },
     { new: true }
@@ -483,7 +490,7 @@ async function setMissionStatus(applied_by_user, mission_id, status) {
   }
 
   const status_from = mission.status;
-  const updatedMission = await ServiceMission.findOneAndUpdate(
+  const updatedMission = await ServiceMission.findByIdAndUpdate(
     mission._id,
     { $set: args },
     { new: true }
@@ -639,7 +646,7 @@ async function checkIfRequestExistsInMission(mission_id, request_id) {
 }
 
 async function readRequestDetails(_id) {
- // console.log(45);
+  // console.log(45);
   const serviceRequest = await ServiceRequest.findById(_id);
   if (!serviceRequest) return null;
 
@@ -809,12 +816,12 @@ async function createServiceRequest(
     }
 
     const newRequest = await ServiceRequest.create(doc);
-console.log(3576878,managerCode);
+    console.log(3576878, managerCode);
     const regionInfo = await Region.findOne({ _id: newRequest?.area?._id })
     const managerID = await UserAccount.findOne({
       "details.personel_code": { $exists: true, $eq: managerCode }
     })
-    console.log(888888,managerID,managerCode);
+    console.log(888888, managerID, managerCode);
     const needApprove = (regionInfo && regionInfo?.properties?.need_manager_confirmation) ? false : true
     const manager = {
       _id: managerID?._id,
@@ -830,12 +837,18 @@ console.log(3576878,managerCode);
 }
 
 async function updateServiceStatus(_id, new_status, updater_id) {
+
+
   const serviceRequest = await ServiceRequest.findById(_id);
+  console.log(5555555555, _id);
   const old_status = serviceRequest.status;
+
   const error = await generalUpdateValidationCheck(serviceRequest);
   if (error) {
     return error;
   }
+
+  console.log(88888888);
 
   if (!directlySetableStatuses.includes(new_status)) {
     return {
@@ -843,7 +856,7 @@ async function updateServiceStatus(_id, new_status, updater_id) {
       status: 405,
     };
   }
-  const args = { $set: { status: new_status } };
+  let args = { $set: { status: new_status } };
 
   const updater_key = (function () {
     switch (new_status) {
@@ -856,15 +869,27 @@ async function updateServiceStatus(_id, new_status, updater_id) {
     }
   })();
 
+  console.log(3333333333, updater_key);
+
   if (updater_key != null) {
     args.$set[updater_key] = new ObjectId(updater_id);
   }
 
-  const newRequest = await ServiceRequest.findOneAndUpdate(
+
+
+  console.log(444444444, _id, args);
+
+  const newRequest = await ServiceRequest.findByIdAndUpdate(
     new ObjectId(_id),
     args,
     { new: true }
   );
+
+  if (!newRequest) {
+    console.log(9999, "Document not found or update failed");
+  } else {
+    console.log(99999, "Update successful", newRequest);
+  }
 
   insertMissionServiceStatusHistoryEntry(
     updater_id,
@@ -907,7 +932,7 @@ async function updateServiceRequest(
     service && (args.service = service);
     details && (args.details = details);
     gmt_for_date && (args.gmt_for_date = gmt_for_date);
-    const newRequest = await ServiceRequest.findOneAndUpdate(
+    const newRequest = await ServiceRequest.findByIdAndUpdate(
       new ObjectId(_id),
       { $set: args },
       { new: true, runValidators: true }
@@ -934,6 +959,12 @@ async function generalUpdateValidationCheck(serviceRequest) {
     return REQUEST_NOT_FOUND;
   }
 
+  // console.log(546, process.env.MODE !== "development");
+
+  // if (process.env.MODE !== "development") {
+  //   return false
+  // }
+
   if (nonEditableStatuses.includes(serviceRequest.status)) {
     return {
       error: `Status update to ${serviceRequest.status} not permitted`,
@@ -953,6 +984,7 @@ async function generalUpdateValidationCheck(serviceRequest) {
       };
     }
   }
+
 }
 
 async function insertMissionServiceDriverLocationHistoryEntry(

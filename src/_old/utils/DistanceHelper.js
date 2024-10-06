@@ -44,7 +44,7 @@ const calculateTripDistance = async (pointArr) => {
 };
 
 const updateDriverLocation = async (driverID, location) => {
-  const driver = await Driver.findOneAndUpdate(
+  const driver = await Driver.findByIdAndUpdate(
     { _id: driverID, is_active: true },
     { location }
   );

@@ -71,6 +71,8 @@ async function checkForPermissions(user, permissions) {
 }
 
 async function getListOfUsersWithPermissions(permissions, search, search_all) {
+  console.log(999,permissions,search,search_all);
+  
   const permissionsCondition = permissions.map((item) => {
     return { permissions: item };
   });
@@ -209,7 +211,7 @@ async function resetUserPasswordWithSecretCode(username, code, new_password) {
     username,
     "one_time_token.encrypted_value": encrypt(code),
   };
-  return await UserAccount.findOneAndUpdate(
+  return await UserAccount.findByIdAndUpdate(
     filter,
     { $set: { password: encrypt(new_password), one_time_token: null } },
     { new: true }
@@ -218,7 +220,7 @@ async function resetUserPasswordWithSecretCode(username, code, new_password) {
 
 async function assignOneTimeToken(username) {
   const [one_time_token, code] = generateOneTimeToken();
-  const user = await UserAccount.findOneAndUpdate(
+  const user = await UserAccount.findByIdAndUpdate(
     { username },
     { $set: { one_time_token } },
     { new: true }
