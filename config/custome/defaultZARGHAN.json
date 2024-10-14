@@ -1,6 +1,7 @@
 {
      "_comment": " development or production",
      "environment_name": "local",
+     "MODE":"development",
      "SERVER_IP_BACKEND":"172.16.10.24",
      "FRONT_URL_LOCAL":"http://172.16.10.24:5173",
      "URL_LOCAL": "http://172.16.10.24:4000",

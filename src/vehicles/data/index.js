@@ -296,8 +296,10 @@ async function updateVehicleGroupByKey(key, body) {
 }
 
 async function updateVehicleServiceGroupByKey(key, body) {
+  console.log(63);
+  
   try {
-    return await VehicleServiceModel.findByIdAndUpdate(
+    return await VehicleServiceModel.findOneAndUpdate(
       { key },
       { $set: body },
       { new: true }

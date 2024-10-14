@@ -7,7 +7,7 @@
      "URL_LOCAL": "http://127.0.0.1:4000",
      "db": "mongodb://127.0.0.1:27017/zappfleet",
      "PORT": 4000,
-     "USE_FIREBASE": "TRUE",
+   "USE_FIREBASE": "TRUE",
      
      "URL_SERVER": "https://zapp-backend.liara.run",
      "jwtPrivateKey": "Hamidreza",
