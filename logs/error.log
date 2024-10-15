@@ -1194,3 +1194,75 @@ TypeError: Class constructor ObjectId cannot be invoked without 'new'
     at C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\socket.io\dist\socket.js:697:39
     at process.processTicksAndRejections (node:internal/process/task_queues:77:11) 
 
+2024-10-15T10:40:32.465Z  error: unhandledRejection: Class constructor ObjectId cannot be invoked without 'new'
+TypeError: Class constructor ObjectId cannot be invoked without 'new'
+    at pushLocationIfFarEnough (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\favoriteLocation\routes\favoriteLocations-controller.js:35:36)
+    at C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\notification-service\events\fleetGpsRequest.js:19:19
+    at Array.map (<anonymous>)
+    at onUserGpsUpdate (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\notification-service\events\fleetGpsRequest.js:18:20)
+    at Socket.<anonymous> (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\notification-service\events\fleetGpsRequest.js:55:25)
+    at Socket.emit (node:events:519:28)
+    at Socket.emitUntyped (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\socket.io\dist\typed-events.js:69:22)
+    at C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\socket.io\dist\socket.js:697:39
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11) 
+
+2024-10-15T10:40:32.485Z  error: unhandledRejection: Class constructor ObjectId cannot be invoked without 'new'
+TypeError: Class constructor ObjectId cannot be invoked without 'new'
+    at pushLocationIfFarEnough (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\favoriteLocation\routes\favoriteLocations-controller.js:35:36)
+    at C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\notification-service\events\fleetGpsRequest.js:19:19
+    at Array.map (<anonymous>)
+    at onUserGpsUpdate (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\notification-service\events\fleetGpsRequest.js:18:20)
+    at Socket.<anonymous> (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\notification-service\events\fleetGpsRequest.js:55:25)
+    at Socket.emit (node:events:519:28)
+    at Socket.emitUntyped (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\socket.io\dist\typed-events.js:69:22)
+    at C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\socket.io\dist\socket.js:697:39
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11) 
+
+2024-10-15T10:40:37.926Z  error: unhandledRejection: Class constructor ObjectId cannot be invoked without 'new'
+TypeError: Class constructor ObjectId cannot be invoked without 'new'
+    at pushLocationIfFarEnough (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\favoriteLocation\routes\favoriteLocations-controller.js:35:36)
+    at C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\notification-service\events\fleetGpsRequest.js:19:19
+    at Array.map (<anonymous>)
+    at onUserGpsUpdate (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\notification-service\events\fleetGpsRequest.js:18:20)
+    at Socket.<anonymous> (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\notification-service\events\fleetGpsRequest.js:55:25)
+    at Socket.emit (node:events:519:28)
+    at Socket.emitUntyped (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\socket.io\dist\typed-events.js:69:22)
+    at C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\socket.io\dist\socket.js:697:39
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11) 
+
+2024-10-15T10:41:57.036Z  error: unhandledRejection: Class constructor ObjectId cannot be invoked without 'new'
+TypeError: Class constructor ObjectId cannot be invoked without 'new'
+    at pushLocationIfFarEnough (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\favoriteLocation\routes\favoriteLocations-controller.js:35:36)
+    at C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\notification-service\events\fleetGpsRequest.js:19:19
+    at Array.map (<anonymous>)
+    at onUserGpsUpdate (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\notification-service\events\fleetGpsRequest.js:18:20)
+    at Socket.<anonymous> (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\notification-service\events\fleetGpsRequest.js:55:25)
+    at Socket.emit (node:events:519:28)
+    at Socket.emitUntyped (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\socket.io\dist\typed-events.js:69:22)
+    at C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\socket.io\dist\socket.js:697:39
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11) 
+
+2024-10-15T10:41:57.055Z  error: unhandledRejection: Class constructor ObjectId cannot be invoked without 'new'
+TypeError: Class constructor ObjectId cannot be invoked without 'new'
+    at pushLocationIfFarEnough (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\favoriteLocation\routes\favoriteLocations-controller.js:35:36)
+    at C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\notification-service\events\fleetGpsRequest.js:19:19
+    at Array.map (<anonymous>)
+    at onUserGpsUpdate (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\notification-service\events\fleetGpsRequest.js:18:20)
+    at Socket.<anonymous> (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\notification-service\events\fleetGpsRequest.js:55:25)
+    at Socket.emit (node:events:519:28)
+    at Socket.emitUntyped (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\socket.io\dist\typed-events.js:69:22)
+    at C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\socket.io\dist\socket.js:697:39
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11) 
+
+2024-10-15T10:41:57.067Z  error: unhandledRejection: Class constructor ObjectId cannot be invoked without 'new'
+TypeError: Class constructor ObjectId cannot be invoked without 'new'
+    at pushLocationIfFarEnough (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\favoriteLocation\routes\favoriteLocations-controller.js:35:36)
+    at C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\notification-service\events\fleetGpsRequest.js:19:19
+    at Array.map (<anonymous>)
+    at onUserGpsUpdate (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\notification-service\events\fleetGpsRequest.js:18:20)
+    at Socket.<anonymous> (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\notification-service\events\fleetGpsRequest.js:55:25)
+    at Socket.emit (node:events:519:28)
+    at Socket.emitUntyped (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\socket.io\dist\typed-events.js:69:22)
+    at C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\socket.io\dist\socket.js:697:39
+    at process.processTicksAndRejections (node:internal/process/task_queues:77:11) 
+

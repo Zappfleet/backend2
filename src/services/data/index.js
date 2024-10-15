@@ -65,7 +65,7 @@ async function listMissions(
     { path: "created_by" },
   ];
 
-  console.log(600,paging, !(paging == 'false' || paging == false));
+  console.log(600, paging, !(paging == 'false' || paging == false));
   const result = (paging == 'false' || paging == false) ?// await ServiceMission.find(filter) 
     await ServiceMission.aggregate([
       {
@@ -109,8 +109,14 @@ async function listMissions(
       },
       // Unwind the userDetails array to get individual user details
       {
-        $unwind: "$assigned_by_FullName"
+        "$unwind": {
+          "path": "$assigned_by_FullName",
+          "preserveNullAndEmptyArrays": true
+        }
       },
+      // {
+      //   $unwind: "$assigned_by_FullName"
+      // },
       //////////////////vehicle
       {
         $lookup: {
@@ -122,8 +128,14 @@ async function listMissions(
       },
       // Unwind the userDetails array to get individual user details
       {
-        $unwind: "$vehicleDetails"
+        "$unwind": {
+          "path": "$vehicleDetails",
+          "preserveNullAndEmptyArrays": true
+        }
       },
+      // {
+      //   $unwind: "$vehicleDetails"
+      // },
       // Project the fields you need
       {
         $project: {
@@ -151,6 +163,8 @@ async function listMissions(
           vehicleName: "$vehicleDetails.extra.name",
           vehicleColor: "$vehicleDetails.extra.color",
           extra: "$extra",
+          service_requests: "$service_requests",
+          request:"$result"
 
         }
       }

@@ -211,7 +211,7 @@ async function resetUserPasswordWithSecretCode(username, code, new_password) {
     username,
     "one_time_token.encrypted_value": encrypt(code),
   };
-  return await UserAccount.findByIdAndUpdate(
+  return await UserAccount.findOneAndUpdate(
     filter,
     { $set: { password: encrypt(new_password), one_time_token: null } },
     { new: true }
@@ -220,7 +220,7 @@ async function resetUserPasswordWithSecretCode(username, code, new_password) {
 
 async function assignOneTimeToken(username) {
   const [one_time_token, code] = generateOneTimeToken();
-  const user = await UserAccount.findByIdAndUpdate(
+  const user = await UserAccount.findOneAndUpdate(
     { username },
     { $set: { one_time_token } },
     { new: true }

@@ -13,7 +13,7 @@ const restrictions = [
 exports.saveRestriction = async function (req, res) {
   const { key, value } = req.body;
   if (!keyEnum.includes(key)) return sendErrorByEnviorment('کلید وارد شده معتبر نیست')
-  let restriction = await Restriction.findByIdAndUpdate({ key }, { value });
+  let restriction = await Restriction.findOneAndUpdate({ key }, { value });
   if (!restriction) restriction = Restriction.create({ key, value });
   res.status(201).send({ info: 'success', doc: "" })
 };

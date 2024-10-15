@@ -330,8 +330,8 @@ class MissionController {
       status: { $in: statusList },
     };
 
-    console.log(21,filter,statusList);
-    
+    console.log(21, filter, statusList);
+
     if (statusList.length == 0) delete filter.status;
 
     const hasNoArealPermission =
@@ -355,7 +355,9 @@ class MissionController {
 
 
     const missionList = paging ? await listMissions(filter, sort, page, false, paging) :
-      listMissions(filter, sort, page, true, undefined);
+      await listMissions(filter, sort, page, true, undefined);
+    console.log(7876, missionList);
+
     res.status(200).send(missionList);
   }
 
@@ -628,7 +630,7 @@ async function updateMissionRequestStatus(
     console.log(52, index);
     if (index === null || index === 0) {
       try {
-      //  console.log(1)
+        //  console.log(1)
         const mission = await ServiceMission.findById(mission_id);
         console.log(2)
         const requesrID = (mission.service_requests[0].request_id).toString()

@@ -267,7 +267,7 @@ async function updateVehicleLatestGpsArealInfo(vehicle_id) {
 
 async function updateVehicleColorByKey(key, body) {
   try {
-    return await VehicleColorModel.findByIdAndUpdate(
+    return await VehicleColorModel.findOneAndUpdate(
       { key },
       { $set: body },
       { new: true }
@@ -282,7 +282,7 @@ async function updateVehicleColorByKey(key, body) {
 
 async function updateVehicleGroupByKey(key, body) {
   try {
-    return await VehicleGroupModel.findByIdAndUpdate(
+    return await VehicleGroupModel.findOneAndUpdate(
       { key },
       { $set: body },
       { new: true }
@@ -353,7 +353,7 @@ async function insertVehicleName(title) {
 
 async function updateVehicleNameByKey(key, body) {
   try {
-    return await VehicleNameModel.findByIdAndUpdate(
+    return await VehicleNameModel.findOneAndUpdate(
       { key },
       { $set: body },
       { new: true }
