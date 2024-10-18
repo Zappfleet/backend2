@@ -201,11 +201,11 @@ async function insert_AganceDriver(req, res) {
 
         const item = req.body;
 
-        console.log(1000,item);
+        console.log(1000, item);
 
         // ابتدا بررسی می‌کنیم که آیا کد ملی از قبل وجود دارد یا نه
         const existingUser = await UserAccount.findOne({ username: item.username });
-        console.log(1000,existingUser);
+        console.log(1000, existingUser);
         if (existingUser) {
             console.log(5895555);
 
@@ -224,7 +224,7 @@ async function insert_AganceDriver(req, res) {
                 data: item
             });
 
-        } 
+        }
     }
     catch (error) {
         console.error(6000);
@@ -233,12 +233,25 @@ async function insert_AganceDriver(req, res) {
             error: error.message
         });
     }
-      
+
 }
 
 async function select_AganceDriver(req, res) {
     try {
-        const result = await UserAccount.find({ reg_key: "AGANCE" })
+        //const result = await UserAccount.find({ reg_key: "AGANCE" })
+        const result = await UserAccount.aggregate([
+            {
+                $match: { reg_key: "AGANCE" } // فیلتر کردن بر اساس reg_key
+            },
+            {
+                $lookup: {
+                    from: "vehicles", // نام مجموعه (collection) مربوط به خودروها
+                    localField: "_id", // فیلد در UserAccount که باید مقایسه شود
+                    foreignField: "driver_user", // فیلد در vehicles که به UserAccount ارجاع دارد
+                    as: "vehicles" // نام فیلدی که نتایج در آن ذخیره می‌شود
+                }
+            }
+        ]);
         return res.status(200).send({
             status: 200,
             data: result
@@ -780,7 +793,7 @@ async function selectAganceProfileByDriverId(req, res) {
         });
 
     } catch (error) {
-        console.error(6000,error);
+        console.error(6000, error);
         return res.status(500).send({
             status: 500,
             error: error.message

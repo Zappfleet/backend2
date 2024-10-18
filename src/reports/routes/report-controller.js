@@ -36,6 +36,27 @@ class ReportController {
     //const taxiCars = await Vehicle.find({})// group: { $ne: IRISA } });
 
     const result = await ServiceMission.aggregate([
+      // First match to filter by status "DONE"
+      {
+        $match: { status: "DONE" }
+      },
+      // Lookup to join vehicles and filter based on group "agency"
+      {
+        $lookup: {
+          from: "vehicles",
+          localField: "vehicle_id",
+          foreignField: "_id",
+          as: "vehicleDetails"
+        }
+      },
+      // Unwind the vehicleDetails array to process individual vehicles
+      {
+        $unwind: "$vehicleDetails"
+      },
+      // Match to ensure vehicle group is "agency"
+      {
+        $match: { "vehicleDetails.group": "agency" }
+      },
       // First lookup to join servicerequests with servicemissions
       {
         $lookup: {
@@ -62,6 +83,22 @@ class ReportController {
       {
         $unwind: "$userDetails"
       },
+      // Lookup to join useraccounts with the confirmed_by field in servicerequests
+      {
+        $lookup: {
+          from: "useraccounts",
+          localField: "result.confirmed_by",
+          foreignField: "_id",
+          as: "confirmedByDetails"
+        }
+      },
+      // Unwind the confirmedByDetails array to get individual confirmed_by details
+      {
+        $unwind: {
+          path: "$confirmedByDetails",
+          preserveNullAndEmptyArrays: true // In case confirmed_by is null
+        }
+      },
       // Project the fields you need
       {
         $project: {
@@ -69,17 +106,22 @@ class ReportController {
           project_Code: "$result.details.proj_code",
           proj_desc: "$result.details.proj_desc",
           manager_emp_num: "$result.details.manager_emp_num",
+          bill_number: "$extra.bill_number",
           cost_center: "$result.details.cost_center",
-          desc: "$result.details.desc",
+          cost_agance: "$extra.bill_cost",
           cost: "$extra.cost",
           mission_date: "$result.gmt_for_date", // Renaming gmt_for_date to mission_date
           created_by: "$userDetails.full_name",  // Renaming full_name to created_by
-          distance: { $ifNull: ["$extra.distance", null] },// Providing a default value for distance
+          distance_dasti: "$extra.trip_distance",
+          distance: { $ifNull: ["$extra.distance", null] }, // Providing a default value for distance
           mission_start: { $ifNull: ["$extra.mission_start", null] },
           mission_end: { $ifNull: ["$extra.mission_end", null] },
+          agency_name: "$vehicleDetails.extra.agency_name", // Adding agency_name from vehicle extra
+          confirmed_by: "$confirmedByDetails.full_name"
         }
       }
     ]);
+
 
     // console.log(54,result);
     res.status(200).send({ data: result });

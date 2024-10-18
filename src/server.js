@@ -20,7 +20,7 @@ const { userRolesRouter } = require("./users/routes/roles");
 const { OrgDataSource } = require("./org-modules/constants/OrgDataSource");
 const { reportsRouter } = require("./reports/routes/");
 const { restrictionsRouter } = require("./restrictions/routes/");
-// const { uploadRouter } = require("./upload/routes/");
+const { migrateRouter } = require("./migrateData/routes");
 
 const { aganceRouter } = require("./agance/routes/");
 
@@ -64,6 +64,7 @@ const init = async () => {
   router.use("/reports", authenticate, reportsRouter);
   router.use("/restrict", authenticate, restrictionsRouter);
   router.use("/agance", /*authenticate, restrict,*/ aganceRouter);
+  router.use("/migrateData", authenticate, migrateRouter);
 
   // Add the new /stat/requests route
   router.get("/stat/requests", getRequestStatistics);
@@ -77,11 +78,11 @@ const init = async () => {
   app.use('/uploads', express.static(path.join(__dirname, 'uploadFile/uploads')));
 
 
-  router.get("/migrateDataRequest", migrateDataRequest);
-  router.get("/migrateDataAccounts", migrateDataAccounts);
-  router.get("/migrateDataAreas", migrateDataAreas);
-  router.get("/migrateDataCars", migrateDataCars);
-  router.get("/migrateDataLocations", migrateDataLocations);
+  // router.get("/migrateDataRequest", migrateDataRequest);
+  // router.get("/migrateDataAccounts", migrateDataAccounts);
+  // router.get("/migrateDataAreas", migrateDataAreas);
+  // router.get("/migrateDataCars", migrateDataCars);
+  // router.get("/migrateDataLocations", migrateDataLocations);
 
   router.get("/confirmRequest/:id", confirmRequest);
   router.get("/rejectRequest/:id", rejectRequest);

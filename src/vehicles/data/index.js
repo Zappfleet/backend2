@@ -165,6 +165,8 @@ async function createVehicle(
   gps_uid
 ) {
   try {
+    console.log(48789798,driver_user);
+    
     const doc = { group, driver_user, plaque, extra, services, gps_uid };
     if (status) {
       doc.status = status;
