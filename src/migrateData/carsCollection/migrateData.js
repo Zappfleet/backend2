@@ -14,7 +14,7 @@ const connectToDB = async () => {
     let db = "";
 
     if (environment_name === "local") {
-        db =  config.get("db");
+        db = config.get("db");
     } else if (environment_name === "server") {
         db = config.get("db_SERVER");
     } else {
@@ -39,7 +39,7 @@ exports.migrateDataCars = async function (req, res) {
     try {
         const oldCars = await old_cars.find({})
 
-       
+
         for (const oldCar of oldCars) {
             try {
 
@@ -48,11 +48,11 @@ exports.migrateDataCars = async function (req, res) {
                     case 0: //IRISA
                         createGroup = "خودرو سازمان"
                     case 1: //TAXI,
-                        createGroup = "تاکسی"
-                    case 2: //SNAP,
-                        createGroup = "اسنپ"
-                    default:
-                        createGroup = "نامشخص"
+                        createGroup = "agency"
+                    // case 2: //SNAP,
+                    //     createGroup = "اسنپ"
+                    // default:
+                    //     createGroup = "نامشخص"
                 }
 
                 let createStatus = 'IDLE'
@@ -96,23 +96,30 @@ exports.migrateDataCars = async function (req, res) {
                     _id: oldCar._id,
                     group: createGroup,
                     driver_user: oldCar.driver?.user?.account_id,
-                    status: createStatus,
+                    status: 'IDLE',//createStatus,
                     plaque: oldCar.plaque.t === 0 ? oldCar._id.toHexString() : `${oldCar.plaque.f},${oldCar.plaque.s},${oldCar.plaque.l},${oldCar.plaque.t}`,
                     services: [{
                         service: "taksisroys",
                         capacity: 4,
                         _id: ObjectId('663f81a4665933a1316d2795')
                     }],
-                    extra: {
+                    extra: createGroup === 0 ? {
                         name: createName,
                         color: createColor,
-                        man_year: oldCar.man_year,
-                        total_distance: oldCar.total_distance,
-                        total_interval: oldCar.total_interval,
-                        driver: oldCar.driver,
-                        past_drivers: oldCar.past_drivers,
-                        is_active: oldCar.is_active
-                    },
+                        // man_year: oldCar.man_year,
+                        // total_distance: oldCar.total_distance,
+                        // total_interval: oldCar.total_interval,
+                        // driver: oldCar.driver,
+                        // past_drivers: oldCar.past_drivers,
+                        // is_active: oldCar.is_active
+                    }
+                        :
+                        {
+
+                            agency_name: oldCar.driver?.user?.full_name,
+                            agency_phone: oldCar.driver?.user?.full_name
+                        }
+                    ,
                     createdAt: oldCar.createdAt,
                     updatedAt: oldCar.updatedAt,
                     __v: oldCar.__v

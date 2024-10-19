@@ -522,100 +522,88 @@ class migrateDataController {
 
             for (const oldCar of oldCars) {
                 try {
-                    // تعیین گروه خودرو
-                    let createGroup = 'نامشخص';
-                    switch (oldCar.group) {
-                        case 0:
-                            createGroup = "خودرو سازمان";
-                            break;
-                        case 1:
-                            createGroup = "تاکسی";
-                            break;
-                        case 2:
-                            createGroup = "اسنپ";
-                            break;
-                        default:
-                            createGroup = "نامشخص";
+
+                    let createGroup = 'نامشخص'
+                    switch (oldCar?.group) {
+                        case 0: //IRISA
+                            createGroup = "خودرو سازمان"
+                        case 1: //TAXI,
+                            createGroup = "agency"
+                        // case 2: //SNAP,
+                        //     createGroup = "اسنپ"
+                        // default:
+                        //     createGroup = "نامشخص"
                     }
 
-                    // تعیین وضعیت خودرو
-                    let createStatus = 'IDLE';
+                    let createStatus = 'IDLE'
                     switch (oldCar.status) {
-                        case 0:
-                            createStatus = "IDLE";
-                            break;
-                        case 1:
-                            createStatus = "ON_MISSION";
-                            break;
+                        case 0: //fr
+                            createStatus = "IDLE"
+                        case 1: //ntr,
+                            createStatus = "ON_MISSION"
                     }
 
-                    // تعیین نام خودرو
-                    let createName = 'پراید';
+                    let createName = 'پراید'
                     switch (oldCar.name_code) {
                         case 0:
-                            createName = "پراید";
-                            break;
+                            createName = "پراید"
                         case 1:
-                            createName = "405پژو";
-                            break;
+                            createName = "405پژو"
                         case 2:
-                            createName = "پژو206";
-                            break;
+                            createName = "پژو206"
                         case 3:
-                            createName = "پژو پارس";
-                            break;
+                            createName = "پژو پارس"
                         case 4:
-                            createName = "تیبا";
-                            break;
+                            createName = "تیبا"
                     }
 
-                    // تعیین رنگ خودرو
-                    let createColor = 'مشکی';
+
+                    let createColor = 'مشکی'
                     switch (oldCar.name_code) {
                         case 0:
-                            createColor = "مشکی";
-                            break;
+                            createColor = "مشکی"
                         case 1:
-                            createColor = "سفید";
-                            break;
+                            createColor = "سفید"
                         case 2:
-                            createColor = "نوک مدادی";
-                            break;
+                            createColor = "نوک مدادی"
                         case 3:
-                            createColor = "بژ";
-                            break;
+                            createColor = "بژ"
                         case 4:
-                            createColor = "نقره ای";
-                            break;
+                            createColor = "نقره ای"
                     }
 
-                    // ایجاد خودرو جدید
                     let newVehicle = new newvehicles({
                         _id: oldCar._id,
-                        group: createGroup,
+                        group: oldCar?.group === 1 ? 'agency' : 'خودرو سازمان',
                         driver_user: oldCar.driver?.user?.account_id,
-                        status: createStatus,
+                        status: 'IDLE',//createStatus,
                         plaque: oldCar.plaque.t === 0 ? oldCar._id.toHexString() : `${oldCar.plaque.f},${oldCar.plaque.s},${oldCar.plaque.l},${oldCar.plaque.t}`,
                         services: [{
-                            service: vehicleServic_key,
-                            capacity: 3,
-                            _id: new ObjectId(vehicleServic_Id)
+                            service: "taksisroys",
+                            capacity: 4,
+                            _id: new ObjectId('663f81a4665933a1316d2795')
                         }],
-                        extra: {
+                        extra: oldCar?.group === 0 ? {
                             name: createName,
                             color: createColor,
-                            man_year: oldCar.man_year,
-                            total_distance: oldCar.total_distance,
-                            total_interval: oldCar.total_interval,
-                            driver: oldCar.driver,
-                            past_drivers: oldCar.past_drivers,
-                            is_active: oldCar.is_active
-                        },
+                            // man_year: oldCar.man_year,
+                            // total_distance: oldCar.total_distance,
+                            // total_interval: oldCar.total_interval,
+                            // driver: oldCar.driver,
+                            // past_drivers: oldCar.past_drivers,
+                            // is_active: oldCar.is_active
+                        }
+                            :
+                            {
+
+                                agency_name: oldCar.driver?.user?.full_name,
+                                agency_phone: '---'
+                            }
+                        ,
                         createdAt: oldCar.createdAt,
                         updatedAt: oldCar.updatedAt,
                         __v: oldCar.__v
                     });
-
                     // ذخیره خودرو جدید در دیتابیس
                     //await newvehicles(newVehicle).save();
                     await newvehicles.findOneAndUpdate(

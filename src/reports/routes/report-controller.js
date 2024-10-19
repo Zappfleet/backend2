@@ -477,68 +477,240 @@ class ReportController {
   }
 
 
-
-  ////////////Report Count Of Services
   async get_CountOfServicesByStartAndEndDate(req, res) {
-    const { status, fromdate, todate } = req.query;
+    const { status, fromdate, todate, type } = req.query;
 
+    var fromDate = fromdate ? new Date(fromdate) : new Date('1970-01-01');
+    var toDate = todate ? new Date(todate) : new Date('2100-01-01');
 
-    console.log(11, fromDate, toDate);
-    ///////////////////////////////
-    var fromDate = fromdate !== null && fromdate !== undefined ? new Date(fromdate) : new Date('1970-01-01'); // تاریخ خیلی قبل;
-    var toDate = todate !== null && todate !== undefined ? new Date(todate) : new Date('2100-01-01');   // تاریخ خیلی بعد;
+    fromDate.setHours(0, 0, 0, 0); // شروع روز
+    toDate.setHours(23, 59, 59, 999); // پایان روز
 
-    // Set the time part of the "from" date to the start of the day (00:00:00)
-    fromDate?.setHours(0, 0, 0, 0);
-
-    // Set the time part of the "to" date to the end of the day (23:59:59)
-    toDate?.setHours(23, 59, 59, 999);
-
-    const aggregationPipeline = [
-      {
-        $match: {
-          status: status,
-          "extra.mission_end": {
-            $gte: fromDate,
-            $lte: toDate
+    const aggregationPipeline = (type === 'Daily') ?
+      [
+        {
+          $match: {
+            status: status,
+            "extra.mission_end": {
+              $gte: fromDate,
+              $lte: toDate
+            }
+          }
+        },
+        {
+          $group: {
+            _id: {
+              driver_id: "$driver_id",
+              vehicle_id: "$vehicle_id",
+              day: {
+                $dateToString: { format: "%Y-%m-%d", date: "$extra.mission_end" }
+              }
+            },
+            count: { $sum: 1 },
+            missions: { $push: "$$ROOT" } // ذخیره کردن اطلاعات مأموریت‌ها
+          }
+        },
+        {
+          $lookup: {
+            from: "useraccounts",
+            localField: "_id.driver_id", // ممکن است driver_id وجود نداشته باشد
+            foreignField: "_id",
+            as: "driverInfo"
+          }
+        },
+        {
+          $lookup: {
+            from: "vehicles",
+            localField: "missions.vehicle_id", // ممکن است vehicle_id وجود نداشته باشد
+            foreignField: "_id",
+            as: "vehicleInfo"
+          }
+        },
+        {
+          $project: {
+            date: "$_id.day",
+            driver_id: "$_id.driver_id",
+            name: {
+              $cond: {
+                if: { $gt: [{ $size: "$driverInfo" }, 0] }, // اگر اطلاعات راننده وجود داشت
+                then: { $arrayElemAt: ["$driverInfo.full_name", 0] },
+                else: "---" // در غیر این صورت "راننده نامشخص"
+              }
+            },
+            vehicleInfo: {
+              $cond: {
+                if: { $gt: [{ $size: "$vehicleInfo" }, 0] }, // اگر اطلاعات خودرو وجود داشت
+                then: { $arrayElemAt: ["$vehicleInfo", 0] },
+                else: "---" // در غیر این صورت "خودرو نامشخص"
+              }
+            },
+            userInfo: {
+              $cond: {
+                if: { $gt: [{ $size: "$driverInfo" }, 0] },
+                then: { $arrayElemAt: ["$driverInfo", 0] },
+                else: null
+              }
+            },
+            countOfServices: "$count",
+            missions: "$missions"
           }
         }
-      },
-      {
-        $group: {
-          _id: "$driver_id",
-          count: { $sum: 1 },
-          missions: { $push: "$$ROOT" } // ذخیره کردن اطلاعات مأموریت‌ها
+        ,
+        {
+          $sort: { name: 1, date: 1 } // مرتب‌سازی بر اساس نام و تاریخ
         }
-      },
-      {
-        $lookup: {
-          from: "useraccounts",
-          localField: "_id",
-          foreignField: "_id",
-          as: "driverInfo"
+      ]
+      // [
+      //   {
+      //     $match: {
+      //       status: status,
+      //       "extra.mission_end": {
+      //         $gte: fromDate,
+      //         $lte: toDate
+      //       }
+      //     }
+      //   },
+      //   {
+      //     $group: {
+      //       _id: {
+      //         driver_id: "$driver_id",
+      //         day: {
+      //           $dateToString: { format: "%Y-%m-%d", date: "$extra.mission_end" }
+      //         }
+      //       },
+      //       count: { $sum: 1 },
+      //       missions: { $push: "$$ROOT" } // ذخیره کردن اطلاعات مأموریت‌ها
+      //     }
+      //   },
+      //   {
+      //     $lookup: {
+      //       from: "useraccounts",
+      //       localField: "_id.driver_id",
+      //       foreignField: "_id",
+      //       as: "driverInfo"
+      //     }
+      //   },
+      //   {
+      //     $project: {
+      //       date: "$_id.day", // روز
+      //       driver_id: "$_id.driver_id",
+      //       name: { $arrayElemAt: ["$driverInfo.full_name", 0] }, // نام راننده
+      //       countOfServices: "$count",
+      //       missions: "$missions" // اطلاعات مأموریت‌ها
+      //     }
+      //   },
+      //   {
+      //     $sort: { name: 1, date: 1 } // مرتب‌سازی بر اساس تاریخ
+      //   }
+      // ]
+      :
+      [
+        {
+          $match: {
+            status: status,
+            "extra.mission_end": {
+              $gte: fromDate,
+              $lte: toDate
+            }
+          }
+        },
+        {
+          $group: {
+            _id: "$driver_id",
+            count: { $sum: 1 },
+            missions: { $push: "$$ROOT" } // ذخیره کردن اطلاعات مأموریت‌ها
+          }
+        },
+        {
+          $lookup: {
+            from: "useraccounts",
+            localField: "_id",
+            foreignField: "_id",
+            as: "driverInfo"
+          }
+        },
+        {
+          $project: {
+            id: "$_id",
+            name: { $arrayElemAt: ["$driverInfo.full_name", 0] }, // استخراج نام راننده
+            driver_id: "$_id",
+            countOfServices: "$count",
+            missions: "$missions" // اضافه کردن اطلاعات مأموریت‌ها به خروجی
+          }
         }
-      },
-      {
-        $project: {
-          id: "$_id",
-          name: { $arrayElemAt: ["$driverInfo.full_name", 0] }, // استخراج نام راننده
-          driver_id: "$_id",
-          countOfServices: "$count",
-          missions: "$missions" // اضافه کردن اطلاعات مأموریت‌ها به خروجی
-        }
-      }
-    ];
+      ]
 
     const result = await ServiceMission.aggregate(aggregationPipeline);
 
-    // console.log(4444, result);
     return res.status(200).send({
       status: 200,
       data: result
     });
-
   }
+
+
+
+  ////////////Report Count Of Services
+  // async get_CountOfServicesByStartAndEndDate(req, res) {
+  //   const { status, fromdate, todate } = req.query;
+
+
+  //   console.log(11, fromDate, toDate);
+  //   ///////////////////////////////
+  //   var fromDate = fromdate !== null && fromdate !== undefined ? new Date(fromdate) : new Date('1970-01-01'); // تاریخ خیلی قبل;
+  //   var toDate = todate !== null && todate !== undefined ? new Date(todate) : new Date('2100-01-01');   // تاریخ خیلی بعد;
+
+  //   // Set the time part of the "from" date to the start of the day (00:00:00)
+  //   fromDate?.setHours(0, 0, 0, 0);
+
+  //   // Set the time part of the "to" date to the end of the day (23:59:59)
+  //   toDate?.setHours(23, 59, 59, 999);
+
+  //   const aggregationPipeline = [
+  //     {
+  //       $match: {
+  //         status: status,
+  //         "extra.mission_end": {
+  //           $gte: fromDate,
+  //           $lte: toDate
+  //         }
+  //       }
+  //     },
+  //     {
+  //       $group: {
+  //         _id: "$driver_id",
+  //         count: { $sum: 1 },
+  //         missions: { $push: "$$ROOT" } // ذخیره کردن اطلاعات مأموریت‌ها
+  //       }
+  //     },
+  //     {
+  //       $lookup: {
+  //         from: "useraccounts",
+  //         localField: "_id",
+  //         foreignField: "_id",
+  //         as: "driverInfo"
+  //       }
+  //     },
+  //     {
+  //       $project: {
+  //         id: "$_id",
+  //         name: { $arrayElemAt: ["$driverInfo.full_name", 0] }, // استخراج نام راننده
+  //         driver_id: "$_id",
+  //         countOfServices: "$count",
+  //         missions: "$missions" // اضافه کردن اطلاعات مأموریت‌ها به خروجی
+  //       }
+  //     }
+  //   ];
+
+  //   const result = await ServiceMission.aggregate(aggregationPipeline);
+
+  //   // console.log(4444, result);
+  //   return res.status(200).send({
+  //     status: 200,
+  //     data: result
+  //   });
+
+  // }
 
 
 }
