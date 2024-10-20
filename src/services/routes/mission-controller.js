@@ -72,7 +72,7 @@ class MissionController {
 
 
     const fullResult = await Promise.all(
-      requestsList.map(async (data) => {
+      requestsList?.map(async (data) => {
         let { locations, service, gmt_for_date, submitted_for } = data;
 
         if (1 === 1) {

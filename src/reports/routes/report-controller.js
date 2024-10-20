@@ -243,12 +243,26 @@ class ReportController {
         }
       },
       {
+        $lookup: {
+          from: "vehicles", // ارتباط با جدول vehicles
+          localField: "vehicle_id", // فیلدی که در servicemission با vehicleId مطابقت دارد
+          foreignField: "_id",
+          as: "vehicleInfo"
+        }
+      },
+      {
         $project: {
           id: "$_id",
           status: "$status",
           mission_start: "$extra.mission_start",
           mission_end: "$extra.mission_end",
-          name: "$driverInfo.full_name",
+          name: {
+            $cond: {
+              if: { $eq: [{ $arrayElemAt: ["$vehicleInfo.group", 0] }, 'agency'] },
+              then: { $arrayElemAt: ["$vehicleInfo.extra.agency_name", 0] }, // مقدار از vehicles
+              else: { $arrayElemAt: ["$driverInfo.full_name", 0] } // مقدار از driverInfo
+            }
+          }
         }
       }
     ];

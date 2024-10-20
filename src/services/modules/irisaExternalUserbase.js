@@ -49,7 +49,7 @@ async function convertToUserAccount(user) {
 }
 
 async function deleteExitingOnes(full_external_list) {
-  const listOfEmpNumbers = isArray(full_external_list) && full_external_list.map(
+  const listOfEmpNumbers = isArray(full_external_list) && full_external_list?.map(
     ({ NUM_PRSN_EMPL }) => NUM_PRSN_EMPL
   );
 
