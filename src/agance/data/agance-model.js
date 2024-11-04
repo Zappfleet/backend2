@@ -56,7 +56,19 @@ const AganceSchema = new mongoose.Schema({
             type: String,
             required: false,
         },
-        estelamat3Gane: {
+        estelameAngoshNegari: {
+            type: String,
+            required: false,
+        },
+        formeTaahod: {
+            type: String,
+            required: false,
+        },
+        taeidiyeRahnamaeiRanandegi: {
+            type: String,
+            required: false,
+        },
+        estelameAzmayesheKhoon: {
             type: String,
             required: false,
         },
@@ -103,6 +115,14 @@ const AganceSchema = new mongoose.Schema({
         // enum: keysOf(serviceRequestStatus),
         // default: serviceRequestStatus.PENDING.key
     },
+    gharardad_num: {
+        type: String,
+        required: false,
+    },
+    gharardad_date: {
+        type: Date,
+        required: false,
+    },
     submitted_by: {
         type: String,
         // ref: COLLECTION_USER_ACCOUNT
@@ -122,7 +142,7 @@ const Agance = mongoose.model("Agance", AganceSchema, 'agance');
 module.exports.Agance = mongoose.model(
     COLLECTION_AGANCE,
     AganceSchema
-  );
+);
 
 exports.Agance = Agance;
 module.exports.COLLECTION_AGANCE = COLLECTION_AGANCE;

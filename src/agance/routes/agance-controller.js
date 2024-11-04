@@ -463,7 +463,7 @@ async function insert_carteSalahiyat(req, res) {
 
 async function select_carteSalahiyat(req, res) {
     try {
-        const result = await aganceCarteSalahiyat.find({})
+        const result = await aganceCarteSalahiyat.find({}).sort({ createdAt: -1 });
         return res.status(200).send({
             status: 200,
             data: result
@@ -739,11 +739,11 @@ async function selectAganceProfileByDriverId(req, res) {
             },
             {
                 $project: {
-                    driverInfo: 1,
-                    vehicleInfo: 1,
+                    driverInfo: { $ifNull: ['$driverInfo', []] },
+                    vehicleInfo: { $ifNull: ['$vehicleInfo', []] },
                     aganceCarteSalahiyat: {
                         $map: {
-                            input: '$aganceCarteSalahiyatInfo',
+                            input: { $ifNull: ['$aganceCarteSalahiyatInfo', []] },
                             as: 'r1',
                             in: {
                                 date: '$$r1.fromDate',
@@ -753,7 +753,7 @@ async function selectAganceProfileByDriverId(req, res) {
                     },
                     aganceParvane: {
                         $map: {
-                            input: '$aganceParvaneInfo',
+                            input: { $ifNull: ['$aganceParvaneInfo', []] },
                             as: 'r2',
                             in: {
                                 date: '$$r2.fromDate',
@@ -771,7 +771,7 @@ async function selectAganceProfileByDriverId(req, res) {
                 }
             },
             {
-                $unwind: '$allActivity'
+                $unwind: { path: '$allActivity', preserveNullAndEmptyArrays: true }
             },
             {
                 $sort: { 'allActivity.date': 1 }
@@ -800,6 +800,113 @@ async function selectAganceProfileByDriverId(req, res) {
         });
     }
 }
+
+// async function selectAganceProfileByDriverId(req, res) {
+//     try {
+//         const { driverId } = req.query;
+//         console.log(2001, driverId);
+
+//         const result = await UserAccount.aggregate([
+//             {
+//                 $match: {
+//                     _id: new mongoose.Types.ObjectId(driverId)
+//                 }
+//             },
+//             {
+//                 $lookup: {
+//                     from: 'useraccounts',
+//                     localField: '_id',
+//                     foreignField: '_id',
+//                     as: 'driverInfo'
+//                 }
+//             },
+//             {
+//                 $lookup: {
+//                     from: 'vehicles',
+//                     localField: '_id',
+//                     foreignField: 'driver_user',
+//                     as: 'vehicleInfo'
+//                 }
+//             },
+//             {
+//                 $lookup: {
+//                     from: 'aganceCarteSalahiyat',
+//                     localField: '_id',
+//                     foreignField: 'driverId',
+//                     as: 'aganceCarteSalahiyatInfo'
+//                 }
+//             },
+//             {
+//                 $lookup: {
+//                     from: 'aganceParvane',
+//                     localField: '_id',
+//                     foreignField: 'driverId',
+//                     as: 'aganceParvaneInfo'
+//                 }
+//             },
+//             {
+//                 $project: {
+//                     driverInfo: 1,
+//                     vehicleInfo: 1,
+//                     aganceCarteSalahiyat: {
+//                         $map: {
+//                             input: '$aganceCarteSalahiyatInfo',
+//                             as: 'r1',
+//                             in: {
+//                                 date: '$$r1.fromDate',
+//                                 name: 'دریافت کارت صلاحیت'
+//                             }
+//                         }
+//                     },
+//                     aganceParvane: {
+//                         $map: {
+//                             input: '$aganceParvaneInfo',
+//                             as: 'r2',
+//                             in: {
+//                                 date: '$$r2.fromDate',
+//                                 name: 'دریافت پروانه'
+//                             }
+//                         }
+//                     }
+//                 }
+//             },
+//             {
+//                 $addFields: {
+//                     allActivity: {
+//                         $concatArrays: [{ $ifNull: ["$aganceCarteSalahiyat", []] }, { $ifNull: ["$aganceParvane", []] }]
+//                     }
+//                 }
+//             },
+//             {
+//                 $unwind: '$allActivity'
+//             },
+//             {
+//                 $sort: { 'allActivity.date': 1 }
+//             },
+//             {
+//                 $group: {
+//                     _id: '$_id',
+//                     driverInfo: { $first: '$driverInfo' },
+//                     vehicleInfo: { $first: '$vehicleInfo' },
+//                     allActivity: { $push: '$allActivity' }
+//                 }
+//             }
+//         ],
+//             { maxTimeMS: 60000, allowDiskUse: true });
+
+//         return res.status(200).send({
+//             status: 200,
+//             data: result
+//         });
+
+//     } catch (error) {
+//         console.error(6000, error);
+//         return res.status(500).send({
+//             status: 500,
+//             error: error.message
+//         });
+//     }
+// }
 
 module.exports = {
     insert_Agance,

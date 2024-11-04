@@ -60,6 +60,24 @@ const PermissionSet = {
             DELETE: null,
             LIST: null,
         },
+        MOAREFI_NAME_TAMIN_EJTEMAEI: {
+            CREATE: null,
+            EDIT: null,
+            DELETE: null,
+            LIST: null,
+        },
+        MOAREFI_NAME_VAM: {
+            CREATE: null,
+            EDIT: null,
+            DELETE: null,
+            LIST: null,
+        },
+        FAALIYATE_DRIVER: {
+            CREATE: null,
+            EDIT: null,
+            DELETE: null,
+            LIST: null,
+        },
         ESTELAM_AMAKEN: {
             CREATE: null,
             EDIT: null,
