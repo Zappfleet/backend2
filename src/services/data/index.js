@@ -65,7 +65,7 @@ async function listMissions(
     { path: "created_by" },
   ];
 
-  console.log(600, paging, !(paging == 'false' || paging == false));
+  // console.log(600, paging, !(paging == 'false' || paging == false));
   const result = (paging == 'false' || paging == false) ?// await ServiceMission.find(filter) 
     await ServiceMission.aggregate([
       {
@@ -133,6 +133,23 @@ async function listMissions(
           "preserveNullAndEmptyArrays": true
         }
       },
+      //////////////////driverInfo
+      {
+        $lookup: {
+          from: "useraccounts",
+          localField: "driver_id",
+          foreignField: "_id",
+          as: "DriverInfo"
+        }
+      },
+
+      // Unwind the userDetails array to get individual user details
+      {
+        "$unwind": {
+          "path": "$DriverInfo",
+          "preserveNullAndEmptyArrays": true
+        }
+      },
       // {
       //   $unwind: "$vehicleDetails"
       // },
@@ -157,6 +174,13 @@ async function listMissions(
           cost_center: "$result.details.cost_center",
           desc: "$result.details.desc",
           cost: "$extra.cost",
+          driverName: {
+            $cond: {
+              if: { $eq: ["$vehicleDetails.group", "agency"] },
+              then: "$vehicleDetails.extra.agency_name",
+              else: "$DriverInfo.full_name"
+            }
+          },
           vehicleID: "$vehicleDetails._id",
           locations: "$result.locations",
           vehiclePlaque: "$vehicleDetails.plaque",
@@ -164,7 +188,7 @@ async function listMissions(
           vehicleColor: "$vehicleDetails.extra.color",
           extra: "$extra",
           service_requests: "$service_requests",
-          request:"$result"
+          request: "$result"
 
         }
       }
@@ -175,11 +199,11 @@ async function listMissions(
         $match: filter || {}// Apply the filter here
       }]);
 
-  console.log(77, paging, typeof paging, filter, paging == false, result);
+  //console.log(77, paging, typeof paging, filter, paging == false, result);
 
 
   if (paging == 'false' || paging == false) {
-    console.log(5649871, result);
+    // console.log(5649871, result);
     return result;
   }
 
@@ -728,8 +752,9 @@ async function listServiceRequests(
     },
     {
       path: "confirmed_by",
-      select: ["-password"],
+      select: ["-password"], // اطمینان از بازیابی full_name
     },
+
   ];
 
   if (search?.trim().length > 0) {
@@ -744,15 +769,24 @@ async function listServiceRequests(
     effectiveFilter.submitted_by = { $in: users.map(({ _id }) => _id) };
   }
 
-  //console.log(852, paging);
-  const result = paging ? await ServiceRequest.find(effectiveFilter) :
+
+  console.log(852, paging);
+  const result = paging ? await ServiceRequest.find(effectiveFilter).populate([
+    { path: "confirmed_by", select: "full_name" }, // بازیابی full_name
+    { path: "rejected_by", select: "full_name" },
+  ])
+    :
     await ServiceRequest.paginate(
       effectiveFilter,
       paginateOptions
-    );
+    )
+
 
   return result;
 }
+
+
+
 
 async function createServiceRequest(
   submitted_by,
@@ -830,12 +864,12 @@ async function createServiceRequest(
     }
 
     const newRequest = await ServiceRequest.create(doc);
-    console.log(3576878, managerCode);
+    // console.log(3576878, managerCode);
     const regionInfo = await Region.findOne({ _id: newRequest?.area?._id })
     const managerID = await UserAccount.findOne({
       "details.personel_code": { $exists: true, $eq: managerCode }
     })
-    console.log(888888, managerID, managerCode);
+    // console.log(888888, managerID, managerCode);
     const needApprove = (regionInfo && regionInfo?.properties?.need_manager_confirmation) ? false : true
     const manager = {
       _id: managerID?._id,
@@ -854,7 +888,7 @@ async function updateServiceStatus(_id, new_status, updater_id) {
 
 
   const serviceRequest = await ServiceRequest.findById(_id);
-  console.log(5555555555, _id);
+  // console.log(5555555555, _id);
   const old_status = serviceRequest.status;
 
   const error = await generalUpdateValidationCheck(serviceRequest);
@@ -862,7 +896,7 @@ async function updateServiceStatus(_id, new_status, updater_id) {
     return error;
   }
 
-  console.log(88888888);
+  // console.log(88888888);
 
   if (!directlySetableStatuses.includes(new_status)) {
     return {
@@ -883,7 +917,7 @@ async function updateServiceStatus(_id, new_status, updater_id) {
     }
   })();
 
-  console.log(3333333333, updater_key);
+  // console.log(3333333333, updater_key);
 
   if (updater_key != null) {
     args.$set[updater_key] = new ObjectId(updater_id);
@@ -891,7 +925,7 @@ async function updateServiceStatus(_id, new_status, updater_id) {
 
 
 
-  console.log(444444444, _id, args);
+  //console.log(444444444, _id, args);
 
   const newRequest = await ServiceRequest.findByIdAndUpdate(
     new ObjectId(_id),

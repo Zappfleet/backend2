@@ -96,8 +96,10 @@ class migrateDataController {
             const oldRequests = await old_Requests.find({}); // دریافت درخواست‌ها
             const oldTrips = await old_trips.find({}); // دریافت سفرها
 
+
             // پردازش درخواست‌ها
             for (const oldRequest of oldRequests) {
+
                 try {
                     const oldTrip = oldTrips.find(trip => trip?.request_ids[0]?.toString() === oldRequest?._id?.toString());
 
@@ -170,6 +172,8 @@ class migrateDataController {
                         },
                     ];
 
+                    //     oldRequest.cost_manager.cost_center && console.log("sgh:", oldRequest);  // چاپ مقدار برای بررسی
+
                     // ایجاد درخواست جدید در دیتابیس جدید
                     let newRequest = new new_Request({
                         _id: oldRequest._id,
@@ -178,12 +182,13 @@ class migrateDataController {
                         gmt_for_date: oldRequest.for_date,
                         status: createStatusRequest,
                         submitted_by: oldRequest.creator,
-                        confirmed_by: createStatusRequest !== 3 ? oldRequest.dispatcher[0]?.account_id : null,
-                        rejected_by: createStatusRequest === 3 ? oldRequest.dispatcher[0]?.account_id : null,
+                        confirmed_by: createStatusRequest !== "REJECT" ? oldRequest.dispatcher[0]?.account_id : null,
+                        rejected_by: createStatusRequest === "REJECT" ? oldRequest.dispatcher[0]?.account_id : null,
                         details: {
                             userlist: oldRequest.passenger,
                             proj_code: oldRequest.cost_manager.proj_code,
                             cost_center: oldRequest.cost_manager.cost_center,
+                            cost_center_desc: oldRequest.cost_manager.des_manag,
                             proj_desc: oldRequest.cost_manager.proj_desc,
                             cost: oldRequest.taxi_cost,
                             manager_emp_num: oldRequest.cost_manager.manager_emp_num,
@@ -191,7 +196,7 @@ class migrateDataController {
                             distance: oldRequest.distance_props?.distance,
                             interval: oldRequest.distance_props?.interval,
                         },
-                        area: oldRequest.area_id,
+                        area: oldRequest?.area_id,
                         createdAt: oldRequest.createdAt,
                         updatedAt: oldRequest.updatedAt,
                         __v: oldRequest.__v,
@@ -199,6 +204,7 @@ class migrateDataController {
 
                     // ایجاد ماموریت جدید در دیتابیس جدید
                     let newMission = createStatusMission && oldRequest.dispatcher[0]?.account_id && new new_Mission({
+                        _id: oldRequest._id,
                         created_by: oldRequest.dispatcher[0]?.account_id,
                         status: createStatusMission,
                         service_requests: createStatusRequest === serviceRequestStatus.ASSIGNED_TO_MISSION.key ? [

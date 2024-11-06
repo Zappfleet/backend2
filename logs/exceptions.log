@@ -27263,3 +27263,198 @@ Error: write after end
     at DerivedLogger.emit (node:events:531:35)
     at addChunk (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:279:12) 
 
+2024-11-05T08:41:31.398Z  error: uncaughtException: write after end
+Error: write after end
+    at writeAfterEnd (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:264:12)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:300:21)
+    at File.log (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\transports\file.js:222:34)
+    at RejectionStream._write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\rejection-stream.js:46:29)
+    at doWrite (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:390:139)
+    at writeOrBuffer (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:381:5)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:302:11)
+    at DerivedLogger.ondata (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:629:20)
+    at DerivedLogger.emit (node:events:531:35)
+    at addChunk (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:279:12) 
+
+2024-11-06T06:38:18.207Z  error: uncaughtException: write after end
+Error: write after end
+    at writeAfterEnd (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:264:12)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:300:21)
+    at File.log (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\transports\file.js:222:34)
+    at RejectionStream._write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\rejection-stream.js:46:29)
+    at doWrite (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:390:139)
+    at writeOrBuffer (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:381:5)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:302:11)
+    at DerivedLogger.ondata (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:629:20)
+    at DerivedLogger.emit (node:events:531:35)
+    at addChunk (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:279:12) 
+
+2024-11-06T06:41:48.645Z  error: uncaughtException: write after end
+Error: write after end
+    at writeAfterEnd (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:264:12)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:300:21)
+    at File.log (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\transports\file.js:222:34)
+    at RejectionStream._write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\rejection-stream.js:46:29)
+    at doWrite (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:390:139)
+    at writeOrBuffer (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:381:5)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:302:11)
+    at DerivedLogger.ondata (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:629:20)
+    at DerivedLogger.emit (node:events:531:35)
+    at addChunk (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:279:12) 
+
+2024-11-06T06:52:13.304Z  error: uncaughtException: write after end
+Error: write after end
+    at writeAfterEnd (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:264:12)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:300:21)
+    at File.log (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\transports\file.js:222:34)
+    at RejectionStream._write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\rejection-stream.js:46:29)
+    at doWrite (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:390:139)
+    at writeOrBuffer (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:381:5)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:302:11)
+    at DerivedLogger.ondata (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:629:20)
+    at DerivedLogger.emit (node:events:531:35)
+    at addChunk (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:279:12) 
+
+2024-11-06T06:54:49.468Z  error: uncaughtException: write after end
+Error: write after end
+    at writeAfterEnd (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:264:12)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:300:21)
+    at File.log (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\transports\file.js:222:34)
+    at RejectionStream._write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\rejection-stream.js:46:29)
+    at doWrite (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:390:139)
+    at writeOrBuffer (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:381:5)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:302:11)
+    at DerivedLogger.ondata (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:629:20)
+    at DerivedLogger.emit (node:events:531:35)
+    at addChunk (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:279:12) 
+
+2024-11-06T06:57:30.504Z  error: uncaughtException: write after end
+Error: write after end
+    at writeAfterEnd (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:264:12)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:300:21)
+    at File.log (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\transports\file.js:222:34)
+    at RejectionStream._write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\rejection-stream.js:46:29)
+    at doWrite (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:390:139)
+    at writeOrBuffer (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:381:5)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:302:11)
+    at DerivedLogger.ondata (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:629:20)
+    at DerivedLogger.emit (node:events:531:35)
+    at addChunk (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:279:12) 
+
+2024-11-06T07:46:22.486Z  error: uncaughtException: write after end
+Error: write after end
+    at writeAfterEnd (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:264:12)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:300:21)
+    at File.log (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\transports\file.js:222:34)
+    at RejectionStream._write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\rejection-stream.js:46:29)
+    at doWrite (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:390:139)
+    at writeOrBuffer (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:381:5)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:302:11)
+    at DerivedLogger.ondata (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:629:20)
+    at DerivedLogger.emit (node:events:531:35)
+    at addChunk (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:279:12) 
+
+2024-11-06T08:27:02.459Z  error: uncaughtException: write after end
+Error: write after end
+    at writeAfterEnd (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:264:12)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:300:21)
+    at File.log (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\transports\file.js:222:34)
+    at RejectionStream._write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\rejection-stream.js:46:29)
+    at doWrite (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:390:139)
+    at writeOrBuffer (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:381:5)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:302:11)
+    at DerivedLogger.ondata (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:629:20)
+    at DerivedLogger.emit (node:events:531:35)
+    at addChunk (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:279:12) 
+
+2024-11-06T08:32:33.465Z  error: uncaughtException: write after end
+Error: write after end
+    at writeAfterEnd (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:264:12)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:300:21)
+    at File.log (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\transports\file.js:222:34)
+    at RejectionStream._write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\rejection-stream.js:46:29)
+    at doWrite (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:390:139)
+    at writeOrBuffer (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:381:5)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:302:11)
+    at DerivedLogger.ondata (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:629:20)
+    at DerivedLogger.emit (node:events:531:35)
+    at addChunk (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:279:12) 
+
+2024-11-06T11:11:00.793Z  error: uncaughtException: write after end
+Error: write after end
+    at writeAfterEnd (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:264:12)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:300:21)
+    at File.log (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\transports\file.js:222:34)
+    at RejectionStream._write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\rejection-stream.js:46:29)
+    at doWrite (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:390:139)
+    at writeOrBuffer (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:381:5)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:302:11)
+    at DerivedLogger.ondata (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:629:20)
+    at DerivedLogger.emit (node:events:531:35)
+    at addChunk (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:279:12) 
+
+2024-11-06T11:18:48.254Z  error: uncaughtException: write after end
+Error: write after end
+    at writeAfterEnd (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:264:12)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:300:21)
+    at File.log (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\transports\file.js:222:34)
+    at RejectionStream._write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\rejection-stream.js:46:29)
+    at doWrite (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:390:139)
+    at writeOrBuffer (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:381:5)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:302:11)
+    at DerivedLogger.ondata (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:629:20)
+    at DerivedLogger.emit (node:events:531:35)
+    at addChunk (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:279:12) 
+
+2024-11-06T11:25:29.091Z  error: uncaughtException: write after end
+Error: write after end
+    at writeAfterEnd (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:264:12)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:300:21)
+    at File.log (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\transports\file.js:222:34)
+    at RejectionStream._write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\rejection-stream.js:46:29)
+    at doWrite (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:390:139)
+    at writeOrBuffer (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:381:5)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:302:11)
+    at DerivedLogger.ondata (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:629:20)
+    at DerivedLogger.emit (node:events:531:35)
+    at addChunk (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:279:12) 
+
+2024-11-06T13:17:05.576Z  error: uncaughtException: write after end
+Error: write after end
+    at writeAfterEnd (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:264:12)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:300:21)
+    at File.log (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\transports\file.js:222:34)
+    at RejectionStream._write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\rejection-stream.js:46:29)
+    at doWrite (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:390:139)
+    at writeOrBuffer (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:381:5)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:302:11)
+    at DerivedLogger.ondata (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:629:20)
+    at DerivedLogger.emit (node:events:531:35)
+    at addChunk (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:279:12) 
+
+2024-11-06T13:23:11.991Z  error: uncaughtException: write after end
+Error: write after end
+    at writeAfterEnd (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:264:12)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:300:21)
+    at File.log (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\transports\file.js:222:34)
+    at RejectionStream._write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\rejection-stream.js:46:29)
+    at doWrite (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:390:139)
+    at writeOrBuffer (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:381:5)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:302:11)
+    at DerivedLogger.ondata (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:629:20)
+    at DerivedLogger.emit (node:events:531:35)
+    at addChunk (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:279:12) 
+
+2024-11-06T14:03:05.259Z  error: uncaughtException: write after end
+Error: write after end
+    at writeAfterEnd (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:264:12)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:300:21)
+    at File.log (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\transports\file.js:222:34)
+    at RejectionStream._write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\rejection-stream.js:46:29)
+    at doWrite (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:390:139)
+    at writeOrBuffer (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:381:5)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:302:11)
+    at DerivedLogger.ondata (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:629:20)
+    at DerivedLogger.emit (node:events:531:35)
+    at addChunk (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:279:12) 
+

@@ -46,8 +46,8 @@ exports.migrateDataRequest = async function (req, res) {
         const oldTrips = await old_trips.find({})//.limit(5)
 
 
-        
-      for (const oldRequest of oldRequests) {
+
+        for (const oldRequest of oldRequests) {
             try {
                 const oldTrip = oldTrips.find(trip => trip?.request_ids[0]?.toString() === oldRequest?._id?.toString());
 
@@ -129,7 +129,7 @@ exports.migrateDataRequest = async function (req, res) {
                     }
                 ];
 
-
+              
                 let newRequest = new new_Request({
                     _id: oldRequest._id,
                     locations: createLocations,
@@ -137,15 +137,15 @@ exports.migrateDataRequest = async function (req, res) {
                     gmt_for_date: oldRequest.for_date,
                     status: createStatusRequest,
                     submitted_by: oldRequest.creator,
-                    confirmed_by: createStatusRequest !== 3 ? oldRequest.dispatcher[0]?.account_id : null,
-                    rejected_by: createStatusRequest === 3 ? oldRequest.dispatcher[0]?.account_id : null,
+                    confirmed_by: createStatusRequest === "REJECT" ? null : oldRequest.dispatcher[0]?.account_id,
+                    rejected_by: createStatusRequest === "REJECT" ? oldRequest.dispatcher[0]?.account_id : null,
                     details: {
                         userlist: oldRequest.passenger,
                         proj_code: oldRequest.cost_manager.proj_code,
                         cost_center: oldRequest.cost_manager.cost_center,
-                        proj_desc:oldRequest.cost_manager.proj_desc,
-                        cost:oldRequest.taxi_cost,
-                        manager_emp_num:oldRequest.cost_manager.manager_emp_num,
+                        proj_desc: oldRequest.cost_manager.proj_desc,
+                        cost: oldRequest.taxi_cost,
+                        manager_emp_num: oldRequest.cost_manager.manager_emp_num,
                         desc: oldRequest.desc,
                         distance: oldRequest.distance_props?.distance,
                         interval: oldRequest.distance_props?.interval,

@@ -76,7 +76,7 @@ const requestSchema = new mongoose.Schema(
           },
         }
       }],
-      default:[],
+      default: [],
       required: true,
     },
     cost_manager: {
@@ -84,6 +84,7 @@ const requestSchema = new mongoose.Schema(
       proj_code: Number,
       cost_center: Number,
       manager_emp_num: Number,
+      des_manag: String
     },
     creator: {
       type: mongoose.SchemaTypes.ObjectId,
@@ -100,12 +101,12 @@ const requestSchema = new mongoose.Schema(
     area_id: {
       type: mongoose.SchemaTypes.ObjectId,
       ref: "Area",
-      select: false,
+      // select: false,
     },
     status: {
       type: Number,
       default: 0,
-      enum: [0, 1, 2, 3, 4, 5, 6, 7, 8 , 9],
+      enum: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
     },
     step: {
       type: Number,
@@ -117,8 +118,8 @@ const requestSchema = new mongoose.Schema(
       default: true,
     },
   },
-  { 
-    collation: { locale: 'fa', strength: 1 }, 
+  {
+    collation: { locale: 'fa', strength: 1 },
     timestamps: true,
     toJSON: { virtuals: true },
     toObject: { virtuals: true }
