@@ -15805,3 +15805,703 @@ MongoNotConnectedError: Client must be connected before running operations
 
 2024-11-06T14:08:05.386Z  info: Connected to database 
 
+2024-11-10T04:25:25.669Z  info: Connected to database 
+
+2024-11-10T04:25:25.734Z  info: Connected to database 
+
+2024-11-10T06:36:59.959Z  info: Connected to database 
+
+2024-11-10T06:37:00.023Z  info: Connected to database 
+
+2024-11-10T09:08:19.717Z  info: Connected to database 
+
+2024-11-10T09:08:19.749Z  info: Connected to database 
+
+2024-11-10T09:56:32.929Z  info: Connected to database 
+
+2024-11-10T09:56:32.972Z  info: Connected to database 
+
+2024-11-10T09:57:42.643Z  info: Connected to database 
+
+2024-11-10T09:57:42.678Z  info: Connected to database 
+
+2024-11-10T10:00:38.538Z  info: Connected to database 
+
+2024-11-10T10:00:38.566Z  info: Connected to database 
+
+2024-11-10T10:03:29.916Z  info: Connected to database 
+
+2024-11-10T10:03:29.942Z  info: Connected to database 
+
+2024-11-10T10:05:58.179Z  info: Connected to database 
+
+2024-11-10T10:05:58.214Z  info: Connected to database 
+
+2024-11-10T10:10:03.460Z  info: Connected to database 
+
+2024-11-10T10:10:03.520Z  info: Connected to database 
+
+2024-11-10T10:11:30.369Z  info: Connected to database 
+
+2024-11-10T10:11:30.398Z  info: Connected to database 
+
+2024-11-10T10:59:38.312Z  info: Connected to database 
+
+2024-11-10T10:59:38.347Z  info: Connected to database 
+
+2024-11-10T11:09:41.703Z  info: Connected to database 
+
+2024-11-10T11:09:41.738Z  info: Connected to database 
+
+2024-11-10T11:38:05.952Z  info: Connected to database 
+
+2024-11-10T11:38:06.003Z  info: Connected to database 
+
+2024-11-10T11:59:52.959Z  info: Connected to database 
+
+2024-11-10T11:59:52.989Z  info: Connected to database 
+
+2024-11-10T12:09:16.408Z  info: Connected to database 
+
+2024-11-10T12:09:16.437Z  info: Connected to database 
+
+2024-11-10T12:27:34.167Z  info: Connected to database 
+
+2024-11-10T12:27:34.206Z  info: Connected to database 
+
+2024-11-10T12:46:01.037Z  info: Connected to database 
+
+2024-11-10T12:46:01.083Z  info: Connected to database 
+
+2024-11-10T12:52:58.352Z  info: Connected to database 
+
+2024-11-10T12:52:58.381Z  info: Connected to database 
+
+2024-11-11T04:26:09.634Z  info: Connected to database 
+
+2024-11-11T04:26:09.666Z  info: Connected to database 
+
+2024-11-11T04:47:31.828Z  info: Connected to database 
+
+2024-11-11T04:47:31.859Z  info: Connected to database 
+
+2024-11-11T04:47:31.880Z  info: Connected to database 
+
+2024-11-11T04:47:31.919Z  info: Connected to database 
+
+2024-11-11T04:48:09.933Z  info: Connected to database 
+
+2024-11-11T04:48:09.962Z  info: Connected to database 
+
+2024-11-11T04:48:10.689Z  info: Connected to database 
+
+2024-11-11T04:48:10.716Z  info: Connected to database 
+
+2024-11-11T04:49:20.859Z  info: Connected to database 
+
+2024-11-11T04:49:20.888Z  info: Connected to database 
+
+2024-11-11T04:49:22.425Z  info: Connected to database 
+
+2024-11-11T04:49:22.459Z  info: Connected to database 
+
+2024-11-11T04:53:33.522Z  info: Connected to database 
+
+2024-11-11T04:53:33.553Z  info: Connected to database 
+
+2024-11-11T04:53:34.258Z  info: Connected to database 
+
+2024-11-11T04:53:34.289Z  info: Connected to database 
+
+2024-11-11T04:54:56.120Z  info: Connected to database 
+
+2024-11-11T04:54:56.148Z  info: Connected to database 
+
+2024-11-11T04:54:57.248Z  info: Connected to database 
+
+2024-11-11T04:54:57.276Z  info: Connected to database 
+
+2024-11-11T05:09:45.775Z  info: Connected to database 
+
+2024-11-11T05:09:45.837Z  info: Connected to database 
+
+2024-11-11T05:09:46.229Z  info: Connected to database 
+
+2024-11-11T05:09:46.257Z  info: Connected to database 
+
+2024-11-11T05:13:14.302Z  info: Connected to database 
+
+2024-11-11T05:13:14.340Z  info: Connected to database 
+
+2024-11-11T05:13:14.334Z  info: Connected to database 
+
+2024-11-11T05:13:14.379Z  info: Connected to database 
+
+2024-11-11T05:13:43.699Z  info: Connected to database 
+
+2024-11-11T05:13:43.715Z  info: Connected to database 
+
+2024-11-11T05:13:43.728Z  info: Connected to database 
+
+2024-11-11T05:13:43.749Z  info: Connected to database 
+
+2024-11-11T05:16:54.052Z  info: Connected to database 
+
+2024-11-11T05:16:54.084Z  info: Connected to database 
+
+2024-11-11T05:16:56.476Z  info: Connected to database 
+
+2024-11-11T05:16:56.513Z  info: Connected to database 
+
+2024-11-11T05:17:18.176Z  info: Connected to database 
+
+2024-11-11T05:17:18.210Z  info: Connected to database 
+
+2024-11-11T05:17:18.359Z  info: Connected to database 
+
+2024-11-11T05:17:18.392Z  info: Connected to database 
+
+2024-11-11T05:27:47.717Z  info: Connected to database 
+
+2024-11-11T05:27:47.749Z  info: Connected to database 
+
+2024-11-11T05:27:48.033Z  info: Connected to database 
+
+2024-11-11T05:27:48.068Z  info: Connected to database 
+
+2024-11-11T05:28:30.023Z  info: Connected to database 
+
+2024-11-11T05:28:30.056Z  info: Connected to database 
+
+2024-11-11T05:28:30.885Z  info: Connected to database 
+
+2024-11-11T05:28:30.919Z  info: Connected to database 
+
+2024-11-11T05:30:17.238Z  info: Connected to database 
+
+2024-11-11T05:30:17.273Z  info: Connected to database 
+
+2024-11-11T05:30:19.031Z  info: Connected to database 
+
+2024-11-11T05:30:19.069Z  info: Connected to database 
+
+2024-11-11T05:30:43.639Z  info: Connected to database 
+
+2024-11-11T05:30:43.672Z  info: Connected to database 
+
+2024-11-11T05:30:44.433Z  info: Connected to database 
+
+2024-11-11T05:30:44.467Z  info: Connected to database 
+
+2024-11-11T05:35:24.837Z  info: Connected to database 
+
+2024-11-11T05:35:24.871Z  info: Connected to database 
+
+2024-11-11T05:35:25.420Z  info: Connected to database 
+
+2024-11-11T05:35:25.454Z  info: Connected to database 
+
+2024-11-11T05:35:50.146Z  info: Connected to database 
+
+2024-11-11T05:35:50.180Z  info: Connected to database 
+
+2024-11-11T05:35:50.683Z  info: Connected to database 
+
+2024-11-11T05:35:50.717Z  info: Connected to database 
+
+2024-11-11T05:36:41.918Z  info: Connected to database 
+
+2024-11-11T05:36:41.951Z  info: Connected to database 
+
+2024-11-11T05:36:42.605Z  info: Connected to database 
+
+2024-11-11T05:36:42.647Z  info: Connected to database 
+
+2024-11-11T05:38:49.402Z  info: Connected to database 
+
+2024-11-11T05:38:49.435Z  info: Connected to database 
+
+2024-11-11T05:38:50.252Z  info: Connected to database 
+
+2024-11-11T05:38:50.285Z  info: Connected to database 
+
+2024-11-11T06:27:28.310Z  info: Connected to database 
+
+2024-11-11T06:27:28.333Z  info: Connected to database 
+
+2024-11-11T06:27:28.338Z  info: Connected to database 
+
+2024-11-11T06:27:28.363Z  info: Connected to database 
+
+2024-11-11T06:28:19.671Z  info: Connected to database 
+
+2024-11-11T06:28:19.700Z  info: Connected to database 
+
+2024-11-11T06:28:20.055Z  info: Connected to database 
+
+2024-11-11T06:28:20.083Z  info: Connected to database 
+
+2024-11-11T06:32:45.001Z  info: Connected to database 
+
+2024-11-11T06:32:45.034Z  info: Connected to database 
+
+2024-11-11T06:32:45.315Z  info: Connected to database 
+
+2024-11-11T06:32:45.345Z  info: Connected to database 
+
+2024-11-11T06:34:22.331Z  info: Connected to database 
+
+2024-11-11T06:34:22.359Z  info: Connected to database 
+
+2024-11-11T06:34:24.354Z  info: Connected to database 
+
+2024-11-11T06:34:24.381Z  info: Connected to database 
+
+2024-11-11T06:34:43.410Z  info: Connected to database 
+
+2024-11-11T06:34:43.442Z  info: Connected to database 
+
+2024-11-11T06:34:44.266Z  info: Connected to database 
+
+2024-11-11T06:34:44.296Z  info: Connected to database 
+
+2024-11-11T06:35:35.296Z  info: Connected to database 
+
+2024-11-11T06:35:35.321Z  info: Connected to database 
+
+2024-11-11T06:35:35.947Z  info: Connected to database 
+
+2024-11-11T06:35:35.975Z  info: Connected to database 
+
+2024-11-11T06:36:10.655Z  info: Connected to database 
+
+2024-11-11T06:36:10.682Z  info: Connected to database 
+
+2024-11-11T06:36:11.383Z  info: Connected to database 
+
+2024-11-11T06:36:11.415Z  info: Connected to database 
+
+2024-11-11T06:37:00.651Z  info: Connected to database 
+
+2024-11-11T06:37:00.679Z  info: Connected to database 
+
+2024-11-11T06:37:02.914Z  info: Connected to database 
+
+2024-11-11T06:37:02.953Z  info: Connected to database 
+
+2024-11-11T06:44:44.282Z  info: Connected to database 
+
+2024-11-11T06:44:44.310Z  info: Connected to database 
+
+2024-11-11T06:44:44.819Z  info: Connected to database 
+
+2024-11-11T06:44:44.861Z  info: Connected to database 
+
+2024-11-11T06:47:08.550Z  info: Connected to database 
+
+2024-11-11T06:47:08.580Z  info: Connected to database 
+
+2024-11-11T06:47:09.185Z  info: Connected to database 
+
+2024-11-11T06:47:09.223Z  info: Connected to database 
+
+2024-11-11T06:48:53.873Z  info: Connected to database 
+
+2024-11-11T06:48:53.909Z  info: Connected to database 
+
+2024-11-11T06:48:54.391Z  info: Connected to database 
+
+2024-11-11T06:48:54.420Z  info: Connected to database 
+
+2024-11-11T06:50:39.521Z  info: Connected to database 
+
+2024-11-11T06:50:39.551Z  info: Connected to database 
+
+2024-11-11T07:01:37.667Z  info: Connected to database 
+
+2024-11-11T07:01:37.695Z  info: Connected to database 
+
+2024-11-11T07:01:38.400Z  info: Connected to database 
+
+2024-11-11T07:01:38.433Z  info: Connected to database 
+
+2024-11-11T07:05:39.418Z  info: Connected to database 
+
+2024-11-11T07:05:39.463Z  info: Connected to database 
+
+2024-11-11T07:05:39.995Z  info: Connected to database 
+
+2024-11-11T07:05:40.029Z  info: Connected to database 
+
+2024-11-11T07:06:26.192Z  info: Connected to database 
+
+2024-11-11T07:06:26.222Z  info: Connected to database 
+
+2024-11-11T07:06:26.778Z  info: Connected to database 
+
+2024-11-11T07:06:26.807Z  info: Connected to database 
+
+2024-11-11T07:09:38.749Z  info: Connected to database 
+
+2024-11-11T07:09:38.776Z  info: Connected to database 
+
+2024-11-11T07:09:39.275Z  info: Connected to database 
+
+2024-11-11T07:09:39.305Z  info: Connected to database 
+
+2024-11-11T07:11:24.869Z  info: Connected to database 
+
+2024-11-11T07:11:24.903Z  info: Connected to database 
+
+2024-11-11T07:11:25.353Z  info: Connected to database 
+
+2024-11-11T07:11:25.383Z  info: Connected to database 
+
+2024-11-11T07:15:15.021Z  info: Connected to database 
+
+2024-11-11T07:15:15.056Z  info: Connected to database 
+
+2024-11-11T07:15:15.655Z  info: Connected to database 
+
+2024-11-11T07:15:15.685Z  info: Connected to database 
+
+2024-11-11T07:16:07.348Z  info: Connected to database 
+
+2024-11-11T07:16:07.384Z  info: Connected to database 
+
+2024-11-11T07:16:08.063Z  info: Connected to database 
+
+2024-11-11T07:16:08.094Z  info: Connected to database 
+
+2024-11-11T07:19:18.165Z  info: Connected to database 
+
+2024-11-11T07:19:18.219Z  info: Connected to database 
+
+2024-11-11T07:19:18.870Z  info: Connected to database 
+
+2024-11-11T07:19:18.907Z  info: Connected to database 
+
+2024-11-11T07:19:42.934Z  info: Connected to database 
+
+2024-11-11T07:19:42.969Z  info: Connected to database 
+
+2024-11-11T07:19:43.339Z  info: Connected to database 
+
+2024-11-11T07:19:43.368Z  info: Connected to database 
+
+2024-11-11T07:20:37.143Z  info: Connected to database 
+
+2024-11-11T07:20:37.193Z  info: Connected to database 
+
+2024-11-11T07:20:38.411Z  info: Connected to database 
+
+2024-11-11T07:20:38.442Z  info: Connected to database 
+
+2024-11-11T07:21:33.936Z  info: Connected to database 
+
+2024-11-11T07:21:33.974Z  info: Connected to database 
+
+2024-11-11T07:21:34.875Z  info: Connected to database 
+
+2024-11-11T07:21:34.905Z  info: Connected to database 
+
+2024-11-11T07:22:24.140Z  info: Connected to database 
+
+2024-11-11T07:22:24.175Z  info: Connected to database 
+
+2024-11-11T07:22:24.721Z  info: Connected to database 
+
+2024-11-11T07:22:24.750Z  info: Connected to database 
+
+2024-11-11T07:23:13.444Z  info: Connected to database 
+
+2024-11-11T07:23:13.508Z  info: Connected to database 
+
+2024-11-11T07:23:14.208Z  info: Connected to database 
+
+2024-11-11T07:23:14.250Z  info: Connected to database 
+
+2024-11-11T07:41:08.546Z  info: Connected to database 
+
+2024-11-11T07:41:08.619Z  info: Connected to database 
+
+2024-11-11T07:47:50.325Z  info: Connected to database 
+
+2024-11-11T07:47:50.375Z  info: Connected to database 
+
+2024-11-11T07:49:22.771Z  info: Connected to database 
+
+2024-11-11T07:49:22.813Z  info: Connected to database 
+
+2024-11-11T07:52:08.008Z  info: Connected to database 
+
+2024-11-11T07:52:08.049Z  info: Connected to database 
+
+2024-11-11T07:54:15.932Z  info: Connected to database 
+
+2024-11-11T07:54:15.969Z  info: Connected to database 
+
+2024-11-11T07:58:46.209Z  info: Connected to database 
+
+2024-11-11T07:58:46.247Z  info: Connected to database 
+
+2024-11-11T08:00:08.655Z  info: Connected to database 
+
+2024-11-11T08:00:08.705Z  info: Connected to database 
+
+2024-11-11T08:02:21.259Z  info: Connected to database 
+
+2024-11-11T08:02:21.298Z  info: Connected to database 
+
+2024-11-11T08:02:58.950Z  info: Connected to database 
+
+2024-11-11T08:02:58.987Z  info: Connected to database 
+
+2024-11-11T08:04:41.687Z  info: Connected to database 
+
+2024-11-11T08:04:41.725Z  info: Connected to database 
+
+2024-11-11T08:07:05.189Z  error: unhandledRejection: mongoose is not defined
+ReferenceError: mongoose is not defined
+    at addRolesIfNotExist (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\users\routes\user-account-controller.js:343:18)
+    at SSO_Irisa_Auth (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\users\routes\user-account-controller.js:446:9)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) 
+
+2024-11-11T08:08:51.667Z  info: Connected to database 
+
+2024-11-11T08:08:51.706Z  info: Connected to database 
+
+2024-11-11T08:09:41.625Z  info: Connected to database 
+
+2024-11-11T08:09:41.666Z  info: Connected to database 
+
+2024-11-11T08:10:47.397Z  info: Connected to database 
+
+2024-11-11T08:10:47.436Z  info: Connected to database 
+
+2024-11-11T08:12:32.891Z  info: Connected to database 
+
+2024-11-11T08:12:32.929Z  info: Connected to database 
+
+2024-11-11T08:21:09.236Z  info: Connected to database 
+
+2024-11-11T08:21:09.275Z  info: Connected to database 
+
+2024-11-11T08:26:07.492Z  info: Connected to database 
+
+2024-11-11T08:26:07.531Z  info: Connected to database 
+
+2024-11-11T08:30:12.094Z  info: Connected to database 
+
+2024-11-11T08:30:12.133Z  info: Connected to database 
+
+2024-11-11T08:30:28.408Z  error: unhandledRejection: (no error message)
+
+    at getIrisaEmp (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\utils\irisaHelper.js:46:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) 
+
+2024-11-11T08:31:54.470Z  error: unhandledRejection: (no error message)
+
+    at getIrisaEmp (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\utils\irisaHelper.js:46:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) 
+
+2024-11-11T08:33:06.643Z  info: Connected to database 
+
+2024-11-11T08:33:06.688Z  info: Connected to database 
+
+2024-11-11T08:33:20.853Z  error: unhandledRejection: (no error message)
+
+    at getIrisaEmp (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\utils\irisaHelper.js:46:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) 
+
+2024-11-11T08:37:37.682Z  info: Connected to database 
+
+2024-11-11T08:37:37.731Z  info: Connected to database 
+
+2024-11-11T08:37:39.509Z  error: unhandledRejection: (no error message)
+
+    at getIrisaEmp (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\utils\irisaHelper.js:46:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) 
+
+2024-11-11T08:38:14.505Z  info: Connected to database 
+
+2024-11-11T08:38:14.536Z  info: Connected to database 
+
+2024-11-11T08:38:20.770Z  error: unhandledRejection: (no error message)
+
+    at getIrisaEmp (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\utils\irisaHelper.js:46:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) 
+
+2024-11-11T08:38:21.798Z  error: unhandledRejection: (no error message)
+
+    at getIrisaEmp (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\utils\irisaHelper.js:46:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) 
+
+2024-11-11T08:39:05.732Z  info: Connected to database 
+
+2024-11-11T08:39:05.768Z  info: Connected to database 
+
+2024-11-11T08:40:47.978Z  info: Connected to database 
+
+2024-11-11T08:40:48.015Z  info: Connected to database 
+
+2024-11-11T08:42:30.746Z  info: Connected to database 
+
+2024-11-11T08:42:30.793Z  info: Connected to database 
+
+2024-11-11T08:42:52.404Z  info: Connected to database 
+
+2024-11-11T08:42:52.443Z  info: Connected to database 
+
+2024-11-11T08:43:52.483Z  info: Connected to database 
+
+2024-11-11T08:43:52.519Z  info: Connected to database 
+
+2024-11-11T08:44:31.666Z  info: Connected to database 
+
+2024-11-11T08:44:31.703Z  info: Connected to database 
+
+2024-11-11T08:45:51.503Z  info: Connected to database 
+
+2024-11-11T08:45:51.542Z  info: Connected to database 
+
+2024-11-11T08:48:26.521Z  info: Connected to database 
+
+2024-11-11T08:48:26.557Z  info: Connected to database 
+
+2024-11-11T08:50:24.313Z  info: Connected to database 
+
+2024-11-11T08:50:24.357Z  info: Connected to database 
+
+2024-11-11T08:50:59.626Z  info: Connected to database 
+
+2024-11-11T08:50:59.666Z  info: Connected to database 
+
+2024-11-11T08:52:57.326Z  info: Connected to database 
+
+2024-11-11T08:52:57.364Z  info: Connected to database 
+
+2024-11-11T08:59:16.979Z  info: Connected to database 
+
+2024-11-11T08:59:17.019Z  info: Connected to database 
+
+2024-11-11T09:00:10.550Z  info: Connected to database 
+
+2024-11-11T09:00:10.588Z  info: Connected to database 
+
+2024-11-11T09:00:52.164Z  info: Connected to database 
+
+2024-11-11T09:00:52.206Z  info: Connected to database 
+
+2024-11-11T09:03:14.420Z  info: Connected to database 
+
+2024-11-11T09:03:14.481Z  info: Connected to database 
+
+2024-11-11T09:04:31.913Z  info: Connected to database 
+
+2024-11-11T09:04:31.950Z  info: Connected to database 
+
+2024-11-11T09:10:09.196Z  info: Connected to database 
+
+2024-11-11T09:10:09.253Z  info: Connected to database 
+
+2024-11-11T12:21:07.549Z  info: Connected to database 
+
+2024-11-11T12:21:07.612Z  info: Connected to database 
+
+2024-11-13T04:12:28.638Z  info: Connected to database 
+
+2024-11-13T04:12:28.683Z  info: Connected to database 
+
+2024-11-13T04:17:26.477Z  info: Connected to database 
+
+2024-11-13T04:17:26.521Z  info: Connected to database 
+
+2024-11-13T04:56:41.628Z  info: Connected to database 
+
+2024-11-13T04:56:41.665Z  info: Connected to database 
+
+2024-11-13T04:57:19.845Z  info: Connected to database 
+
+2024-11-13T04:57:19.886Z  info: Connected to database 
+
+2024-11-13T05:04:55.795Z  info: Connected to database 
+
+2024-11-13T05:04:55.834Z  info: Connected to database 
+
+2024-11-13T05:05:56.595Z  info: Connected to database 
+
+2024-11-13T05:05:56.632Z  info: Connected to database 
+
+2024-11-13T05:06:25.368Z  info: Connected to database 
+
+2024-11-13T05:06:25.406Z  info: Connected to database 
+
+2024-11-13T05:06:56.436Z  info: Connected to database 
+
+2024-11-13T05:06:56.472Z  info: Connected to database 
+
+2024-11-13T05:10:22.171Z  info: Connected to database 
+
+2024-11-13T05:10:22.211Z  info: Connected to database 
+
+2024-11-13T05:12:34.268Z  info: Connected to database 
+
+2024-11-13T05:12:34.337Z  info: Connected to database 
+
+2024-11-13T05:13:41.287Z  info: Connected to database 
+
+2024-11-13T05:13:41.324Z  info: Connected to database 
+
+2024-11-13T05:14:28.797Z  info: Connected to database 
+
+2024-11-13T05:14:28.834Z  info: Connected to database 
+
+2024-11-13T05:18:16.686Z  info: Connected to database 
+
+2024-11-13T05:18:16.777Z  info: Connected to database 
+
+2024-11-13T05:21:09.207Z  info: Connected to database 
+
+2024-11-13T05:21:09.246Z  info: Connected to database 
+
+2024-11-13T05:24:56.328Z  info: Connected to database 
+
+2024-11-13T05:24:56.690Z  info: Connected to database 
+
+2024-11-13T05:29:33.376Z  info: Connected to database 
+
+2024-11-13T05:29:33.506Z  info: Connected to database 
+
+2024-11-13T05:54:42.476Z  info: Connected to database 
+
+2024-11-13T05:54:42.515Z  info: Connected to database 
+
+2024-11-13T06:03:43.538Z  info: Connected to database 
+
+2024-11-13T06:03:43.578Z  info: Connected to database 
+
+2024-11-13T06:29:30.695Z  info: Connected to database 
+
+2024-11-13T06:29:30.734Z  info: Connected to database 
+
+2024-11-13T06:30:34.894Z  info: Connected to database 
+
+2024-11-13T06:30:34.938Z  info: Connected to database 
+
+2024-11-13T06:38:09.484Z  info: Connected to database 
+
+2024-11-13T06:38:09.514Z  info: Connected to database 
+
+2024-11-13T06:38:52.661Z  info: Connected to database 
+
+2024-11-13T06:38:52.691Z  info: Connected to database 
+
+2024-11-13T06:39:22.801Z  info: Connected to database 
+
+2024-11-13T06:39:22.842Z  info: Connected to database 
+
+2024-11-13T06:40:06.104Z  info: Connected to database 
+
+2024-11-13T06:40:06.142Z  info: Connected to database 
+

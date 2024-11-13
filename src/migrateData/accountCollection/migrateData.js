@@ -175,3 +175,9 @@ exports.migrateDataAccounts = async function (req, res) {
         }
     }
 }
+
+
+
+module.exports = {
+    addRolesIfNotExist
+  };

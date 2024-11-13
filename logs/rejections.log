@@ -18688,3 +18688,29 @@ MongoNotConnectedError: Client must be connected before running operations
     at model.Query._findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:2602:45)
     at model.Query.exec (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:4412:80) 
 
+2024-11-11T08:07:05.189Z  error: unhandledRejection: mongoose is not defined
+ReferenceError: mongoose is not defined
+    at addRolesIfNotExist (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\users\routes\user-account-controller.js:343:18)
+    at SSO_Irisa_Auth (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\users\routes\user-account-controller.js:446:9)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) 
+
+2024-11-11T08:30:28.408Z  error: unhandledRejection: (no error message)
+
+    at getIrisaEmp (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\utils\irisaHelper.js:46:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) 
+
+2024-11-11T08:33:20.853Z  error: unhandledRejection: (no error message)
+
+    at getIrisaEmp (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\utils\irisaHelper.js:46:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) 
+
+2024-11-11T08:37:39.509Z  error: unhandledRejection: (no error message)
+
+    at getIrisaEmp (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\utils\irisaHelper.js:46:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) 
+
+2024-11-11T08:38:20.770Z  error: unhandledRejection: (no error message)
+
+    at getIrisaEmp (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\utils\irisaHelper.js:46:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) 
+

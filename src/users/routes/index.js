@@ -15,8 +15,8 @@ const {
   setUserStatus,
   getUserListByPermissions,
   getPaginatedUsers,
+  SSO_Irisa_Auth,
 } = require("./user-account-controller");
-const {router:googleAuth} =require("./googleAuth")
 const { authenticate, restrict } = require("../mid/auth");
 
 const router = Router();
@@ -319,28 +319,12 @@ router.put("/:id", authenticate, restrict, updateUser);
  */
 router.get("/paginated", authenticate, restrict, getPaginatedUsers);
 
-
-
 /**
  * @swagger
- * /api/v2/users/googleAuth:
+ * /api/v2/users/SSO_Irisa_Auth:
  *  post:
  *      tags: [User Accounts]
- *      summary: sign in with googleAuth
- *      security:
- *              - BearerAuth: []
- *      requestBody:
- *              required: true
- *              consumes:
- *                  - "application/raw"
- *              content:
- *                  application/json:
- *                      schema:
- *                              type: object
- *                              example: {
- *                                  "username": "...",
- *                                  "password": "..."
- *                              }
+ *      summary: sign in with SSO_Irisa_Auth
  *      responses:
  *          200:
  *              description: Success
@@ -349,7 +333,37 @@ router.get("/paginated", authenticate, restrict, getPaginatedUsers);
  *          500:
  *              description: Internal Error
  */
-router.post("/googleAuth", googleAuth);
+router.post("/SSO_Irisa_Auth", SSO_Irisa_Auth);
+
+// /**
+//  * @swagger
+//  * /api/v2/users/googleAuth:
+//  *  post:
+//  *      tags: [User Accounts]
+//  *      summary: sign in with googleAuth
+//  *      security:
+//  *              - BearerAuth: []
+//  *      requestBody:
+//  *              required: true
+//  *              consumes:
+//  *                  - "application/raw"
+//  *              content:
+//  *                  application/json:
+//  *                      schema:
+//  *                              type: object
+//  *                              example: {
+//  *                                  "username": "...",
+//  *                                  "password": "..."
+//  *                              }
+//  *      responses:
+//  *          200:
+//  *              description: Success
+//  *          401:
+//  *              description: Unauthraize
+//  *          500:
+//  *              description: Internal Error
+//  */
+// router.post("/googleAuth", googleAuth);
 
 
 /**

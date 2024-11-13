@@ -29,7 +29,13 @@ const getIrisaToken = async () => {
 
 const getIrisaEmp = async (emp_num) => {
   try {
+
+    console.log(2011);
+    
     const irisaToken = await getIrisaToken();
+
+    console.log(1000,irisaToken);
+    
     const request = await axiosInstance.post(
       config.get("IRISA_BASE_URL") + "/sql2cs/do/erp_employee/rest/v1.0",
       { employeeNumber: emp_num },
