@@ -84,6 +84,28 @@ async function listMissions(
       {
         $unwind: "$result"
       },
+      // First lookup to get projectManager details
+      {
+        $lookup: {
+          from: "useraccounts",
+          let: { employeeNumber: "$result.details.project.EMPLOYEE_NUMBER" },
+          pipeline: [
+            {
+              $match: {
+                $expr: {
+                  $eq: ["$details.personel_code", "$$employeeNumber"]
+                }
+              }
+            },
+            {
+              $project: {
+                full_name: 1
+              }
+            }
+          ],
+          as: "projectManager"
+        }
+      },
       // Second lookup to join useraccounts with the result
       {
         $lookup: {
@@ -97,7 +119,6 @@ async function listMissions(
       {
         $unwind: "$userDetails"
       },
-
       //////////////////assigned_by
       {
         $lookup: {
@@ -114,9 +135,6 @@ async function listMissions(
           "preserveNullAndEmptyArrays": true
         }
       },
-      // {
-      //   $unwind: "$assigned_by_FullName"
-      // },
       //////////////////vehicle
       {
         $lookup: {
@@ -142,7 +160,6 @@ async function listMissions(
           as: "DriverInfo"
         }
       },
-
       // Unwind the userDetails array to get individual user details
       {
         "$unwind": {
@@ -150,9 +167,36 @@ async function listMissions(
           "preserveNullAndEmptyArrays": true
         }
       },
-      // {
-      //   $unwind: "$vehicleDetails"
-      // },
+      // Add the final fields using the data from previous lookups
+      {
+        $addFields: {
+          managerOfProject: {
+            $cond: {
+              if: {
+                $and: [
+                  { $ne: [{ $type: "$result.details.project" }, "missing"] },
+                  { $ne: ["$result.details.project", undefined] }
+                ]
+              },
+              then: {
+                $arrayElemAt: ["$projectManager.full_name", 0] // Getting the full_name from projectManager
+              },
+              else: {
+                $cond: {
+                  if: {
+                    $and: [
+                      { $ne: [{ $type: "$result.details.costCenter" }, "missing"] },
+                      { $ne: ["$result.details.costCenter", undefined] }
+                    ]
+                  },
+                  then: "$result.details.costCenter.MANGER_NAME",
+                  else: null
+                }
+              }
+            }
+          }
+        }
+      },
       // Project the fields you need
       {
         $project: {
@@ -181,6 +225,7 @@ async function listMissions(
               else: "$DriverInfo.full_name"
             }
           },
+          managerOfProject: 1, // Just passing the managerOfProject field
           vehicleID: "$vehicleDetails._id",
           locations: "$result.locations",
           vehiclePlaque: "$vehicleDetails.plaque",
@@ -189,10 +234,10 @@ async function listMissions(
           extra: "$extra",
           service_requests: "$service_requests",
           request: "$result"
-
         }
       }
     ])
+
     :
     await ServiceMission.aggregate([
       {
@@ -771,10 +816,70 @@ async function listServiceRequests(
 
 
   //console.log(852, paging);
-  const result = paging ? await ServiceRequest.find(effectiveFilter).populate([
-    { path: "confirmed_by", select: "full_name" }, // بازیابی full_name
-    { path: "rejected_by", select: "full_name" },
-  ])
+  const result = paging ?
+    // await ServiceRequest.aggregate([
+    //   {
+    //     $match: effectiveFilter, // اعمال فیلتر اولیه
+    //   },
+    //   {
+    //     $lookup: {
+    //       from: "users", // نام مجموعه‌ی مربوط به کاربر
+    //       localField: "confirmed_by", // فیلدی که باید مرتبط شود
+    //       foreignField: "_id", // کلید اصلی در مجموعه کاربران
+    //       as: "confirmed_by", // نام خروجی
+    //     },
+    //   },
+    //   {
+    //     $lookup: {
+    //       from: "users",
+    //       localField: "rejected_by",
+    //       foreignField: "_id",
+    //       as: "rejected_by",
+    //     },
+    //   },
+    //   {
+    //     $addFields: {
+    //       managerOfProject: {
+    //         $cond: {
+    //           if: {
+    //             $and: [
+    //               { $ne: [{ $type: "$details.project" }, "missing"] },
+    //               { $ne: ["$details.project", undefined] },
+    //             ],
+    //           },
+    //           then: {
+    //             $arrayElemAt: ["$projectManager.full_name", 0],
+    //           },
+    //           else: {
+    //             $cond: {
+    //               if: {
+    //                 $and: [
+    //                   { $ne: [{ $type: "$details.costCenter" }, "missing"] },
+    //                   { $ne: ["$details.costCenter", undefined] },
+    //                 ],
+    //               },
+    //               then: "$details.costCenter.MANGER_NAME",
+    //               else: null,
+    //             },
+    //           },
+    //         },
+    //       },
+    //     },
+    //   },
+    //   {
+    //     $project: {
+    //       confirmed_by: 1,
+    //       rejected_by: 1,
+    //       managerOfProject: 1,
+    //       otherFields: 1, // سایر فیلدهایی که نیاز دارید
+    //     },
+    //   },
+    // ])
+
+     await ServiceRequest.find(effectiveFilter).populate([
+      { path: "confirmed_by", select: "full_name" }, // بازیابی full_name
+      { path: "rejected_by", select: "full_name" },
+    ])
     :
     await ServiceRequest.paginate(
       effectiveFilter,

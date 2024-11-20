@@ -174,6 +174,9 @@ class migrateDataController {
 
                     //     oldRequest.cost_manager.cost_center && console.log("sgh:", oldRequest);  // چاپ مقدار برای بررسی
 
+                    let manage_name = oldRequest.cost_manager.cost_center && await old_users.findOne({ emp_num: `${oldRequest.cost_manager.manager_emp_num}` });
+                    manage_name = manage_name ? manage_name.full_name : '---';
+
                     // ایجاد درخواست جدید در دیتابیس جدید
                     let newRequest = new new_Request({
                         _id: oldRequest._id,
@@ -185,13 +188,20 @@ class migrateDataController {
                         confirmed_by: createStatusRequest !== "REJECT" ? oldRequest.dispatcher[0]?.account_id : null,
                         rejected_by: createStatusRequest === "REJECT" ? oldRequest.dispatcher[0]?.account_id : null,
                         details: {
+                            project: oldRequest.cost_manager.proj_code ? {
+                                EMPLOYEE_NUMBER: `${oldRequest.cost_manager.manager_emp_num}`,
+                                PROJECT_DESC: oldRequest.cost_manager.proj_desc,
+                            } : undefined,
                             userlist: oldRequest.passenger,
                             proj_code: oldRequest.cost_manager.proj_code,
-                            cost_center: oldRequest.cost_manager.cost_center,
-                            cost_center_desc: oldRequest.cost_manager.des_manag,
-                            proj_desc: oldRequest.cost_manager.proj_desc,
+                            cost_center: `${oldRequest.cost_manager.cost_center}` || undefined,
+                            costCenter: oldRequest.cost_manager.cost_center ? {
+                                COD_CC: `${oldRequest.cost_manager.cost_center}`,
+                                DES_CC: oldRequest.cost_manager.des_manag,
+                                NUM_PRSN_RSPNS_CC: `${oldRequest.cost_manager.manager_emp_num}`,
+                                MANGER_NAME: manage_name,
+                            } : undefined,
                             cost: oldRequest.taxi_cost,
-                            manager_emp_num: oldRequest.cost_manager.manager_emp_num,
                             desc: oldRequest.desc,
                             distance: oldRequest.distance_props?.distance,
                             interval: oldRequest.distance_props?.interval,
@@ -416,13 +426,32 @@ class migrateDataController {
 
             for (const oldArea of oldAreas) {
                 try {
+                    let update_geometry = {
+                        ...oldArea.location,
+                        coordinates: oldArea.location.coordinates.map(polygon => {
+                            // تغییر ترتیب مختصات در هر پلی‌گون و بستن حلقه
+                            const updatedCoordinates = polygon.map(coordinate => [coordinate[1], coordinate[0]]);
+                            
+                            // بستن حلقه با اضافه کردن اولین نقطه به انتها (اگر نیاز باشد)
+                            if (
+                                updatedCoordinates.length > 0 &&
+                                (updatedCoordinates[0][0] !== updatedCoordinates[updatedCoordinates.length - 1][0] ||
+                                 updatedCoordinates[0][1] !== updatedCoordinates[updatedCoordinates.length - 1][1])
+                            ) {
+                                updatedCoordinates.push(updatedCoordinates[0]);
+                            }
+                    
+                            return updatedCoordinates;
+                        })
+                    };
+                    
                     // ایجاد منطقه جدید در دیتابیس جدید
                     let newRegion = new newRegions({
                         _id: oldArea._id,
                         name: oldArea.name,
                         dispatcher: oldArea.dispatcher[0].account_id,
                         alternativeDispatcher: oldArea.prev_dispatchers,
-                        geometry: oldArea.location,
+                        geometry: update_geometry,//oldArea.location,
                         properties: {
                             need_manager_confirmation: oldArea.need_manager_approve === true ? 'yes' : 'no',
                         },

@@ -11,7 +11,13 @@ exports.db = async function (callback) {
       db = config.get("db");
       mongoose.set('strictQuery', false);
       await mongoose.connect(db)//, { useNewUrlParser: true, useUnifiedTopology: true });
-
+    //  await mongoose.connect(db, {
+    //   useNewUrlParser: true,
+    //   useUnifiedTopology: true,
+    //   connectTimeoutMS: 30000, // زمان انتظار 30 ثانیه
+    //   serverSelectionTimeoutMS: 30000 // زمان انتخاب سرور 30 ثانیه
+    // });
+    
     }
     if (environment_name === "server") {
       db = config.get("db_SERVER");

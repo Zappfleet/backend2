@@ -361,6 +361,10 @@ class MissionController {
     res.status(200).send(missionList);
   }
 
+
+
+
+  
   async buildMissionDraft(req, res) {
     const userId = req.auth._id;
     const draftMission = await createDraftMission(userId);

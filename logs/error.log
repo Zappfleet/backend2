@@ -4227,3 +4227,471 @@ ReferenceError: mongoose is not defined
     at getIrisaEmp (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\utils\irisaHelper.js:46:11)
     at process.processTicksAndRejections (node:internal/process/task_queues:95:5) 
 
+2024-11-14T08:40:43.781Z  error: unhandledRejection: Client must be connected before running operations
+MongoNotConnectedError: Client must be connected before running operations
+    at autoConnect (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:88:19)
+    at executeOperation (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:36:28)
+    at FindCursor._initialize (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\find_cursor.js:51:73)
+    at FindCursor.cursorInit (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:495:38)
+    at FindCursor.fetchBatch (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:527:24)
+    at FindCursor.next (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:239:24)
+    at Collection.findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\collection.js:274:34)
+    at NativeCollection.<computed> [as findOne] (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:244:33)
+    at model.Query._findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:2602:45)
+    at model.Query.exec (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:4412:80) 
+
+2024-11-17T08:41:54.561Z  error: unhandledRejection: Client must be connected before running operations
+MongoNotConnectedError: Client must be connected before running operations
+    at autoConnect (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:88:19)
+    at executeOperation (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:36:28)
+    at FindCursor._initialize (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\find_cursor.js:51:73)
+    at FindCursor.cursorInit (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:495:38)
+    at FindCursor.fetchBatch (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:527:24)
+    at FindCursor.next (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:239:24)
+    at Collection.findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\collection.js:274:34)
+    at NativeCollection.<computed> [as findOne] (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:244:33)
+    at model.Query._findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:2602:45)
+    at model.Query.exec (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:4412:80) 
+
+2024-11-17T08:52:12.492Z  error: unhandledRejection: Client must be connected before running operations
+MongoNotConnectedError: Client must be connected before running operations
+    at autoConnect (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:88:19)
+    at executeOperation (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:36:28)
+    at FindCursor._initialize (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\find_cursor.js:51:73)
+    at FindCursor.cursorInit (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:495:38)
+    at FindCursor.fetchBatch (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:527:24)
+    at FindCursor.next (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:239:24)
+    at Collection.findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\collection.js:274:34)
+    at NativeCollection.<computed> [as findOne] (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:244:33)
+    at model.Query._findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:2602:45)
+    at model.Query.exec (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:4412:80) 
+
+2024-11-17T08:52:42.483Z  error: unhandledRejection: Client must be connected before running operations
+MongoNotConnectedError: Client must be connected before running operations
+    at autoConnect (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:88:19)
+    at executeOperation (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:36:28)
+    at FindCursor._initialize (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\find_cursor.js:51:73)
+    at FindCursor.cursorInit (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:495:38)
+    at FindCursor.fetchBatch (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:527:24)
+    at FindCursor.next (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:239:24)
+    at Collection.findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\collection.js:274:34)
+    at NativeCollection.<computed> [as findOne] (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:244:33)
+    at model.Query._findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:2602:45)
+    at model.Query.exec (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:4412:80) 
+
+2024-11-17T08:53:12.488Z  error: unhandledRejection: Client must be connected before running operations
+MongoNotConnectedError: Client must be connected before running operations
+    at autoConnect (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:88:19)
+    at executeOperation (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:36:28)
+    at FindCursor._initialize (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\find_cursor.js:51:73)
+    at FindCursor.cursorInit (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:495:38)
+    at FindCursor.fetchBatch (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:527:24)
+    at FindCursor.next (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:239:24)
+    at Collection.findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\collection.js:274:34)
+    at NativeCollection.<computed> [as findOne] (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:244:33)
+    at model.Query._findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:2602:45)
+    at model.Query.exec (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:4412:80) 
+
+2024-11-17T08:53:42.493Z  error: unhandledRejection: Client must be connected before running operations
+MongoNotConnectedError: Client must be connected before running operations
+    at autoConnect (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:88:19)
+    at executeOperation (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:36:28)
+    at FindCursor._initialize (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\find_cursor.js:51:73)
+    at FindCursor.cursorInit (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:495:38)
+    at FindCursor.fetchBatch (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:527:24)
+    at FindCursor.next (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:239:24)
+    at Collection.findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\collection.js:274:34)
+    at NativeCollection.<computed> [as findOne] (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:244:33)
+    at model.Query._findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:2602:45)
+    at model.Query.exec (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:4412:80) 
+
+2024-11-17T08:54:12.502Z  error: unhandledRejection: Client must be connected before running operations
+MongoNotConnectedError: Client must be connected before running operations
+    at autoConnect (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:88:19)
+    at executeOperation (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:36:28)
+    at FindCursor._initialize (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\find_cursor.js:51:73)
+    at FindCursor.cursorInit (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:495:38)
+    at FindCursor.fetchBatch (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:527:24)
+    at FindCursor.next (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:239:24)
+    at Collection.findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\collection.js:274:34)
+    at NativeCollection.<computed> [as findOne] (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:244:33)
+    at model.Query._findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:2602:45)
+    at model.Query.exec (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:4412:80) 
+
+2024-11-17T08:54:42.516Z  error: unhandledRejection: Client must be connected before running operations
+MongoNotConnectedError: Client must be connected before running operations
+    at autoConnect (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:88:19)
+    at executeOperation (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:36:28)
+    at FindCursor._initialize (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\find_cursor.js:51:73)
+    at FindCursor.cursorInit (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:495:38)
+    at FindCursor.fetchBatch (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:527:24)
+    at FindCursor.next (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:239:24)
+    at Collection.findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\collection.js:274:34)
+    at NativeCollection.<computed> [as findOne] (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:244:33)
+    at model.Query._findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:2602:45)
+    at model.Query.exec (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:4412:80) 
+
+2024-11-17T08:55:12.514Z  error: unhandledRejection: Client must be connected before running operations
+MongoNotConnectedError: Client must be connected before running operations
+    at autoConnect (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:88:19)
+    at executeOperation (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:36:28)
+    at FindCursor._initialize (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\find_cursor.js:51:73)
+    at FindCursor.cursorInit (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:495:38)
+    at FindCursor.fetchBatch (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:527:24)
+    at FindCursor.next (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:239:24)
+    at Collection.findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\collection.js:274:34)
+    at NativeCollection.<computed> [as findOne] (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:244:33)
+    at model.Query._findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:2602:45)
+    at model.Query.exec (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:4412:80) 
+
+2024-11-17T08:55:42.531Z  error: unhandledRejection: Client must be connected before running operations
+MongoNotConnectedError: Client must be connected before running operations
+    at autoConnect (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:88:19)
+    at executeOperation (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:36:28)
+    at FindCursor._initialize (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\find_cursor.js:51:73)
+    at FindCursor.cursorInit (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:495:38)
+    at FindCursor.fetchBatch (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:527:24)
+    at FindCursor.next (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:239:24)
+    at Collection.findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\collection.js:274:34)
+    at NativeCollection.<computed> [as findOne] (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:244:33)
+    at model.Query._findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:2602:45)
+    at model.Query.exec (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:4412:80) 
+
+2024-11-17T08:56:12.541Z  error: unhandledRejection: Client must be connected before running operations
+MongoNotConnectedError: Client must be connected before running operations
+    at autoConnect (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:88:19)
+    at executeOperation (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:36:28)
+    at FindCursor._initialize (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\find_cursor.js:51:73)
+    at FindCursor.cursorInit (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:495:38)
+    at FindCursor.fetchBatch (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:527:24)
+    at FindCursor.next (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:239:24)
+    at Collection.findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\collection.js:274:34)
+    at NativeCollection.<computed> [as findOne] (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:244:33)
+    at model.Query._findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:2602:45)
+    at model.Query.exec (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:4412:80) 
+
+2024-11-17T08:56:42.554Z  error: unhandledRejection: Client must be connected before running operations
+MongoNotConnectedError: Client must be connected before running operations
+    at autoConnect (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:88:19)
+    at executeOperation (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:36:28)
+    at FindCursor._initialize (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\find_cursor.js:51:73)
+    at FindCursor.cursorInit (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:495:38)
+    at FindCursor.fetchBatch (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:527:24)
+    at FindCursor.next (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:239:24)
+    at Collection.findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\collection.js:274:34)
+    at NativeCollection.<computed> [as findOne] (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:244:33)
+    at model.Query._findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:2602:45)
+    at model.Query.exec (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:4412:80) 
+
+2024-11-17T08:57:12.562Z  error: unhandledRejection: Client must be connected before running operations
+MongoNotConnectedError: Client must be connected before running operations
+    at autoConnect (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:88:19)
+    at executeOperation (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:36:28)
+    at FindCursor._initialize (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\find_cursor.js:51:73)
+    at FindCursor.cursorInit (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:495:38)
+    at FindCursor.fetchBatch (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:527:24)
+    at FindCursor.next (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:239:24)
+    at Collection.findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\collection.js:274:34)
+    at NativeCollection.<computed> [as findOne] (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:244:33)
+    at model.Query._findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:2602:45)
+    at model.Query.exec (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:4412:80) 
+
+2024-11-17T08:57:42.559Z  error: unhandledRejection: Client must be connected before running operations
+MongoNotConnectedError: Client must be connected before running operations
+    at autoConnect (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:88:19)
+    at executeOperation (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:36:28)
+    at FindCursor._initialize (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\find_cursor.js:51:73)
+    at FindCursor.cursorInit (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:495:38)
+    at FindCursor.fetchBatch (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:527:24)
+    at FindCursor.next (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:239:24)
+    at Collection.findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\collection.js:274:34)
+    at NativeCollection.<computed> [as findOne] (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:244:33)
+    at model.Query._findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:2602:45)
+    at model.Query.exec (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:4412:80) 
+
+2024-11-17T08:58:12.561Z  error: unhandledRejection: Client must be connected before running operations
+MongoNotConnectedError: Client must be connected before running operations
+    at autoConnect (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:88:19)
+    at executeOperation (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:36:28)
+    at FindCursor._initialize (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\find_cursor.js:51:73)
+    at FindCursor.cursorInit (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:495:38)
+    at FindCursor.fetchBatch (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:527:24)
+    at FindCursor.next (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:239:24)
+    at Collection.findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\collection.js:274:34)
+    at NativeCollection.<computed> [as findOne] (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:244:33)
+    at model.Query._findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:2602:45)
+    at model.Query.exec (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:4412:80) 
+
+2024-11-17T08:58:42.571Z  error: unhandledRejection: Client must be connected before running operations
+MongoNotConnectedError: Client must be connected before running operations
+    at autoConnect (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:88:19)
+    at executeOperation (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:36:28)
+    at FindCursor._initialize (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\find_cursor.js:51:73)
+    at FindCursor.cursorInit (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:495:38)
+    at FindCursor.fetchBatch (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:527:24)
+    at FindCursor.next (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:239:24)
+    at Collection.findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\collection.js:274:34)
+    at NativeCollection.<computed> [as findOne] (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:244:33)
+    at model.Query._findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:2602:45)
+    at model.Query.exec (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:4412:80) 
+
+2024-11-17T08:59:12.569Z  error: unhandledRejection: Client must be connected before running operations
+MongoNotConnectedError: Client must be connected before running operations
+    at autoConnect (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:88:19)
+    at executeOperation (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:36:28)
+    at FindCursor._initialize (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\find_cursor.js:51:73)
+    at FindCursor.cursorInit (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:495:38)
+    at FindCursor.fetchBatch (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:527:24)
+    at FindCursor.next (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:239:24)
+    at Collection.findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\collection.js:274:34)
+    at NativeCollection.<computed> [as findOne] (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:244:33)
+    at model.Query._findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:2602:45)
+    at model.Query.exec (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:4412:80) 
+
+2024-11-17T08:59:42.572Z  error: unhandledRejection: Client must be connected before running operations
+MongoNotConnectedError: Client must be connected before running operations
+    at autoConnect (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:88:19)
+    at executeOperation (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:36:28)
+    at FindCursor._initialize (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\find_cursor.js:51:73)
+    at FindCursor.cursorInit (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:495:38)
+    at FindCursor.fetchBatch (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:527:24)
+    at FindCursor.next (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:239:24)
+    at Collection.findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\collection.js:274:34)
+    at NativeCollection.<computed> [as findOne] (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:244:33)
+    at model.Query._findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:2602:45)
+    at model.Query.exec (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:4412:80) 
+
+2024-11-17T09:18:12.755Z  error: unhandledRejection: Client must be connected before running operations
+MongoNotConnectedError: Client must be connected before running operations
+    at autoConnect (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:88:19)
+    at executeOperation (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:36:28)
+    at FindCursor._initialize (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\find_cursor.js:51:73)
+    at FindCursor.cursorInit (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:495:38)
+    at FindCursor.fetchBatch (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:527:24)
+    at FindCursor.next (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:239:24)
+    at Collection.findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\collection.js:274:34)
+    at NativeCollection.<computed> [as findOne] (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:244:33)
+    at model.Query._findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:2602:45)
+    at model.Query.exec (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:4412:80) 
+
+2024-11-17T09:18:42.765Z  error: unhandledRejection: Client must be connected before running operations
+MongoNotConnectedError: Client must be connected before running operations
+    at autoConnect (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:88:19)
+    at executeOperation (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:36:28)
+    at FindCursor._initialize (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\find_cursor.js:51:73)
+    at FindCursor.cursorInit (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:495:38)
+    at FindCursor.fetchBatch (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:527:24)
+    at FindCursor.next (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:239:24)
+    at Collection.findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\collection.js:274:34)
+    at NativeCollection.<computed> [as findOne] (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:244:33)
+    at model.Query._findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:2602:45)
+    at model.Query.exec (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:4412:80) 
+
+2024-11-17T09:20:35.401Z  error: unhandledRejection: Client must be connected before running operations
+MongoNotConnectedError: Client must be connected before running operations
+    at autoConnect (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:88:19)
+    at executeOperation (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:36:28)
+    at FindCursor._initialize (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\find_cursor.js:51:73)
+    at FindCursor.cursorInit (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:495:38)
+    at FindCursor.fetchBatch (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:527:24)
+    at FindCursor.next (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:239:24)
+    at Collection.findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\collection.js:274:34)
+    at NativeCollection.<computed> [as findOne] (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:244:33)
+    at model.Query._findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:2602:45)
+    at model.Query.exec (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:4412:80) 
+
+2024-11-17T09:21:05.397Z  error: unhandledRejection: Client must be connected before running operations
+MongoNotConnectedError: Client must be connected before running operations
+    at autoConnect (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:88:19)
+    at executeOperation (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:36:28)
+    at FindCursor._initialize (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\find_cursor.js:51:73)
+    at FindCursor.cursorInit (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:495:38)
+    at FindCursor.fetchBatch (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:527:24)
+    at FindCursor.next (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:239:24)
+    at Collection.findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\collection.js:274:34)
+    at NativeCollection.<computed> [as findOne] (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:244:33)
+    at model.Query._findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:2602:45)
+    at model.Query.exec (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:4412:80) 
+
+2024-11-17T09:21:35.389Z  error: unhandledRejection: Client must be connected before running operations
+MongoNotConnectedError: Client must be connected before running operations
+    at autoConnect (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:88:19)
+    at executeOperation (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:36:28)
+    at FindCursor._initialize (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\find_cursor.js:51:73)
+    at FindCursor.cursorInit (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:495:38)
+    at FindCursor.fetchBatch (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:527:24)
+    at FindCursor.next (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:239:24)
+    at Collection.findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\collection.js:274:34)
+    at NativeCollection.<computed> [as findOne] (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:244:33)
+    at model.Query._findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:2602:45)
+    at model.Query.exec (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:4412:80) 
+
+2024-11-17T09:23:09.607Z  error: unhandledRejection: Client must be connected before running operations
+MongoNotConnectedError: Client must be connected before running operations
+    at autoConnect (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:88:19)
+    at executeOperation (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:36:28)
+    at FindCursor._initialize (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\find_cursor.js:51:73)
+    at FindCursor.cursorInit (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:495:38)
+    at FindCursor.fetchBatch (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:527:24)
+    at FindCursor.next (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:239:24)
+    at Collection.findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\collection.js:274:34)
+    at NativeCollection.<computed> [as findOne] (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:244:33)
+    at model.Query._findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:2602:45)
+    at model.Query.exec (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:4412:80) 
+
+2024-11-20T05:46:32.170Z  error: unhandledRejection: Client must be connected before running operations
+MongoNotConnectedError: Client must be connected before running operations
+    at autoConnect (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:88:19)
+    at executeOperation (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:36:28)
+    at FindCursor._initialize (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\find_cursor.js:51:73)
+    at FindCursor.cursorInit (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:495:38)
+    at FindCursor.fetchBatch (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:527:24)
+    at FindCursor.next (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:239:24)
+    at Collection.findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\collection.js:274:34)
+    at NativeCollection.<computed> [as findOne] (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:244:33)
+    at model.Query._findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:2602:45)
+    at model.Query.exec (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:4412:80) 
+
+2024-11-20T05:48:44.660Z  error: unhandledRejection: Client must be connected before running operations
+MongoNotConnectedError: Client must be connected before running operations
+    at autoConnect (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:88:19)
+    at executeOperation (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:36:28)
+    at FindCursor._initialize (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\find_cursor.js:51:73)
+    at FindCursor.cursorInit (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:495:38)
+    at FindCursor.fetchBatch (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:527:24)
+    at FindCursor.next (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:239:24)
+    at Collection.findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\collection.js:274:34)
+    at NativeCollection.<computed> [as findOne] (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:244:33)
+    at model.Query._findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:2602:45)
+    at model.Query.exec (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:4412:80) 
+
+2024-11-20T05:49:14.660Z  error: unhandledRejection: Client must be connected before running operations
+MongoNotConnectedError: Client must be connected before running operations
+    at autoConnect (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:88:19)
+    at executeOperation (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:36:28)
+    at FindCursor._initialize (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\find_cursor.js:51:73)
+    at FindCursor.cursorInit (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:495:38)
+    at FindCursor.fetchBatch (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:527:24)
+    at FindCursor.next (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:239:24)
+    at Collection.findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\collection.js:274:34)
+    at NativeCollection.<computed> [as findOne] (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:244:33)
+    at model.Query._findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:2602:45)
+    at model.Query.exec (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:4412:80) 
+
+2024-11-20T05:49:44.657Z  error: unhandledRejection: Client must be connected before running operations
+MongoNotConnectedError: Client must be connected before running operations
+    at autoConnect (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:88:19)
+    at executeOperation (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:36:28)
+    at FindCursor._initialize (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\find_cursor.js:51:73)
+    at FindCursor.cursorInit (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:495:38)
+    at FindCursor.fetchBatch (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:527:24)
+    at FindCursor.next (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:239:24)
+    at Collection.findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\collection.js:274:34)
+    at NativeCollection.<computed> [as findOne] (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:244:33)
+    at model.Query._findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:2602:45)
+    at model.Query.exec (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:4412:80) 
+
+2024-11-20T05:50:14.658Z  error: unhandledRejection: Client must be connected before running operations
+MongoNotConnectedError: Client must be connected before running operations
+    at autoConnect (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:88:19)
+    at executeOperation (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:36:28)
+    at FindCursor._initialize (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\find_cursor.js:51:73)
+    at FindCursor.cursorInit (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:495:38)
+    at FindCursor.fetchBatch (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:527:24)
+    at FindCursor.next (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:239:24)
+    at Collection.findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\collection.js:274:34)
+    at NativeCollection.<computed> [as findOne] (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:244:33)
+    at model.Query._findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:2602:45)
+    at model.Query.exec (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:4412:80) 
+
+2024-11-20T05:50:44.672Z  error: unhandledRejection: Client must be connected before running operations
+MongoNotConnectedError: Client must be connected before running operations
+    at autoConnect (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:88:19)
+    at executeOperation (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:36:28)
+    at FindCursor._initialize (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\find_cursor.js:51:73)
+    at FindCursor.cursorInit (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:495:38)
+    at FindCursor.fetchBatch (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:527:24)
+    at FindCursor.next (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:239:24)
+    at Collection.findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\collection.js:274:34)
+    at NativeCollection.<computed> [as findOne] (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:244:33)
+    at model.Query._findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:2602:45)
+    at model.Query.exec (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:4412:80) 
+
+2024-11-20T05:51:14.670Z  error: unhandledRejection: Client must be connected before running operations
+MongoNotConnectedError: Client must be connected before running operations
+    at autoConnect (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:88:19)
+    at executeOperation (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:36:28)
+    at FindCursor._initialize (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\find_cursor.js:51:73)
+    at FindCursor.cursorInit (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:495:38)
+    at FindCursor.fetchBatch (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:527:24)
+    at FindCursor.next (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:239:24)
+    at Collection.findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\collection.js:274:34)
+    at NativeCollection.<computed> [as findOne] (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:244:33)
+    at model.Query._findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:2602:45)
+    at model.Query.exec (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:4412:80) 
+
+2024-11-20T05:51:44.682Z  error: unhandledRejection: Client must be connected before running operations
+MongoNotConnectedError: Client must be connected before running operations
+    at autoConnect (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:88:19)
+    at executeOperation (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:36:28)
+    at FindCursor._initialize (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\find_cursor.js:51:73)
+    at FindCursor.cursorInit (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:495:38)
+    at FindCursor.fetchBatch (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:527:24)
+    at FindCursor.next (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:239:24)
+    at Collection.findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\collection.js:274:34)
+    at NativeCollection.<computed> [as findOne] (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:244:33)
+    at model.Query._findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:2602:45)
+    at model.Query.exec (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:4412:80) 
+
+2024-11-20T05:52:14.687Z  error: unhandledRejection: Client must be connected before running operations
+MongoNotConnectedError: Client must be connected before running operations
+    at autoConnect (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:88:19)
+    at executeOperation (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:36:28)
+    at FindCursor._initialize (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\find_cursor.js:51:73)
+    at FindCursor.cursorInit (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:495:38)
+    at FindCursor.fetchBatch (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:527:24)
+    at FindCursor.next (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:239:24)
+    at Collection.findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\collection.js:274:34)
+    at NativeCollection.<computed> [as findOne] (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:244:33)
+    at model.Query._findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:2602:45)
+    at model.Query.exec (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:4412:80) 
+
+2024-11-20T05:52:44.702Z  error: unhandledRejection: Client must be connected before running operations
+MongoNotConnectedError: Client must be connected before running operations
+    at autoConnect (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:88:19)
+    at executeOperation (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:36:28)
+    at FindCursor._initialize (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\find_cursor.js:51:73)
+    at FindCursor.cursorInit (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:495:38)
+    at FindCursor.fetchBatch (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:527:24)
+    at FindCursor.next (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:239:24)
+    at Collection.findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\collection.js:274:34)
+    at NativeCollection.<computed> [as findOne] (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:244:33)
+    at model.Query._findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:2602:45)
+    at model.Query.exec (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:4412:80) 
+
+2024-11-20T05:53:14.710Z  error: unhandledRejection: Client must be connected before running operations
+MongoNotConnectedError: Client must be connected before running operations
+    at autoConnect (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:88:19)
+    at executeOperation (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:36:28)
+    at FindCursor._initialize (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\find_cursor.js:51:73)
+    at FindCursor.cursorInit (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:495:38)
+    at FindCursor.fetchBatch (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:527:24)
+    at FindCursor.next (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:239:24)
+    at Collection.findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\collection.js:274:34)
+    at NativeCollection.<computed> [as findOne] (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:244:33)
+    at model.Query._findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:2602:45)
+    at model.Query.exec (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:4412:80) 
+
+2024-11-20T05:53:44.711Z  error: unhandledRejection: Client must be connected before running operations
+MongoNotConnectedError: Client must be connected before running operations
+    at autoConnect (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:88:19)
+    at executeOperation (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\operations\execute_operation.js:36:28)
+    at FindCursor._initialize (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\find_cursor.js:51:73)
+    at FindCursor.cursorInit (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:495:38)
+    at FindCursor.fetchBatch (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:527:24)
+    at FindCursor.next (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\cursor\abstract_cursor.js:239:24)
+    at Collection.findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongodb\lib\collection.js:274:34)
+    at NativeCollection.<computed> [as findOne] (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:244:33)
+    at model.Query._findOne (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:2602:45)
+    at model.Query.exec (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\mongoose\lib\query.js:4412:80) 
+

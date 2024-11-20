@@ -28625,3 +28625,166 @@ SyntaxError: Identifier 'user' has already been declared
     at Module._compile (node:internal/modules/cjs/loader:1358:14)
     at Module._extensions..js (node:internal/modules/cjs/loader:1416:10) 
 
+2024-11-17T04:34:08.485Z  error: uncaughtException: listen EADDRINUSE: address already in use :::4000
+Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1904:16)
+    at listenInCluster (node:net:1961:12)
+    at Server.listen (node:net:2063:7)
+    at init (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\server.js:105:10)
+    at Object.<anonymous> (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\server.js:136:1)
+    at Module._compile (node:internal/modules/cjs/loader:1358:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10)
+    at Module.load (node:internal/modules/cjs/loader:1208:32)
+    at Module._load (node:internal/modules/cjs/loader:1024:12)
+    at Module.require (node:internal/modules/cjs/loader:1233:19) 
+
+2024-11-17T05:03:52.224Z  error: uncaughtException: listen EADDRINUSE: address already in use :::4000
+Error: listen EADDRINUSE: address already in use :::4000
+    at Server.setupListenHandle [as _listen2] (node:net:1904:16)
+    at listenInCluster (node:net:1961:12)
+    at Server.listen (node:net:2063:7)
+    at init (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\server.js:105:10)
+    at Object.<anonymous> (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\server.js:136:1)
+    at Module._compile (node:internal/modules/cjs/loader:1358:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10)
+    at Module.load (node:internal/modules/cjs/loader:1208:32)
+    at Module._load (node:internal/modules/cjs/loader:1024:12)
+    at Module.require (node:internal/modules/cjs/loader:1233:19) 
+
+2024-11-17T07:29:41.459Z  error: uncaughtException: Unexpected token '{'
+C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\services\data\index.js:119
+      {
+      ^
+
+SyntaxError: Unexpected token '{'
+    at wrapSafe (node:internal/modules/cjs/loader:1281:20)
+    at Module._compile (node:internal/modules/cjs/loader:1321:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10)
+    at Module.load (node:internal/modules/cjs/loader:1208:32)
+    at Module._load (node:internal/modules/cjs/loader:1024:12)
+    at Module.require (node:internal/modules/cjs/loader:1233:19)
+    at require (node:internal/modules/helpers:179:18)
+    at Object.<anonymous> (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\modules\trip\service.js:41:62)
+    at Module._compile (node:internal/modules/cjs/loader:1358:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10) 
+
+2024-11-17T08:50:38.123Z  error: uncaughtException: Unexpected identifier 'MANGER_NAME'
+C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\migrateData\routes\migrateData-controller.js:199
+                                MANGER_NAME: 'NO'
+                                ^^^^^^^^^^^
+
+SyntaxError: Unexpected identifier 'MANGER_NAME'
+    at wrapSafe (node:internal/modules/cjs/loader:1281:20)
+    at Module._compile (node:internal/modules/cjs/loader:1321:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10)
+    at Module.load (node:internal/modules/cjs/loader:1208:32)
+    at Module._load (node:internal/modules/cjs/loader:1024:12)
+    at Module.require (node:internal/modules/cjs/loader:1233:19)
+    at require (node:internal/modules/helpers:179:18)
+    at Object.<anonymous> (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\migrateData\routes\index.js:2:31)
+    at Module._compile (node:internal/modules/cjs/loader:1358:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10) 
+
+2024-11-17T08:52:42.491Z  error: uncaughtException: write after end
+Error: write after end
+    at writeAfterEnd (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:264:12)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:300:21)
+    at File.log (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\transports\file.js:222:34)
+    at RejectionStream._write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\rejection-stream.js:46:29)
+    at doWrite (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:390:139)
+    at writeOrBuffer (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:381:5)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:302:11)
+    at DerivedLogger.ondata (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:629:20)
+    at DerivedLogger.emit (node:events:531:35)
+    at addChunk (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:279:12) 
+
+2024-11-17T09:18:42.791Z  error: uncaughtException: write after end
+Error: write after end
+    at writeAfterEnd (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:264:12)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:300:21)
+    at File.log (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\transports\file.js:222:34)
+    at RejectionStream._write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\rejection-stream.js:46:29)
+    at doWrite (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:390:139)
+    at writeOrBuffer (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:381:5)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:302:11)
+    at DerivedLogger.ondata (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:629:20)
+    at DerivedLogger.emit (node:events:531:35)
+    at addChunk (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:279:12) 
+
+2024-11-17T09:21:05.421Z  error: uncaughtException: write after end
+Error: write after end
+    at writeAfterEnd (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:264:12)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:300:21)
+    at File.log (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\transports\file.js:222:34)
+    at RejectionStream._write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\rejection-stream.js:46:29)
+    at doWrite (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:390:139)
+    at writeOrBuffer (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:381:5)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:302:11)
+    at DerivedLogger.ondata (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:629:20)
+    at DerivedLogger.emit (node:events:531:35)
+    at addChunk (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:279:12) 
+
+2024-11-17T09:36:17.925Z  error: uncaughtException: Unexpected token 'const'
+C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\services\data\index.js:821
+  const result = paging ? await ServiceRequest.aggregate([
+  ^^^^^
+
+SyntaxError: Unexpected token 'const'
+    at wrapSafe (node:internal/modules/cjs/loader:1281:20)
+    at Module._compile (node:internal/modules/cjs/loader:1321:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10)
+    at Module.load (node:internal/modules/cjs/loader:1208:32)
+    at Module._load (node:internal/modules/cjs/loader:1024:12)
+    at Module.require (node:internal/modules/cjs/loader:1233:19)
+    at require (node:internal/modules/helpers:179:18)
+    at Object.<anonymous> (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\modules\trip\service.js:41:62)
+    at Module._compile (node:internal/modules/cjs/loader:1358:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10) 
+
+2024-11-17T09:36:46.332Z  error: uncaughtException: Unexpected token ':'
+C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\services\data\index.js:873
+    :
+    ^
+
+SyntaxError: Unexpected token ':'
+    at wrapSafe (node:internal/modules/cjs/loader:1281:20)
+    at Module._compile (node:internal/modules/cjs/loader:1321:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10)
+    at Module.load (node:internal/modules/cjs/loader:1208:32)
+    at Module._load (node:internal/modules/cjs/loader:1024:12)
+    at Module.require (node:internal/modules/cjs/loader:1233:19)
+    at require (node:internal/modules/helpers:179:18)
+    at Object.<anonymous> (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\modules\trip\service.js:41:62)
+    at Module._compile (node:internal/modules/cjs/loader:1358:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10) 
+
+2024-11-17T10:49:57.840Z  error: uncaughtException: Unexpected token 'const'
+C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\services\data\index.js:820
+  const result = await ServiceRequest.aggregate([
+  ^^^^^
+
+SyntaxError: Unexpected token 'const'
+    at wrapSafe (node:internal/modules/cjs/loader:1281:20)
+    at Module._compile (node:internal/modules/cjs/loader:1321:27)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10)
+    at Module.load (node:internal/modules/cjs/loader:1208:32)
+    at Module._load (node:internal/modules/cjs/loader:1024:12)
+    at Module.require (node:internal/modules/cjs/loader:1233:19)
+    at require (node:internal/modules/helpers:179:18)
+    at Object.<anonymous> (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\src\_old\modules\trip\service.js:41:62)
+    at Module._compile (node:internal/modules/cjs/loader:1358:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10) 
+
+2024-11-20T05:49:14.672Z  error: uncaughtException: write after end
+Error: write after end
+    at writeAfterEnd (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:264:12)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:300:21)
+    at File.log (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\transports\file.js:222:34)
+    at RejectionStream._write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\winston\lib\winston\rejection-stream.js:46:29)
+    at doWrite (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:390:139)
+    at writeOrBuffer (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:381:5)
+    at Writable.write (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_writable.js:302:11)
+    at DerivedLogger.ondata (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:629:20)
+    at DerivedLogger.emit (node:events:531:35)
+    at addChunk (C:\Users\NiloofarAbi\Desktop\irisa-zarghun\backend-main\node_modules\readable-stream\lib\_stream_readable.js:279:12) 
+
