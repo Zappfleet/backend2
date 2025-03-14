@@ -277,37 +277,37 @@ class MissionController {
     }
   }
 
-  async getMissionsConcerningPassenger(req, res) {
-    const requestFilter = {
-      submitted_by: req.auth._id,
-      status: serviceRequestStatus.ASSIGNED_TO_MISSION.key,
-    };
-    const serviceRequests = await listServiceRequests(requestFilter, {
-      gmt_for_date: 1,
-    });
-
-    const missionFilter = {
-      "service_requests.request_id": {
-        $in: serviceRequests.docs.map((r) => r._id),
-      },
-      status: {
-        $in: [
-          serviceMissionStatus.READY.key,
-          serviceMissionStatus.ON_ROUTE.key,
-        ],
-      },
-    };
-
-    const { sort, page, include_status_history, paging } = req.query;
-    const serviceMissions = await listMissions(
-      missionFilter,
-      sort,
-      page,
-      include_status_history,
-      paging
-    );
-    res.status(200).send(serviceMissions);
-  }
+   async getMissionsConcerningPassenger(req, res) {
+      const requestFilter = {
+        submitted_by: req.auth._id,
+        status: serviceRequestStatus.ASSIGNED_TO_MISSION.key,
+      };
+      const serviceRequests = await listServiceRequests(requestFilter, {
+        gmt_for_date: 1,
+      });
+  
+      const missionFilter = {
+        "service_requests.request_id": {
+          $in: serviceRequests.docs.map((r) => r._id),
+        },
+        status: {
+          $in: [
+            /*serviceMissionStatus.READY.key,*/
+            serviceMissionStatus.ON_ROUTE.key,
+          ],
+        },
+      };
+  
+      const { sort, page, include_status_history, paging } = req.query;
+      const serviceMissions = await listMissions(
+        missionFilter,
+        sort,
+        page,
+        include_status_history,
+        paging
+      );
+      res.status(200).send(serviceMissions);
+    }
 
   async getMissionsConcerningArea(req, res) {
 
@@ -589,10 +589,80 @@ class MissionController {
     });;
   }
 
+  async addInvoiceToMission (req, res) {
 
+     const  mission_id  =  req.params.mission_id;
+      // دریافت شناسه سفر از پارامترهای درخواست 
+      const finalState = req.body;
+        // دریافت اطلاعات فاکتور از بدنه درخواست 
+         try { // یافتن سفر موردنظر 
+          const mission = await ServiceMission.findById(mission_id);
+          
+          if (!mission) { 
+            return res.status(404).json({ message: "Mission not found" });
+           }else{
+            console.log("mission ID in backend:",mission_id)
+           }
+            // extraافزودن اطلاعات فاکتور به قسمت 
+             if(!mission.extra){
+              mission.extra={};
+             };
+            const extra = mission.extra||{};
+            const status = mission.status;
 
+           if(Object.keys(extra).length===6 || status !== 'READY'){
+            return res.status(400).json({message:'فاکتور قبلا ثبت شده'})
+           };
+             // ذخیره تغییرات در دیتابیس 
+             const missionInvoice = await ServiceMission.findByIdAndUpdate(
+              { _id: mission._id }, // The query object
+              { $set: { 
+                "extra": {...mission.extra ,...finalState},
+                "status":"DONE"
+              }}, // The update object
 
+              { new: true , upsert:true} // The options object
+            );
+            console.log("mission missionInvoice:",missionInvoice)
+
+              res.status(200).json({ message: "Invoice added successfully" ,missionInvoice});
+             } catch (error) { console.error("Error adding invoice:", error);
+               res.status(500).json({ message: "Server error", error });
+              
+        }};
+
+ async updateMissionStatusToRejected(req, res) {
+    const mission_id = req.params.mission_id;
+    const finalState = req.body;
+     try {
+       const mission = await ServiceMission.findById(mission_id);
+           if (!mission) {
+       return res.status(404).json({ message: "Mission not found" });
+       }
+          
+        
+          if (!mission.extra) { mission.extra = {}; }
+
+          const editInvoice = await ServiceMission.findByIdAndUpdate(
+            { _id: mission._id }, // The query object
+            { $set: { 
+              "extra": {...finalState},
+              "status":"READY"
+            }}, // The update object
+
+            { new: true , upsert:true} // The options object
+          );
+       
+           // ذخیره تغییرات در دیتابیس       
+            const updatedMission = await mission.save();
+           res.status(200).json({ message: "Mission status updated to REJECTED", mission: updatedMission });
+          } catch (error) {
+            console.error("Error updating mission status:", error);
+             res.status(500).json({ message: "Server error", error });
+             }}
 }
+
+
 
 async function updateMissionStatusWithResponse(
   res,
@@ -661,7 +731,10 @@ async function updateMissionRequestStatus(
       await notifyAPIArriveToSource(mission.service_requests[0].request_id)
     }
   }
-}
+};
+
+
+
 
 
 

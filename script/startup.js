@@ -42,6 +42,42 @@ async function run() {
         auto_assign_rules: [],
       });
     }
+    const ajansRole = await UserRole.findOne({ title: "آژانس" });
+    if (!driverRole) {
+      console.log("Creating 'آژانس' role...");
+      await UserRole.create({
+        title: "آژانس",
+        active: true,
+        is_static: true,
+        permissions: [PermissionSet.DRIVER,
+                      PermissionSet.SERVICE.ORG.DIRECT_EDIT ],
+        auto_assign_rules: [],
+      });
+    }
+
+    const dispatureRole = await UserRole.findOne({ title: "دیسپاچر" });
+    if (!dispatureRole) {
+      console.log("Creating 'دیسپاچر' role...");
+      await UserRole.create({
+        title: "دیسپاچر",
+        active: true,
+        is_static: true,
+        permissions: [],
+        auto_assign_rules: [],
+      });
+    }
+
+    const modirProjectRole = await UserRole.findOne({ title: "مدیر پروژه" });
+    if (!modirProjectRole) {
+      console.log("Creating 'مدیر پروژه' role...");
+      await UserRole.create({
+        title: "مدیر پروژه",
+        active: true,
+        is_static: true,
+        permissions: [],
+        auto_assign_rules: [],
+      });
+    }
 
     const dispatureRole = await UserRole.findOne({ title: "دیسپاچر" });
     if (!dispatureRole) {

@@ -63,6 +63,7 @@ async function listMissions(
     { path: "area" },
     { path: "assigned_by" },
     { path: "created_by" },
+  
   ];
 
   // console.log(600, paging, !(paging == 'false' || paging == false));
@@ -256,7 +257,7 @@ async function listMissions(
     const historyFilter = {
       type: statusUpdateType.MISSION_STATUS_UPDATE.key,
       service_mission: {
-        $in: result.docs.map((document) => {
+        $in: result?.docs?.map((document) => {
           return document._id;
         }),
       },
@@ -296,6 +297,9 @@ async function readMissionUpdateHistory(mission_id) {
 }
 
 async function getMissionDetailsMongoObject(mission_id) {
+  if(!mission_id || !mongoose.Types.ObjectId.isValid(mission_id)){
+    throw new Error ('invalid mission Id')
+  }
   const mission = await ServiceMission.findById(mission_id)
     .populate("service_requests.request_id")
     .populate({ path: "assigned_by", select: "-password" })
@@ -523,6 +527,8 @@ async function removeVehicleFromMission(mission_id) {
 
   return { mission: updatedMission };
 }
+ 
+
 
 async function setMissionStatus(applied_by_user, mission_id, status) {
   const mission = await ServiceMission.findById(mission_id).populate(
@@ -879,6 +885,7 @@ async function listServiceRequests(
      await ServiceRequest.find(effectiveFilter).populate([
       { path: "confirmed_by", select: "full_name" }, // بازیابی full_name
       { path: "rejected_by", select: "full_name" },
+      { path: "submitted_by", select: "-password" },
     ])
     :
     await ServiceRequest.paginate(

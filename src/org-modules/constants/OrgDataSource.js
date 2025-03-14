@@ -113,8 +113,9 @@ const OrgDataSource = {
       type: "datetime",
       multiple: false,
       hideTime: true,
-      format: "DD/MM/YYYY",
+      format: "YYYY/MM/DD",
       title: "تاریخ فاکتور",
+
     },
     {
       key: "bill_number",
@@ -124,13 +125,19 @@ const OrgDataSource = {
     {
       key: "bill_cost",
       type: "number",
-      title: "هزینه",
+      title: "هزینه سفر (ریال) ",
     },
     {
       key: "trip_distance",
       type: "number",
-      title: "مسافت سفر",
+      title: " مسافت سفر (کیلومتر) ",
     },
+    {
+      key: "trip_stop",
+      type: "number",
+      title: " توقف در مسیر (دقیقه) ",
+    },
+
   ],
 
   additionalRequestFields: [
@@ -153,7 +160,7 @@ const OrgDataSource = {
     {
       key: "userlist",
       type: "userlist",
-      required: true,
+      required: false,
       mode: "user-only",
       title: "همراهان",
     },
@@ -166,13 +173,13 @@ const OrgDataSource = {
     {
       key: "cost_center",
       type: "number",
-      required: true,
+      required: false,
       title: "کد مرکز هزینه",
     },
     {
       key: "desc",
       type: "text",
-      required: true,
+      required: false,
       title: "توضیحات",
     },
   ],

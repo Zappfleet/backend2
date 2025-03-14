@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const Joi = require("joi");
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
-const { User } = require("../user/model");
+function getUserModel() { return require("../user/model").User;};
 const roles = require("../../global_values/roles");
 const {
   defaultPermitions,
@@ -127,7 +127,7 @@ tempAccountSchema.methods.createAccounts = async function () {
   //   throw new AppError("اکانت به دلایل امنیتی حذف شد ");
   // }
 
-  let existingUser = await User.findOne({
+  let existingUser = await getUserModel().findOne({
     $or: [{ emp_num: this.emp_num }, { nat_num: this.nat_num }],
   });
   if (existingUser != null) {
@@ -143,7 +143,7 @@ tempAccountSchema.methods.createAccounts = async function () {
     return existingUser;
   }
 
-  let user = await User.create({
+  let user = await getUserModel().create({
     role: [roles.passenger],
     nat_num: this.nat_num,
     full_name: this.full_name,

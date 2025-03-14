@@ -276,6 +276,7 @@ router.patch(
  *          500:
  *              description: Internal Error
  */
+
 router.delete(
   "/:mission_id/request/:request_id",
   missionController.removeMissionRequest
@@ -302,7 +303,7 @@ router.delete(
  *          500:
  *              description: Internal Error
  */
-router.patch(
+router.put(
   "/:mission_id/vehicle/:vehicle_id",
   missionController.setMissionVehilce
 );
@@ -408,6 +409,10 @@ router.get("/:mission_id/history", missionController.getMissionHistory);
  *          500:
  *              description: Internal Error
  */
+router.put("/:mission_id/addinvoice",missionController.addInvoiceToMission);
+
+router.patch("/:mission_id/reject",missionController.updateMissionStatusToRejected);
+
 router.patch("/:mission_id/on-route", missionController.setMissionOnRoute);
 
 /**

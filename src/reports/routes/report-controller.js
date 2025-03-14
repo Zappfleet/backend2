@@ -3,13 +3,39 @@ const { ServiceMission } = require("../../services/data/mission-model");
 const { IrisaUserbase } = require("../../services/modules/irisaExternalUserbase");
 const { Vehicle } = require("../../vehicles/data/vehicle-model")
 const moment = require("moment");
-
+const ExcelJS=require("exceljs");
 const { UserAccount } = require("../../users/data/models/user-model");
 const { UserRole } = require("../../users/data/models/role-model");
 const { listUserRoles } = require("../../users/data/role");
 // const { UserRole } = require("../../users/data/models/role-model");
 
 class ReportController {
+
+ 
+   async download_Excel(req , res){
+    try {
+       const { headers, rows } = req.body;     // ایجاد فایل اکسل  
+
+     const workbook = new ExcelJS.Workbook(); 
+      const worksheet = workbook.addWorksheet("گزارش"); 
+
+     worksheet.addRow(headers); // اضافه کردن هدرها   
+
+     rows.forEach(row => worksheet.addRow(row)); // اضافه کردن داده‌ها 
+
+     // تنظیمات استایل (اختیاری)   
+   worksheet.columns.forEach(column => { column.width = 20; // تنظیم عرض ستون‌ها  
+    });
+     // ساخت خروجی به صورت فایل باینری  
+     res.setHeader("Content-Type", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+     res.setHeader("Content-Disposition", "attachment; filename=report.xlsx");
+    await workbook.xlsx.write(res); res.end();
+  
+}catch (error) {
+     console.error("خطا در تولید فایل اکسل:", error);
+      res.status(500).send("خطا در تولید فایل اکسل"); }
+   }
+    
 
   async getDriverGeneralReport(req, res) {
     const { driver_id } = req.params;
@@ -51,13 +77,34 @@ class ReportController {
       },
       // Unwind the vehicleDetails array to process individual vehicles
       {
-        $unwind: "$vehicleDetails"
+        $unwind: {path:"$vehicleDetails",
+          preserveNullAndEmptyArrays:true
+        }
+       
       },
+
       // Match to ensure vehicle group is "agency"
-      {
-        $match: { "vehicleDetails.group": "agency" }
-      },
+      //{
+       // $match: { "vehicleDetails.group": "agency" }
+      //},
       // First lookup to join servicerequests with servicemissions
+
+      {
+        $lookup: {
+          from: "useraccounts",
+          localField: "driver_id",
+          foreignField: "_id",
+          as: "driverDetails"
+        }
+      },
+
+
+      {
+        $unwind:{path: "$driverDetails",
+          preserveNullAndEmptyArrays:true
+        }
+      },
+
       {
         $lookup: {
           from: "servicerequests",
@@ -112,12 +159,16 @@ class ReportController {
           cost: "$extra.cost",
           mission_date: "$result.gmt_for_date", // Renaming gmt_for_date to mission_date
           created_by: "$userDetails.full_name",  // Renaming full_name to created_by
+          num_personel:"$userDetails.details.NUM_PRSN_EMPL",
           distance_dasti: "$extra.trip_distance",
-          distance: { $ifNull: ["$extra.distance", null] }, // Providing a default value for distance
-          mission_start: { $ifNull: ["$extra.mission_start", null] },
-          mission_end: { $ifNull: ["$extra.mission_end", null] },
+          trip_stop:"$extra.trip_stop",
+          distance: { $divide: [{$ifNull:["$extra.distance", 0]},1000] }, // Providing a default value for distance
+          mission_start: {$arrayElemAt:['$result.locations.meta.address',0]},
+          mission_end: {$arrayElemAt:['$result.locations.meta.address',1]},
           agency_name: "$vehicleDetails.extra.agency_name", // Adding agency_name from vehicle extra
-          confirmed_by: "$confirmedByDetails.full_name"
+          driver_name:"$driverDetails.full_name",
+          confirmed_by: "$confirmedByDetails.full_name",
+          //status:"$result.status"
         }
       }
     ]);
@@ -741,5 +792,6 @@ function assignDateFilter(filter, dateStart, dateEnd) {
   }
   return filter;
 }
+
 
 module.exports = new ReportController();

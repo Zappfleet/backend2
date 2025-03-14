@@ -14,8 +14,8 @@ exports.db = async function (callback) {
     //  await mongoose.connect(db, {
     //   useNewUrlParser: true,
     //   useUnifiedTopology: true,
-    //   connectTimeoutMS: 30000, // زمان انتظار 30 ثانیه
-    //   serverSelectionTimeoutMS: 30000 // زمان انتخاب سرور 30 ثانیه
+    //   connectTimeoutMS: 40000, // زمان انتظار 30 ثانیه
+    //   serverSelectionTimeoutMS: 40000 // زمان انتخاب سرور 30 ثانیه
     // });
     
     }

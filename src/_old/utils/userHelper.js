@@ -1,7 +1,9 @@
-const { Account } = require("../modules/auth/model");
-const { User } = require("../modules/user/model");
+function getAccountModel() {return  require("../modules/auth/model").Account};
+function getUserModel() { return  require("../modules/user/model").User;};
 
 const banUser = async (id) => {
+const User =getUserModel();
+const Account = getAccountModel();
   await User.findOneAndUpdate(id, { is_active: false });
   await Account.findOneAndUpdate({ user_id: id }, { is_active: false });
 };

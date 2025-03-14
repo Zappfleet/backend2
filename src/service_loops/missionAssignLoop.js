@@ -33,7 +33,7 @@ async function assignVehiclesToPublishedMissions(systemAdmin) {
 
     const filter = { status: serviceMissionStatus.PUBLISHED.key };
     const { docs: publishedMissions } = await listMissions(filter);
-    for (let i = 0; i < publishedMissions.length; i++) {
+    for (let i = 0; i < publishedMissions?.length; i++) {
 
         const fakeReq = new FakeHttpRequest();
         fakeReq.setPathParams({ mission_id: publishedMissions[i]._id })

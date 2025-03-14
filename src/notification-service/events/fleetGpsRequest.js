@@ -29,19 +29,20 @@ async function onUserGpsUpdate(socket, payload) {
 async function onFleetGpsRequest(socket, payload) {
     try {
         const myPayload = JSON.parse(payload);
-       // console.log(1105, (myPayload?.ownerID)[0]);
 
-        const result = myPayload?.ownerID && myPayload?.ownerID === 'All'
-            ? await GpsHistory.find({})
-            : await GpsHistory.find({ owner_id: mongoose.Types.ObjectId((myPayload?.ownerID)[0]) });
+        let result = [];
+        if (Array.isArray(myPayload?.ownerID) && myPayload.ownerID.length > 0) {
+            const ownerId = new mongoose.Types.ObjectId(myPayload.ownerID[0]);
+            result = await GpsHistory.find({ owner_id: ownerId });
+        } else if (myPayload?.ownerID === 'All') {
+            result = await GpsHistory.find({});
+        }
 
-      //  console.log(4, result);
         socket.emit(EMIT_FLEET_GPS_UPDATE, result);
     } catch (error) {
         console.log(122, 'problem in onFleetGpsRequest', error);
     }
 }
-
 const EMIT_FLEET_GPS_UPDATE = "fleet-gps-update";
 
 module.exports.EVENT_FLEET_GPS_REQUEST = "fleet-gps-request";

@@ -15,7 +15,7 @@
      "IRISA_USERNAME": "zapptaxi",
      "IRISA_PASSWORD": "NEWZ@PPT@x!#123",
      "KAVEHNEGAR_TEMP": "zapp",
-     "TOKEN_EXPIRES_IN": "1d",
+     "TOKEN_EXPIRES_IN": "5d",
      "NESHAN_DISATNCE_URL": "https://api.neshan.org/v1/distance-matrix?type=car",
      "NESHAN_API_KEY": "service.k4icu6pAM41wDqS4dxiLPRGYaoHEmzAftrBWhR9J",
      "db1": "mongodb://mongo:27017/zappfleet",

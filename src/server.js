@@ -45,7 +45,7 @@ const init = async () => {
   const app = express();
 
   const server = http.createServer(app);
-  app.use(cors());
+  app.use(cors({methods:['GET','POST','PUT','PATCH','DELETE']}));
   app.use(cors({
     origin: config.get("FRONT_URL_LOCAL"),
     credentials: true
@@ -56,7 +56,7 @@ const init = async () => {
   const router = express.Router();
 
   router.use("/regions", authenticate, restrict, regionRouter);
-  router.use("/services", authenticate, restrict, serviceRouter);
+  router.use("/services", authenticate,restrict, serviceRouter);
   router.use("/vehicles", authenticate, restrict, vehiclesRouter);
   router.use("/favoriteLocations", authenticate, restrict, favoriteLocationsRouter);
   router.use("/roles", authenticate, restrict, userRolesRouter);

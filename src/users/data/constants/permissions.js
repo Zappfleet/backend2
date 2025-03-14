@@ -2,6 +2,7 @@ const PermissionSet = {
     DASHBOARD: null,
     RESTRICTION: null,
     DRIVER: null,
+   
     SERVICE: {
         PERSONAL: {
             SUBMIT: null,
@@ -15,6 +16,7 @@ const PermissionSet = {
             DIRECT_CANCEL: null,
             REQUEST_APPROVAL: null,
             DISPATCH: null,
+            SABT_FACTOR:null,
             GET: {
                 AREA_FULL: null,
                 AREA_LIMITED: null,
